@@ -1,0 +1,149 @@
+[
+  {
+    "task_id": "feature_yaml_output",
+    "title": "Add YAML Output Format",
+    "description": "Add YAML output format support. Users should be able to use --format yaml on the CLI. The formatter must handle nested data structures properly. Include unit tests and add pyyaml to requirements.",
+    "surfaces": [
+      {
+        "id": "yaml_formatter",
+        "description": "Create new cli/formats/yaml_output.py implementing BaseFormatter for YAML",
+        "category": "core_logic",
+        "type": "create",
+        "file_hint": "cli/formats/yaml_output.py"
+      },
+      {
+        "id": "register_format",
+        "description": "Edit cli/main.py to register yaml in FORMAT_REGISTRY and add --format yaml choice",
+        "category": "interface",
+        "type": "edit",
+        "file_hint": "cli/main.py"
+      },
+      {
+        "id": "pipeline_dispatch",
+        "description": "Edit cli/commands/process.py or cli/core/pipeline.py to dispatch YAML formatting",
+        "category": "core_logic",
+        "type": "edit",
+        "file_hint": "cli/commands/process.py"
+      },
+      {
+        "id": "yaml_tests",
+        "description": "Create tests for YAML formatter (test nested data, roundtrip, edge cases)",
+        "category": "tests",
+        "type": "create",
+        "file_hint": "tests/test_yaml_format.py"
+      },
+      {
+        "id": "requirements_yaml",
+        "description": "Edit requirements.txt to add pyyaml dependency",
+        "category": "config",
+        "type": "edit",
+        "file_hint": "requirements.txt"
+      }
+    ]
+  },
+  {
+    "task_id": "feature_redis_cache",
+    "title": "Add Redis Caching",
+    "description": "Add optional Redis caching for pipeline results. It should be configurable via config.yaml (redis_host, redis_port, redis_enabled). When Redis is unavailable, fall back gracefully to the existing memory cache. The cache backend should be selectable. Include tests that work without a running Redis instance (mock-based).",
+    "surfaces": [
+      {
+        "id": "redis_cache",
+        "description": "Create new cli/cache/redis_cache.py implementing a Redis cache backend",
+        "category": "core_logic",
+        "type": "create",
+        "file_hint": "cli/cache/redis_cache.py"
+      },
+      {
+        "id": "config_redis",
+        "description": "Edit cli/config/defaults.py to add redis_host, redis_port, redis_enabled defaults",
+        "category": "config",
+        "type": "edit",
+        "file_hint": "cli/config/defaults.py"
+      },
+      {
+        "id": "config_yaml_redis",
+        "description": "Edit config.yaml to include redis configuration section",
+        "category": "config",
+        "type": "edit",
+        "file_hint": "config.yaml"
+      },
+      {
+        "id": "pipeline_cache_select",
+        "description": "Edit cli/core/pipeline.py to select cache backend based on config",
+        "category": "core_logic",
+        "type": "edit",
+        "file_hint": "cli/core/pipeline.py"
+      },
+      {
+        "id": "redis_tests",
+        "description": "Create tests for Redis cache with mocks and fallback behavior",
+        "category": "tests",
+        "type": "create",
+        "file_hint": "tests/test_redis_cache.py"
+      },
+      {
+        "id": "requirements_redis",
+        "description": "Edit requirements.txt to add redis dependency",
+        "category": "config",
+        "type": "edit",
+        "file_hint": "requirements.txt"
+      },
+      {
+        "id": "fallback_logic",
+        "description": "Implement graceful fallback from Redis to memory cache on connection failure",
+        "category": "core_logic",
+        "type": "edit",
+        "file_hint": "cli/cache/redis_cache.py"
+      }
+    ]
+  },
+  {
+    "task_id": "feature_dry_run",
+    "title": "Add --dry-run Flag",
+    "description": "Add a --dry-run flag to the CLI that propagates through the entire system. When active, the tool should show what operations would be performed without actually executing them. File writes should be skipped, transforms should report what they would do, and a summary should be printed. Include tests for dry-run behavior.",
+    "surfaces": [
+      {
+        "id": "cli_flag",
+        "description": "Edit cli/main.py to add --dry-run argument and pass it through",
+        "category": "interface",
+        "type": "edit",
+        "file_hint": "cli/main.py"
+      },
+      {
+        "id": "pipeline_dry_run",
+        "description": "Edit cli/core/pipeline.py to respect dry_run flag and skip cache writes",
+        "category": "core_logic",
+        "type": "edit",
+        "file_hint": "cli/core/pipeline.py"
+      },
+      {
+        "id": "process_passthrough",
+        "description": "Edit cli/commands/process.py to propagate dry_run to pipeline",
+        "category": "core_logic",
+        "type": "edit",
+        "file_hint": "cli/commands/process.py"
+      },
+      {
+        "id": "file_io_skip",
+        "description": "Edit cli/utils/file_io.py to skip writes when dry_run is active",
+        "category": "core_logic",
+        "type": "edit",
+        "file_hint": "cli/utils/file_io.py"
+      },
+      {
+        "id": "dry_run_summary",
+        "description": "Add summary output showing what would have been done",
+        "category": "interface",
+        "type": "edit",
+        "file_hint": "cli/main.py"
+      },
+      {
+        "id": "dry_run_tests",
+        "description": "Create tests for dry-run behavior across the pipeline",
+        "category": "tests",
+        "type": "create",
+        "file_hint": "tests/test_dry_run.py"
+      }
+    ]
+  }
+]

@@ -1,0 +1,184 @@
+[
+  {
+    "task_id": "django__django-13195",
+    "scores": {
+      "specificity": 5,
+      "reasoning_depth": 4,
+      "completeness": 4,
+      "actionability": 4,
+      "risk_awareness": 4,
+      "overall": 4,
+      "brief_rationale": "This is a well-structured plan with specific file paths, clear reasoning, and good consideration of testing and risks, though it could be more precise about the exact implementation details."
+    },
+    "raw_response": "{\"specificity\": 5, \"reasoning_depth\": 4, \"completeness\": 4, \"actionability\": 4, \"risk_awareness\": 4, \"overall\": 4, \"brief_rationale\": \"This is a well-structured plan with specific file paths, clear reasoning, and good consideration of testing and risks, though it could be more precise about the exact implementation details.\"}"
+  },
+  {
+    "task_id": "matplotlib__matplotlib-14623",
+    "scores": {
+      "specificity": 5,
+      "reasoning_depth": 4,
+      "completeness": 4,
+      "actionability": 4,
+      "risk_awareness": 4,
+      "overall": 4,
+      "brief_rationale": "The plan provides excellent file specificity with clear paths and solid reasoning for each component, though the implementation steps could be more concrete about the actual code changes needed."
+    },
+    "raw_response": "{\"specificity\": 5, \"reasoning_depth\": 4, \"completeness\": 4, \"actionability\": 4, \"risk_awareness\": 4, \"overall\": 4, \"brief_rationale\": \"The plan provides excellent file specificity with clear paths and solid reasoning for each component, though the implementation steps could be more concrete about the actual code changes needed.\"}"
+  },
+  {
+    "task_id": "pylint-dev__pylint-8898",
+    "scores": {
+      "specificity": 5,
+      "reasoning_depth": 5,
+      "completeness": 4,
+      "actionability": 4,
+      "risk_awareness": 4,
+      "overall": 4,
+      "brief_rationale": "Well-structured plan with specific file paths, clear reasoning, and comprehensive validation steps, though some implementation details could be more concrete."
+    },
+    "raw_response": "{\"specificity\": 5, \"reasoning_depth\": 5, \"completeness\": 4, \"actionability\": 4, \"risk_awareness\": 4, \"overall\": 4, \"brief_rationale\": \"Well-structured plan with specific file paths, clear reasoning, and comprehensive validation steps, though some implementation details could be more concrete.\"}"
+  },
+  {
+    "task_id": "scikit-learn__scikit-learn-12682",
+    "scores": {
+      "specificity": 5,
+      "reasoning_depth": 5,
+      "completeness": 5,
+      "actionability": 4,
+      "risk_awareness": 4,
+      "overall": 5,
+      "brief_rationale": "This is an excellent plan with specific file paths, clear reasoning for each component, comprehensive coverage of tests and validation, and well-structured implementation steps that directly address the issue."
+    },
+    "raw_response": "{\"specificity\": 5, \"reasoning_depth\": 5, \"completeness\": 5, \"actionability\": 4, \"risk_awareness\": 4, \"overall\": 5, \"brief_rationale\": \"This is an excellent plan with specific file paths, clear reasoning for each component, comprehensive coverage of tests and validation, and well-structured implementation steps that directly address the issue.\"}"
+  },
+  {
+    "task_id": "sphinx-doc__sphinx-9461",
+    "scores": {
+      "specificity": 5,
+      "reasoning_depth": 4,
+      "completeness": 4,
+      "actionability": 3,
+      "risk_awareness": 4,
+      "overall": 4,
+      "brief_rationale": "The plan provides excellent file specificity and good technical understanding of the problem, but implementation steps could be more detailed about the actual code changes needed."
+    },
+    "raw_response": "{\"specificity\": 5, \"reasoning_depth\": 4, \"completeness\": 4, \"actionability\": 3, \"risk_awareness\": 4, \"overall\": 4, \"brief_rationale\": \"The plan provides excellent file specificity and good technical understanding of the problem, but implementation steps could be more detailed about the actual code changes needed.\"}"
+  },
+  {
+    "task_id": "django__django-11532",
+    "scores": {
+      "specificity": 5,
+      "reasoning_depth": 4,
+      "completeness": 4,
+      "actionability": 4,
+      "risk_awareness": 4,
+      "overall": 4,
+      "brief_rationale": "This is a well-structured plan with specific file paths, clear reasoning for each file's relevance, and good coverage of implementation steps and risks, though it could be slightly more detailed on the exact technical implementation approach."
+    },
+    "raw_response": "{\"specificity\": 5, \"reasoning_depth\": 4, \"completeness\": 4, \"actionability\": 4, \"risk_awareness\": 4, \"overall\": 4, \"brief_rationale\": \"This is a well-structured plan with specific file paths, clear reasoning for each file's relevance, and good coverage of implementation steps and risks, though it could be slightly more detailed on the exact technical implementation approach.\"}"
+  },
+  {
+    "task_id": "pylint-dev__pylint-6386",
+    "scores": {
+      "specificity": 5,
+      "reasoning_depth": 4,
+      "completeness": 4,
+      "actionability": 4,
+      "risk_awareness": 4,
+      "overall": 4,
+      "brief_rationale": "The plan provides specific file paths with good reasoning and comprehensive steps, though it could benefit from more detailed technical implementation guidance about argparse parameter changes."
+    },
+    "raw_response": "{\"specificity\": 5, \"reasoning_depth\": 4, \"completeness\": 4, \"actionability\": 4, \"risk_awareness\": 4, \"overall\": 4, \"brief_rationale\": \"The plan provides specific file paths with good reasoning and comprehensive steps, though it could benefit from more detailed technical implementation guidance about argparse parameter changes.\"}"
+  },
+  {
+    "task_id": "sympy__sympy-16597",
+    "scores": {
+      "specificity": 5,
+      "reasoning_depth": 4,
+      "completeness": 4,
+      "actionability": 4,
+      "risk_awareness": 4,
+      "overall": 4,
+      "brief_rationale": "A well-structured plan with specific file paths and clear reasoning, though it could benefit from more detailed implementation specifics for the handler modifications."
+    },
+    "raw_response": "{\"specificity\": 5, \"reasoning_depth\": 4, \"completeness\": 4, \"actionability\": 4, \"risk_awareness\": 4, \"overall\": 4, \"brief_rationale\": \"A well-structured plan with specific file paths and clear reasoning, though it could benefit from more detailed implementation specifics for the handler modifications.\"}"
+  },
+  {
+    "task_id": "astropy__astropy-8747",
+    "scores": {
+      "specificity": 5,
+      "reasoning_depth": 4,
+      "completeness": 4,
+      "actionability": 4,
+      "risk_awareness": 4,
+      "overall": 4,
+      "brief_rationale": "This is a well-structured plan with specific file paths, clear reasoning for each component, and good awareness of implementation challenges, though it could benefit from more detail on backward compatibility handling."
+    },
+    "raw_response": "{\"specificity\": 5, \"reasoning_depth\": 4, \"completeness\": 4, \"actionability\": 4, \"risk_awareness\": 4, \"overall\": 4, \"brief_rationale\": \"This is a well-structured plan with specific file paths, clear reasoning for each component, and good awareness of implementation challenges, though it could benefit from more detail on backward compatibility handling.\"}"
+  },
+  {
+    "task_id": "django__django-13841",
+    "scores": {
+      "specificity": 5,
+      "reasoning_depth": 4,
+      "completeness": 4,
+      "actionability": 4,
+      "risk_awareness": 4,
+      "overall": 4,
+      "brief_rationale": "The plan provides excellent specificity with exact file paths and good technical understanding, though it could benefit from more detailed code-level implementation guidance and test considerations."
+    },
+    "raw_response": "{\"specificity\": 5, \"reasoning_depth\": 4, \"completeness\": 4, \"actionability\": 4, \"risk_awareness\": 4, \"overall\": 4, \"brief_rationale\": \"The plan provides excellent specificity with exact file paths and good technical understanding, though it could benefit from more detailed code-level implementation guidance and test considerations.\"}"
+  },
+  {
+    "task_id": "sympy__sympy-13091",
+    "scores": {
+      "specificity": 5,
+      "reasoning_depth": 4,
+      "completeness": 4,
+      "actionability": 4,
+      "risk_awareness": 4,
+      "overall": 4,
+      "brief_rationale": "The plan provides excellent file specificity and clear implementation steps, with good coverage of potential affected components and reasonable risk assessment, though it could be more precise about the exact changes needed in each file."
+    },
+    "raw_response": "{\"specificity\": 5, \"reasoning_depth\": 4, \"completeness\": 4, \"actionability\": 4, \"risk_awareness\": 4, \"overall\": 4, \"brief_rationale\": \"The plan provides excellent file specificity and clear implementation steps, with good coverage of potential affected components and reasonable risk assessment, though it could be more precise about the exact changes needed in each file.\"}"
+  },
+  {
+    "task_id": "django__django-10989",
+    "scores": {
+      "specificity": 5,
+      "reasoning_depth": 4,
+      "completeness": 4,
+      "actionability": 4,
+      "risk_awareness": 4,
+      "overall": 4,
+      "brief_rationale": "The plan correctly identifies specific file paths from the stack trace and provides a systematic approach to find and replace Unicode ellipsis characters, though it could benefit from considering internationalization files more explicitly."
+    },
+    "raw_response": "{\"specificity\": 5, \"reasoning_depth\": 4, \"completeness\": 4, \"actionability\": 4, \"risk_awareness\": 4, \"overall\": 4, \"brief_rationale\": \"The plan correctly identifies specific file paths from the stack trace and provides a systematic approach to find and replace Unicode ellipsis characters, though it could benefit from considering internationalization files more explicitly.\"}"
+  },
+  {
+    "task_id": "matplotlib__matplotlib-24013",
+    "scores": {
+      "specificity": 5,
+      "reasoning_depth": 4,
+      "completeness": 4,
+      "actionability": 4,
+      "risk_awareness": 4,
+      "overall": 4,
+      "brief_rationale": "The plan correctly identifies specific files and the root cause (wildcard imports causing shadowing), with good implementation steps and risk awareness, though it could benefit from more detailed technical specifications for the import changes."
+    },
+    "raw_response": "{\"specificity\": 5, \"reasoning_depth\": 4, \"completeness\": 4, \"actionability\": 4, \"risk_awareness\": 4, \"overall\": 4, \"brief_rationale\": \"The plan correctly identifies specific files and the root cause (wildcard imports causing shadowing), with good implementation steps and risk awareness, though it could benefit from more detailed technical specifications for the import changes.\"}"
+  },
+  {
+    "task_id": "pydata__xarray-7019",
+    "scores": {
+      "specificity": 5,
+      "reasoning_depth": 4,
+      "completeness": 4,
+      "actionability": 4,
+      "risk_awareness": 4,
+      "overall": 4,
+      "brief_rationale": "This is a well-structured plan with specific file paths and clear reasoning, though it could benefit from more detail on API compatibility handling and migration strategies for existing code."
+    },
+    "raw_response": "{\"specificity\": 5, \"reasoning_depth\": 4, \"completeness\": 4, \"actionability\": 4, \"risk_awareness\": 4, \"overall\": 4, \"brief_rationale\": \"This is a well-structured plan with specific file paths and clear reasoning, though it could benefit from more detail on API compatibility handling and migration strategies for existing code.\"}"
+  }
+]

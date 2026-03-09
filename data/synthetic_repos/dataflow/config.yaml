@@ -1,0 +1,7 @@
+# Dataflow default configuration
+cache_size: 100
+log_level: INFO
+output_format: json
+max_records: 10000
+parallel: false
+transforms: []

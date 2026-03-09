@@ -1,0 +1,3573 @@
+[
+  {
+    "task_id": "django__django-10989",
+    "complexity_tier": "architectural",
+    "ground_truth_count": 13,
+    "stages": [
+      {
+        "stage": 0,
+        "recall": 0.0769,
+        "precision": 0.3333,
+        "plan_files_count": 3,
+        "plan_files": [
+          "django/contrib/staticfiles/management/commands/runserver.py",
+          "django/core/management/base.py",
+          "django/core/management/commands/runserver.py"
+        ]
+      },
+      {
+        "stage": 1,
+        "recall": 0.2308,
+        "precision": 0.1429,
+        "plan_files_count": 21,
+        "plan_files": [
+          "django/contrib/admin/actions.py",
+          "django/contrib/admin/options.py",
+          "django/contrib/auth/management/commands/changepassword.py",
+          "django/contrib/auth/management/commands/createsuperuser.py",
+          "django/contrib/contenttypes/management/commands/remove_stale_contenttypes.py",
+          "django/contrib/sessions/management/commands/clearsessions.py",
+          "django/contrib/staticfiles/management/commands/collectstatic.py",
+          "django/contrib/staticfiles/management/commands/runserver.py",
+          "django/core/checks/messages.py",
+          "django/core/exceptions.py",
+          "django/core/management/base.py",
+          "django/core/management/commands/check.py",
+          "django/core/management/commands/compilemessages.py",
+          "django/core/management/commands/dumpdata.py",
+          "django/core/management/commands/loaddata.py",
+          "django/core/management/commands/makemessages.py",
+          "django/core/management/commands/makemigrations.py",
+          "django/core/management/commands/migrate.py",
+          "django/core/management/commands/runserver.py",
+          "django/template/defaultfilters.py",
+          "django/utils/autoreload.py"
+        ]
+      },
+      {
+        "stage": 2,
+        "recall": 0.1538,
+        "precision": 0.1333,
+        "plan_files_count": 15,
+        "plan_files": [
+          "django/contrib/admin/filters.py",
+          "django/contrib/admin/helpers.py",
+          "django/contrib/admin/options.py",
+          "django/contrib/humanize/templatetags/humanize.py",
+          "django/core/management/commands/makemigrations.py",
+          "django/core/management/commands/migrate.py",
+          "django/core/management/commands/runserver.py",
+          "django/core/paginator.py",
+          "django/db/migrations/writer.py",
+          "django/forms/fields.py",
+          "django/forms/widgets.py",
+          "django/template/defaultfilters.py",
+          "django/utils/html.py",
+          "django/utils/text.py",
+          "django/views/debug.py"
+        ]
+      }
+    ],
+    "critiques": [
+      {
+        "concerns": [
+          "The plan is too narrow and focuses only on management commands, but Unicode ellipsis characters could be present in many other parts of the codebase that also output to terminals or stdout",
+          "The search scope is limited to only 3 files when the issue indicates this is a broader problem that 'ought to be easy enough to fix' by finding 'wherever someone entered the horizontal ellipsis character'",
+          "The plan doesn't include a systematic search strategy across the entire codebase to identify all Unicode ellipsis characters",
+          "Missing consideration of internationalization files and locale-specific formatting that might contain ellipsis characters",
+          "No plan to check template files, error messages, or other user-facing strings that could contain Unicode ellipsis",
+          "The validation strategy mentions searching the entire codebase but this isn't reflected in the implementation steps",
+          "Missing consideration of test files that might also contain Unicode ellipsis characters and need updating"
+        ],
+        "missing_files": [
+          "django/core/management/commands/check.py",
+          "django/core/management/commands/migrate.py",
+          "django/core/management/commands/makemigrations.py",
+          "django/core/management/commands/loaddata.py",
+          "django/core/management/commands/dumpdata.py",
+          "django/core/management/commands/compilemessages.py",
+          "django/core/management/commands/makemessages.py",
+          "django/core/management/commands/collectstatic.py",
+          "django/contrib/staticfiles/management/commands/collectstatic.py",
+          "django/contrib/auth/management/commands/createsuperuser.py",
+          "django/contrib/auth/management/commands/changepassword.py",
+          "django/contrib/contenttypes/management/commands/remove_stale_contenttypes.py",
+          "django/contrib/sessions/management/commands/clearsessions.py",
+          "django/contrib/gis/management/commands/inspectdb.py",
+          "django/contrib/gis/management/commands/ogrinspect.py",
+          "django/utils/autoreload.py",
+          "django/core/checks/messages.py",
+          "django/core/exceptions.py",
+          "django/contrib/admin/options.py",
+          "django/contrib/admin/actions.py",
+          "django/template/defaultfilters.py",
+          "django/template/defaulttags.py"
+        ],
+        "suggested_changes": [
+          "Add a comprehensive codebase search step as the first implementation step to identify ALL Unicode ellipsis characters (\\u2026) across the entire Django codebase",
+          "Expand files_to_inspect to include all management command files, not just runserver-related ones",
+          "Include utility files like django/utils/autoreload.py which was mentioned in the stack trace",
+          "Add template files and user-facing message files to the inspection list",
+          "Include admin interface files which likely contain user-facing messages",
+          "Add validation/error message files that might contain ellipsis characters",
+          "Expand the search to include test files that might need updating",
+          "Add a step to check for ellipsis in documentation or help text strings",
+          "Include locale/formatting files that might contain culture-specific ellipsis usage",
+          "Add a systematic approach: first search, then categorize findings, then fix all instances rather than assuming it's limited to runserver.py"
+        ]
+      },
+      {
+        "concerns": [
+          "The plan focuses too heavily on management commands but misses critical areas where Unicode ellipsis could appear, particularly in error messages, form validation, and admin interfaces",
+          "The plan assumes all Unicode ellipsis characters should be replaced with ASCII equivalents, but some may be intentionally used for proper typography in certain contexts",
+          "The plan doesn't address potential Unicode ellipsis in JavaScript files, HTML templates, or CSS files which could also cause encoding issues",
+          "The scope is too broad - inspecting 21+ files when a simple grep search would identify the actual locations more efficiently",
+          "The plan doesn't consider that the issue might be in third-party dependencies or that some ellipsis characters might be in translatable strings",
+          "Missing consideration of test files that might contain Unicode ellipsis and would need updating after fixes"
+        ],
+        "missing_files": [
+          "django/forms/fields.py",
+          "django/forms/forms.py",
+          "django/forms/widgets.py",
+          "django/db/models/fields/__init__.py",
+          "django/contrib/admin/helpers.py",
+          "django/contrib/admin/forms.py",
+          "django/contrib/admin/filters.py",
+          "django/contrib/admin/widgets.py",
+          "django/template/defaulttags.py",
+          "django/http/response.py",
+          "django/views/debug.py",
+          "django/db/backends/base/operations.py",
+          "django/db/migrations/writer.py",
+          "django/utils/text.py",
+          "django/utils/html.py",
+          "django/core/paginator.py",
+          "django/contrib/humanize/templatetags/humanize.py",
+          "tests/*/test_*.py"
+        ],
+        "suggested_changes": [
+          "Start with a comprehensive grep search across the entire codebase for '\\u2026' to identify exact locations before planning file inspections",
+          "Include template files (*.html), JavaScript files (*.js), and any other static assets that might contain Unicode ellipsis",
+          "Add form validation error messages and field help text files to the inspection list",
+          "Include database operation files and migration-related code that might show progress messages",
+          "Consider internationalization files beyond just locale formats - include .po files and translation utilities",
+          "Add test files to both inspection and modification lists, as tests likely verify exact string outputs",
+          "Include pagination and text truncation utilities that commonly use ellipsis",
+          "Add debug and error display utilities that might show Unicode ellipsis in error messages",
+          "Consider adding a coding standard or linting rule to prevent future Unicode ellipsis introduction",
+          "Plan to test not just on Windows CP437 but also other common Windows code pages and console configurations"
+        ]
+      }
+    ],
+    "revised_plans": [
+      {
+        "files_to_inspect": [
+          {
+            "path": "django/core/management/commands/runserver.py",
+            "reason": "The stack trace shows this file contains the Unicode ellipsis at line 116 that causes the Windows crash"
+          },
+          {
+            "path": "django/utils/autoreload.py",
+            "reason": "This file is mentioned in the stack trace and may contain Unicode ellipsis characters"
+          },
+          {
+            "path": "django/core/management/base.py",
+            "reason": "Base management command class that may contain Unicode ellipsis in output methods or messages"
+          },
+          {
+            "path": "django/core/management/commands/check.py",
+            "reason": "System checks command likely contains user-facing messages that may use ellipsis"
+          },
+          {
+            "path": "django/core/management/commands/migrate.py",
+            "reason": "Migration commands often show progress messages that may contain ellipsis"
+          },
+          {
+            "path": "django/core/management/commands/makemigrations.py",
+            "reason": "Migration creation commands may contain progress or status messages with ellipsis"
+          },
+          {
+            "path": "django/core/management/commands/loaddata.py",
+            "reason": "Data loading commands may show progress messages with ellipsis"
+          },
+          {
+            "path": "django/core/management/commands/dumpdata.py",
+            "reason": "Data export commands may show progress messages with ellipsis"
+          },
+          {
+            "path": "django/core/management/commands/compilemessages.py",
+            "reason": "Translation compilation commands may contain status messages with ellipsis"
+          },
+          {
+            "path": "django/core/management/commands/makemessages.py",
+            "reason": "Translation extraction commands may contain status messages with ellipsis"
+          },
+          {
+            "path": "django/contrib/staticfiles/management/commands/collectstatic.py",
+            "reason": "Static file collection commands often show progress messages that may contain ellipsis"
+          },
+          {
+            "path": "django/contrib/staticfiles/management/commands/runserver.py",
+            "reason": "Static files runserver command may override or extend base runserver with ellipsis messages"
+          },
+          {
+            "path": "django/contrib/auth/management/commands/createsuperuser.py",
+            "reason": "User creation commands may contain user-facing messages with ellipsis"
+          },
+          {
+            "path": "django/contrib/auth/management/commands/changepassword.py",
+            "reason": "Password change commands may contain user-facing messages with ellipsis"
+          },
+          {
+            "path": "django/contrib/contenttypes/management/commands/remove_stale_contenttypes.py",
+            "reason": "Content type cleanup commands may contain status messages with ellipsis"
+          },
+          {
+            "path": "django/contrib/sessions/management/commands/clearsessions.py",
+            "reason": "Session cleanup commands may contain status messages with ellipsis"
+          },
+          {
+            "path": "django/core/checks/messages.py",
+            "reason": "System check messages may contain Unicode ellipsis characters"
+          },
+          {
+            "path": "django/core/exceptions.py",
+            "reason": "Exception messages may contain Unicode ellipsis characters"
+          },
+          {
+            "path": "django/contrib/admin/options.py",
+            "reason": "Admin interface contains many user-facing messages that may use ellipsis"
+          },
+          {
+            "path": "django/contrib/admin/actions.py",
+            "reason": "Admin actions may contain user-facing messages with ellipsis"
+          },
+          {
+            "path": "django/template/defaultfilters.py",
+            "reason": "Template filters may contain ellipsis in truncation or formatting operations"
+          }
+        ],
+        "files_to_modify": [
+          {
+            "path": "django/core/management/commands/runserver.py",
+            "change_type": "edit",
+            "description": "Replace Unicode ellipsis \\u2026 with ASCII ellipsis ... in system checks message and any other occurrences"
+          }
+        ],
+        "implementation_steps": [
+          {
+            "step": 1,
+            "description": "Perform comprehensive codebase search for Unicode ellipsis character \\u2026 across all Python files in the Django repository",
+            "files_involved": [
+              "entire Django codebase"
+            ]
+          },
+          {
+            "step": 2,
+            "description": "Inspect runserver.py to locate and document the specific Unicode ellipsis causing the crash",
+            "files_involved": [
+              "django/core/management/commands/runserver.py"
+            ]
+          },
+          {
+            "step": 3,
+            "description": "Systematically inspect all management command files for Unicode ellipsis characters",
+            "files_involved": [
+              "django/core/management/commands/check.py",
+              "django/core/management/commands/migrate.py",
+              "django/core/management/commands/makemigrations.py",
+              "django/core/management/commands/loaddata.py",
+              "django/core/management/commands/dumpdata.py",
+              "django/core/management/commands/compilemessages.py",
+              "django/core/management/commands/makemessages.py",
+              "django/contrib/staticfiles/management/commands/collectstatic.py",
+              "django/contrib/staticfiles/management/commands/runserver.py",
+              "django/contrib/auth/management/commands/createsuperuser.py",
+              "django/contrib/auth/management/commands/changepassword.py",
+              "django/contrib/contenttypes/management/commands/remove_stale_contenttypes.py",
+              "django/contrib/sessions/management/commands/clearsessions.py"
+            ]
+          },
+          {
+            "step": 4,
+            "description": "Inspect utility and core files that handle output or user messages for Unicode ellipsis",
+            "files_involved": [
+              "django/utils/autoreload.py",
+              "django/core/management/base.py",
+              "django/core/checks/messages.py",
+              "django/core/exceptions.py"
+            ]
+          },
+          {
+            "step": 5,
+            "description": "Check admin interface and template system files for Unicode ellipsis characters",
+            "files_involved": [
+              "django/contrib/admin/options.py",
+              "django/contrib/admin/actions.py",
+              "django/template/defaultfilters.py"
+            ]
+          },
+          {
+            "step": 6,
+            "description": "Categorize all found Unicode ellipsis instances by context (user messages, progress indicators, truncation, etc.)",
+            "files_involved": [
+              "all files containing \\u2026"
+            ]
+          },
+          {
+            "step": 7,
+            "description": "Replace all Unicode ellipsis characters \\u2026 with ASCII ellipsis ... in identified files",
+            "files_involved": [
+              "all files containing \\u2026"
+            ]
+          },
+          {
+            "step": 8,
+            "description": "Search for any ellipsis in template files, locale files, and documentation that might affect output",
+            "files_involved": [
+              "django/conf/locale/*/formats.py",
+              "template files",
+              "help text strings"
+            ]
+          }
+        ],
+        "assumptions": [
+          "The Unicode ellipsis character \\u2026 is the root cause of the Windows encoding issue",
+          "There are likely multiple instances of Unicode ellipsis throughout the codebase, not just in runserver.py",
+          "Replacing Unicode ellipsis with ASCII ellipsis will not negatively impact user experience on any platform",
+          "The issue affects any output that goes to stdout/stderr on Windows with default code page 437",
+          "All Unicode ellipsis characters can be safely replaced with ASCII equivalents without breaking functionality"
+        ],
+        "risks": [
+          "There might be hundreds of Unicode ellipsis characters across the codebase requiring systematic replacement",
+          "Some Unicode ellipsis characters might be in template files or locale files that require different handling",
+          "The change might affect visual consistency if some ellipsis characters are intentionally Unicode for aesthetic reasons",
+          "There could be test files that expect Unicode ellipsis characters and will need updating",
+          "Translation files might contain Unicode ellipsis that could cause similar issues in localized versions",
+          "Some ellipsis characters might be in docstrings or comments that don't affect runtime but should be consistent"
+        ],
+        "validation": [
+          "Perform grep/search across entire Django codebase for \\u2026 to ensure comprehensive detection",
+          "Test the runserver command on Windows with code page 437 to ensure the original crash is fixed",
+          "Test all management commands on Windows to ensure no similar encoding errors occur",
+          "Run Django's complete test suite on Windows, macOS, and Linux to ensure no regressions",
+          "Verify that all output messages still display correctly on all platforms after the changes",
+          "Test with different Windows code pages (437, 1252, 65001) to ensure broad compatibility",
+          "Check that admin interface still works correctly on all platforms",
+          "Validate that template rendering with any ellipsis-containing filters works on Windows"
+        ]
+      },
+      {
+        "files_to_inspect": [
+          {
+            "path": "django/core/management/commands/runserver.py",
+            "reason": "The stack trace shows this file contains the Unicode ellipsis at line 116 that causes the Windows crash"
+          },
+          {
+            "path": "django/forms/fields.py",
+            "reason": "Form field validation errors and help text often contain user-facing messages that may use Unicode ellipsis"
+          },
+          {
+            "path": "django/forms/widgets.py",
+            "reason": "Widget labels and help text may contain Unicode ellipsis characters"
+          },
+          {
+            "path": "django/contrib/admin/helpers.py",
+            "reason": "Admin form helpers contain user-facing messages and field descriptions that may use ellipsis"
+          },
+          {
+            "path": "django/contrib/admin/filters.py",
+            "reason": "Admin list filters may contain truncated text or progress messages with Unicode ellipsis"
+          },
+          {
+            "path": "django/contrib/admin/options.py",
+            "reason": "Admin options contain many user-facing messages and may use Unicode ellipsis for text truncation"
+          },
+          {
+            "path": "django/template/defaultfilters.py",
+            "reason": "Template filters like truncatewords may contain Unicode ellipsis in truncation operations"
+          },
+          {
+            "path": "django/utils/text.py",
+            "reason": "Text utility functions commonly use ellipsis for truncation and may contain Unicode ellipsis"
+          },
+          {
+            "path": "django/utils/html.py",
+            "reason": "HTML utility functions may contain Unicode ellipsis for text processing and truncation"
+          },
+          {
+            "path": "django/core/paginator.py",
+            "reason": "Pagination components often use ellipsis to indicate omitted page numbers"
+          },
+          {
+            "path": "django/contrib/humanize/templatetags/humanize.py",
+            "reason": "Humanization filters may use Unicode ellipsis for text formatting and truncation"
+          },
+          {
+            "path": "django/views/debug.py",
+            "reason": "Debug views contain error messages and stack traces that may use Unicode ellipsis"
+          },
+          {
+            "path": "django/db/migrations/writer.py",
+            "reason": "Migration writer may show progress messages or code snippets with Unicode ellipsis"
+          },
+          {
+            "path": "django/core/management/commands/migrate.py",
+            "reason": "Migration commands show progress messages that may contain Unicode ellipsis"
+          },
+          {
+            "path": "django/core/management/commands/makemigrations.py",
+            "reason": "Migration creation commands may contain status messages with Unicode ellipsis"
+          }
+        ],
+        "files_to_modify": [],
+        "implementation_steps": [
+          {
+            "step": 1,
+            "description": "Perform comprehensive grep search for Unicode ellipsis character \\u2026 across entire Django codebase to identify all occurrences",
+            "files_involved": [
+              "entire Django codebase"
+            ]
+          },
+          {
+            "step": 2,
+            "description": "Search for literal ellipsis character '\u2026' (not escaped) in Python files, templates, and static files",
+            "files_involved": [
+              "entire Django codebase"
+            ]
+          },
+          {
+            "step": 3,
+            "description": "Inspect the specific runserver.py file to confirm the Unicode ellipsis at line 116 mentioned in the stack trace",
+            "files_involved": [
+              "django/core/management/commands/runserver.py"
+            ]
+          },
+          {
+            "step": 4,
+            "description": "Categorize all found Unicode ellipsis instances by type: user-facing messages, template content, truncation functions, admin interface, debug output",
+            "files_involved": [
+              "all files containing Unicode ellipsis"
+            ]
+          },
+          {
+            "step": 5,
+            "description": "Test the original issue on Windows with CP437 to confirm reproduction of the encoding error",
+            "files_involved": [
+              "django/core/management/commands/runserver.py"
+            ]
+          },
+          {
+            "step": 6,
+            "description": "Replace all Unicode ellipsis characters \\u2026 and literal '\u2026' with ASCII ellipsis '...' in Python source files",
+            "files_involved": [
+              "all Python files containing Unicode ellipsis"
+            ]
+          },
+          {
+            "step": 7,
+            "description": "Search for and update Unicode ellipsis in template files (*.html) that could affect rendered output",
+            "files_involved": [
+              "Django template files"
+            ]
+          },
+          {
+            "step": 8,
+            "description": "Check test files for Unicode ellipsis characters and update expected output strings to match the ASCII replacements",
+            "files_involved": [
+              "test files with Unicode ellipsis expectations"
+            ]
+          },
+          {
+            "step": 9,
+            "description": "Search locale/translation files for Unicode ellipsis that could cause encoding issues in internationalized versions",
+            "files_involved": [
+              "django/conf/locale/*/formats.py",
+              "translation files"
+            ]
+          }
+        ],
+        "assumptions": [
+          "The Unicode ellipsis character \\u2026 is the primary cause of the Windows CP437 encoding issue",
+          "All Unicode ellipsis characters can be safely replaced with ASCII '...' without affecting functionality",
+          "The issue is not limited to runserver.py but may affect other management commands and user-facing output",
+          "Template files and static assets may also contain Unicode ellipsis that could cause similar issues",
+          "Test files will need updates to match the new ASCII ellipsis characters in expected outputs"
+        ],
+        "risks": [
+          "There may be many Unicode ellipsis characters throughout the codebase requiring systematic replacement",
+          "Some Unicode ellipsis may be in translatable strings affecting internationalized versions",
+          "Template files or JavaScript code may contain Unicode ellipsis that could cause browser encoding issues",
+          "Test suite may have many failing tests due to changed expected output strings",
+          "Some ellipsis characters might be in third-party dependencies or generated code that cannot be easily modified",
+          "Locale-specific formatting rules might expect Unicode ellipsis characters for proper typography"
+        ],
+        "validation": [
+          "Test runserver command on Windows with CP437 to ensure the original crash is fixed",
+          "Test all management commands on Windows CP437 to ensure no similar encoding errors",
+          "Run complete Django test suite on Windows, macOS, and Linux to catch any regressions",
+          "Test admin interface functionality on Windows to ensure all messages display correctly",
+          "Test form validation and error messages on Windows to ensure proper encoding",
+          "Test template rendering with truncation filters on Windows to ensure no encoding issues",
+          "Test pagination components to ensure ellipsis display correctly on all platforms",
+          "Verify internationalized versions still work correctly after Unicode ellipsis removal",
+          "Test debug error pages on Windows to ensure proper encoding of error messages",
+          "Validate that the changes don't break any existing functionality on non-Windows platforms"
+        ]
+      }
+    ]
+  },
+  {
+    "task_id": "sympy__sympy-13091",
+    "complexity_tier": "architectural",
+    "ground_truth_count": 21,
+    "stages": [
+      {
+        "stage": 0,
+        "recall": 0.0952,
+        "precision": 0.2222,
+        "plan_files_count": 9,
+        "plan_files": [
+          "sympy/core/basic.py",
+          "sympy/core/expr.py",
+          "sympy/core/numbers.py",
+          "sympy/core/relational.py",
+          "sympy/core/symbol.py",
+          "sympy/core/tests/test_basic.py",
+          "sympy/core/tests/test_equal.py",
+          "sympy/matrices/expressions/matexpr.py",
+          "sympy/matrices/matrices.py"
+        ]
+      },
+      {
+        "stage": 1,
+        "recall": 0.3333,
+        "precision": 0.2414,
+        "plan_files_count": 29,
+        "plan_files": [
+          "sympy/combinatorics/permutations.py",
+          "sympy/concrete/expr_with_intlimits.py",
+          "sympy/concrete/expr_with_limits.py",
+          "sympy/core/basic.py",
+          "sympy/core/expr.py",
+          "sympy/core/numbers.py",
+          "sympy/core/relational.py",
+          "sympy/core/symbol.py",
+          "sympy/core/tests/test_basic.py",
+          "sympy/core/tests/test_equal.py",
+          "sympy/functions/elementary/complexes.py",
+          "sympy/functions/elementary/piecewise.py",
+          "sympy/functions/special/delta_functions.py",
+          "sympy/geometry/ellipse.py",
+          "sympy/geometry/entity.py",
+          "sympy/geometry/line.py",
+          "sympy/geometry/point.py",
+          "sympy/geometry/polygon.py",
+          "sympy/integrals/integrals.py",
+          "sympy/matrices/expressions/matexpr.py",
+          "sympy/matrices/matrices.py",
+          "sympy/physics/quantum/qexpr.py",
+          "sympy/physics/units/quantities.py",
+          "sympy/physics/vector/dyadic.py",
+          "sympy/physics/vector/vector.py",
+          "sympy/polys/domains/domain.py",
+          "sympy/polys/polytools.py",
+          "sympy/sets/sets.py",
+          "sympy/tensor/tensor.py"
+        ]
+      },
+      {
+        "stage": 2,
+        "recall": 0.0952,
+        "precision": 0.1538,
+        "plan_files_count": 13,
+        "plan_files": [
+          "sympy/combinatorics/permutations.py",
+          "sympy/core/basic.py",
+          "sympy/core/expr.py",
+          "sympy/core/numbers.py",
+          "sympy/core/relational.py",
+          "sympy/core/tests/test_basic.py",
+          "sympy/core/tests/test_equal.py",
+          "sympy/core/tests/test_relational.py",
+          "sympy/logic/boolalg.py",
+          "sympy/matrices/expressions/matexpr.py",
+          "sympy/sets/sets.py",
+          "sympy/tensor/array/dense_ndim_array.py",
+          "sympy/tensor/indexed.py"
+        ]
+      }
+    ],
+    "critiques": [
+      {
+        "concerns": [
+          "The plan assumes that only core classes need modification, but many specialized classes in SymPy likely implement their own comparison methods that could have the same issue",
+          "The plan doesn't consider the broader ecosystem of SymPy classes - geometry, physics, functions, etc. may all have comparison methods that return False instead of NotImplemented",
+          "The implementation steps don't include a systematic search for all classes that implement rich comparison methods across the entire codebase",
+          "The plan focuses heavily on matrices but doesn't consider other major subsystems like geometry, functions, or physics modules",
+          "No consideration of classes that might inherit comparison behavior but override it incorrectly",
+          "The validation approach is too narrow - it only tests basic cases but doesn't verify behavior across all affected subsystems"
+        ],
+        "missing_files": [
+          "sympy/geometry/entity.py",
+          "sympy/geometry/point.py",
+          "sympy/geometry/line.py",
+          "sympy/geometry/ellipse.py",
+          "sympy/geometry/polygon.py",
+          "sympy/functions/elementary/piecewise.py",
+          "sympy/functions/elementary/complexes.py",
+          "sympy/functions/special/delta_functions.py",
+          "sympy/physics/quantum/qexpr.py",
+          "sympy/physics/vector/vector.py",
+          "sympy/physics/vector/dyadic.py",
+          "sympy/physics/units/quantities.py",
+          "sympy/concrete/expr_with_limits.py",
+          "sympy/concrete/expr_with_intlimits.py",
+          "sympy/integrals/integrals.py",
+          "sympy/sets/sets.py",
+          "sympy/tensor/tensor.py",
+          "sympy/combinatorics/permutations.py",
+          "sympy/polys/polytools.py",
+          "sympy/polys/domains/domain.py"
+        ],
+        "suggested_changes": [
+          "Add a comprehensive search step to identify ALL classes in the SymPy codebase that implement rich comparison methods (__eq__, __lt__, etc.)",
+          "Include geometry classes (Point, Line, Polygon, etc.) which likely implement their own comparison logic",
+          "Add physics-related classes (quantum expressions, vectors, units) to the inspection list",
+          "Include function classes and special mathematical objects that may have comparison methods",
+          "Add set theory classes and tensor classes to the scope",
+          "Include polynomial and domain classes from the polys module",
+          "Expand the test strategy to create comprehensive test cases across all major SymPy subsystems, not just core classes",
+          "Add a step to grep/search the entire codebase for 'return False' in comparison methods to ensure nothing is missed",
+          "Include validation tests that verify the fix works with real-world use cases from different SymPy modules",
+          "Consider adding tests for edge cases where custom classes interact with specialized SymPy objects (not just Basic)",
+          "Add a step to verify that the change doesn't break any existing functionality by running the full test suite for each modified subsystem"
+        ]
+      },
+      {
+        "concerns": [
+          "The plan is overly broad and ambitious - it assumes the issue extends far beyond the specific problem mentioned in the GitHub issue, which is primarily about sympy.core.basic.Basic.__eq__ at line 316",
+          "The plan lacks focus on the actual root cause - the issue specifically mentions line 316 in basic.py, but the plan proposes a massive codebase-wide change without first confirming this is needed",
+          "No systematic approach to determine which classes actually need changes - the plan assumes many classes have this problem without evidence",
+          "Missing analysis of inheritance hierarchy - classes inheriting from Basic may already get the correct behavior once Basic is fixed",
+          "The validation approach is too complex - it tries to test every subsystem when the core issue is about Basic class behavior",
+          "Risk assessment doesn't consider that most SymPy classes inherit comparison behavior and may not need individual changes",
+          "Implementation steps are unnecessarily complex - starting with a comprehensive search instead of fixing the known issue first"
+        ],
+        "missing_files": [
+          "sympy/core/tests/test_basic.py",
+          "sympy/core/tests/test_equal.py",
+          "sympy/core/tests/test_relational.py",
+          "sympy/sets/fancysets.py",
+          "sympy/sets/conditionset.py",
+          "sympy/logic/boolalg.py",
+          "sympy/tensor/indexed.py",
+          "sympy/tensor/array/__init__.py",
+          "sympy/tensor/array/dense_ndim_array.py",
+          "sympy/tensor/array/sparse_ndim_array.py",
+          "sympy/series/sequences.py",
+          "sympy/series/series_class.py",
+          "sympy/assumptions/sathandlers.py"
+        ],
+        "suggested_changes": [
+          "Start with a focused approach: fix the specific issue in sympy/core/basic.py line 316 first, then test if other classes actually need changes",
+          "Add inheritance analysis step - determine which classes inherit from Basic and would automatically get the fixed behavior",
+          "Include more core test files that specifically test comparison and equality behavior",
+          "Add tensor array classes which likely have their own comparison implementations",
+          "Include series and sequence classes that may implement custom comparison logic",
+          "Add set theory classes (fancysets, conditionset) which likely have comparison methods",
+          "Include logic/boolalg.py which deals with boolean comparisons and may have relevant methods",
+          "Simplify the implementation approach: 1) Fix Basic class, 2) Run tests to identify what breaks, 3) Fix only the classes that actually need it",
+          "Focus validation on core comparison behavior rather than trying to test every subsystem",
+          "Create a more targeted search that looks for classes that override __eq__ and other comparison methods, rather than assuming all classes need changes",
+          "Add step to verify that the inheritance hierarchy works correctly after fixing Basic",
+          "Include analysis of which classes legitimately should return False vs NotImplemented"
+        ]
+      }
+    ],
+    "revised_plans": [
+      {
+        "files_to_inspect": [
+          {
+            "path": "sympy/core/basic.py",
+            "reason": "Contains the Basic class with comparison methods - specifically mentioned in the issue at line 316"
+          },
+          {
+            "path": "sympy/core/expr.py",
+            "reason": "Expr inherits from Basic and may override comparison methods"
+          },
+          {
+            "path": "sympy/core/numbers.py",
+            "reason": "Number classes may have their own comparison methods that could have similar issues"
+          },
+          {
+            "path": "sympy/core/relational.py",
+            "reason": "Contains relational operators and comparison logic that might be relevant"
+          },
+          {
+            "path": "sympy/core/symbol.py",
+            "reason": "Symbol class may override comparison methods"
+          },
+          {
+            "path": "sympy/matrices/matrices.py",
+            "reason": "Matrix classes may have comparison methods with similar issues"
+          },
+          {
+            "path": "sympy/matrices/expressions/matexpr.py",
+            "reason": "Matrix expressions may have comparison methods"
+          },
+          {
+            "path": "sympy/geometry/entity.py",
+            "reason": "Base class for geometry objects that likely implements comparison methods"
+          },
+          {
+            "path": "sympy/geometry/point.py",
+            "reason": "Point class may have custom comparison methods"
+          },
+          {
+            "path": "sympy/geometry/line.py",
+            "reason": "Line class may have custom comparison methods"
+          },
+          {
+            "path": "sympy/geometry/ellipse.py",
+            "reason": "Ellipse class may have custom comparison methods"
+          },
+          {
+            "path": "sympy/geometry/polygon.py",
+            "reason": "Polygon class may have custom comparison methods"
+          },
+          {
+            "path": "sympy/functions/elementary/piecewise.py",
+            "reason": "Piecewise functions may implement custom comparison logic"
+          },
+          {
+            "path": "sympy/functions/elementary/complexes.py",
+            "reason": "Complex function classes may have comparison methods"
+          },
+          {
+            "path": "sympy/functions/special/delta_functions.py",
+            "reason": "Special functions may implement comparison methods"
+          },
+          {
+            "path": "sympy/physics/quantum/qexpr.py",
+            "reason": "Quantum expressions may have custom comparison methods"
+          },
+          {
+            "path": "sympy/physics/vector/vector.py",
+            "reason": "Vector classes may implement comparison methods"
+          },
+          {
+            "path": "sympy/physics/vector/dyadic.py",
+            "reason": "Dyadic classes may implement comparison methods"
+          },
+          {
+            "path": "sympy/physics/units/quantities.py",
+            "reason": "Unit quantity classes may have comparison methods"
+          },
+          {
+            "path": "sympy/concrete/expr_with_limits.py",
+            "reason": "Expression with limits classes may implement comparison methods"
+          },
+          {
+            "path": "sympy/concrete/expr_with_intlimits.py",
+            "reason": "Expression with integral limits may implement comparison methods"
+          },
+          {
+            "path": "sympy/integrals/integrals.py",
+            "reason": "Integral classes may implement comparison methods"
+          },
+          {
+            "path": "sympy/sets/sets.py",
+            "reason": "Set classes may implement comparison methods"
+          },
+          {
+            "path": "sympy/tensor/tensor.py",
+            "reason": "Tensor classes may implement comparison methods"
+          },
+          {
+            "path": "sympy/combinatorics/permutations.py",
+            "reason": "Permutation classes may implement comparison methods"
+          },
+          {
+            "path": "sympy/polys/polytools.py",
+            "reason": "Polynomial classes may implement comparison methods"
+          },
+          {
+            "path": "sympy/polys/domains/domain.py",
+            "reason": "Domain classes may implement comparison methods"
+          },
+          {
+            "path": "sympy/core/tests/test_basic.py",
+            "reason": "Need to understand existing tests for Basic class comparisons"
+          },
+          {
+            "path": "sympy/core/tests/test_equal.py",
+            "reason": "Tests for equality operations to understand expected behavior"
+          }
+        ],
+        "files_to_modify": [
+          {
+            "path": "sympy/core/basic.py",
+            "change_type": "edit",
+            "description": "Change __eq__ and other rich comparison methods to return NotImplemented instead of False for unknown types"
+          }
+        ],
+        "implementation_steps": [
+          {
+            "step": 1,
+            "description": "Create a comprehensive search script to find all classes with rich comparison methods that return False for unknown types",
+            "files_involved": [
+              "search_script.py"
+            ]
+          },
+          {
+            "step": 2,
+            "description": "Examine sympy/core/basic.py to locate all rich comparison methods (__eq__, __ne__, __lt__, __le__, __gt__, __ge__) and identify where they return False for unknown types",
+            "files_involved": [
+              "sympy/core/basic.py"
+            ]
+          },
+          {
+            "step": 3,
+            "description": "Review existing tests to understand current behavior and identify test cases that need to be updated",
+            "files_involved": [
+              "sympy/core/tests/test_basic.py",
+              "sympy/core/tests/test_equal.py"
+            ]
+          },
+          {
+            "step": 4,
+            "description": "Run comprehensive search across the entire codebase to identify all files with comparison methods that return False for unknown types",
+            "files_involved": [
+              "all Python files in sympy/"
+            ]
+          },
+          {
+            "step": 5,
+            "description": "Systematically examine each identified file to determine if it needs modification",
+            "files_involved": [
+              "files identified by search"
+            ]
+          },
+          {
+            "step": 6,
+            "description": "Modify Basic.__eq__ and other comparison methods to return NotImplemented instead of False for unknown types",
+            "files_involved": [
+              "sympy/core/basic.py"
+            ]
+          },
+          {
+            "step": 7,
+            "description": "Apply similar changes to all other classes identified in the search that have comparison methods returning False for unknown types",
+            "files_involved": [
+              "all files identified in step 4"
+            ]
+          },
+          {
+            "step": 8,
+            "description": "Create comprehensive test cases to verify that custom classes can now properly implement symmetric comparisons with all types of SymPy objects",
+            "files_involved": [
+              "sympy/core/tests/test_basic.py"
+            ]
+          },
+          {
+            "step": 9,
+            "description": "Run targeted test suites for each modified subsystem to ensure no regressions",
+            "files_involved": [
+              "test files for all modified modules"
+            ]
+          },
+          {
+            "step": 10,
+            "description": "Run the complete SymPy test suite to verify no unexpected side effects",
+            "files_involved": [
+              "all test files"
+            ]
+          }
+        ],
+        "assumptions": [
+          "The issue extends beyond just the Basic class to many specialized classes throughout SymPy",
+          "A systematic search will reveal all classes that need modification",
+          "The change should maintain backward compatibility for normal SymPy object comparisons while enabling proper delegation for unknown types",
+          "Different subsystems may have different patterns for implementing comparison methods",
+          "Some classes may intentionally return False and should not be changed"
+        ],
+        "risks": [
+          "Changing comparison behavior across many classes could break existing code that depends on the current False return value",
+          "Some tests may fail if they expect False instead of the new delegation behavior",
+          "Performance could be slightly impacted due to additional method calls through the delegation mechanism across many object types",
+          "There may be edge cases where returning NotImplemented causes unexpected behavior in complex expressions involving multiple subsystems",
+          "Some specialized classes may have legitimate reasons for returning False instead of NotImplemented",
+          "The scope of changes could be very large, affecting many files across the entire codebase",
+          "Changes to fundamental comparison behavior could have cascading effects in unexpected places"
+        ],
+        "validation": [
+          "Create a comprehensive test suite with custom classes that implement comparison with various SymPy object types (not just Basic) to verify symmetric behavior across all subsystems",
+          "Test that f == s and s == f return the same result when f is a custom object and s is any type of SymPy object (core, geometry, physics, etc.)",
+          "Run the complete SymPy test suite to ensure no regressions across all modules",
+          "Verify that comparisons between different types of SymPy objects still work as expected",
+          "Test edge cases where both sides return NotImplemented to ensure final result is False as expected",
+          "Create performance benchmarks to ensure the changes don't significantly impact comparison performance",
+          "Test real-world use cases involving custom classes interacting with SymPy objects from different subsystems",
+          "Verify that existing SymPy-internal comparisons continue to work correctly",
+          "Test complex expressions involving multiple comparison operations to ensure consistent behavior"
+        ]
+      },
+      {
+        "files_to_inspect": [
+          {
+            "path": "sympy/core/basic.py",
+            "reason": "Contains the Basic class with comparison methods - specifically mentioned at line 316 in the issue"
+          },
+          {
+            "path": "sympy/core/tests/test_basic.py",
+            "reason": "Tests for Basic class comparisons to understand current behavior and add new tests"
+          },
+          {
+            "path": "sympy/core/tests/test_equal.py",
+            "reason": "Tests for equality operations to understand expected behavior and potential impacts"
+          },
+          {
+            "path": "sympy/core/tests/test_relational.py",
+            "reason": "Tests for relational operations that might be affected by comparison changes"
+          },
+          {
+            "path": "sympy/core/expr.py",
+            "reason": "Expr inherits from Basic and may override comparison methods that need checking"
+          },
+          {
+            "path": "sympy/core/numbers.py",
+            "reason": "Number classes may override comparison methods and need to be checked for consistency"
+          },
+          {
+            "path": "sympy/core/relational.py",
+            "reason": "Contains relational operators that interact with comparison methods"
+          },
+          {
+            "path": "sympy/matrices/expressions/matexpr.py",
+            "reason": "Matrix expressions may have their own comparison implementations that should be consistent"
+          },
+          {
+            "path": "sympy/sets/sets.py",
+            "reason": "Set classes likely have comparison methods that should follow the same pattern"
+          },
+          {
+            "path": "sympy/logic/boolalg.py",
+            "reason": "Boolean algebra classes may implement comparison methods that need consistency"
+          },
+          {
+            "path": "sympy/tensor/indexed.py",
+            "reason": "Indexed tensor classes may have comparison methods"
+          },
+          {
+            "path": "sympy/tensor/array/dense_ndim_array.py",
+            "reason": "Array classes may implement custom comparison methods"
+          },
+          {
+            "path": "sympy/combinatorics/permutations.py",
+            "reason": "Permutation classes may have comparison methods that need consistency"
+          }
+        ],
+        "files_to_modify": [
+          {
+            "path": "sympy/core/basic.py",
+            "change_type": "edit",
+            "description": "Change __eq__ and other rich comparison methods to return NotImplemented instead of False for unknown types"
+          },
+          {
+            "path": "sympy/core/tests/test_basic.py",
+            "change_type": "edit",
+            "description": "Add comprehensive test cases to verify symmetric comparison behavior with custom classes"
+          }
+        ],
+        "implementation_steps": [
+          {
+            "step": 1,
+            "description": "Examine sympy/core/basic.py to locate the specific line 316 mentioned and all rich comparison methods",
+            "files_involved": [
+              "sympy/core/basic.py"
+            ]
+          },
+          {
+            "step": 2,
+            "description": "Review current test behavior to understand what changes are expected",
+            "files_involved": [
+              "sympy/core/tests/test_basic.py",
+              "sympy/core/tests/test_equal.py",
+              "sympy/core/tests/test_relational.py"
+            ]
+          },
+          {
+            "step": 3,
+            "description": "Fix Basic.__eq__ to return NotImplemented instead of False for unknown types at line 316",
+            "files_involved": [
+              "sympy/core/basic.py"
+            ]
+          },
+          {
+            "step": 4,
+            "description": "Check if Basic implements other comparison methods (__ne__, __lt__, __le__, __gt__, __ge__) and fix them similarly",
+            "files_involved": [
+              "sympy/core/basic.py"
+            ]
+          },
+          {
+            "step": 5,
+            "description": "Run Basic class tests to identify any immediate failures and understand inheritance impact",
+            "files_involved": [
+              "sympy/core/tests/test_basic.py"
+            ]
+          },
+          {
+            "step": 6,
+            "description": "Analyze inheritance hierarchy to determine which classes inherit comparison behavior from Basic",
+            "files_involved": [
+              "sympy/core/expr.py",
+              "sympy/core/numbers.py"
+            ]
+          },
+          {
+            "step": 7,
+            "description": "Search for classes that override comparison methods and evaluate if they need similar changes",
+            "files_involved": [
+              "sympy/matrices/expressions/matexpr.py",
+              "sympy/sets/sets.py",
+              "sympy/logic/boolalg.py",
+              "sympy/tensor/indexed.py",
+              "sympy/combinatorics/permutations.py"
+            ]
+          },
+          {
+            "step": 8,
+            "description": "Apply similar NotImplemented changes to classes that override comparison methods and return False for unknown types",
+            "files_involved": [
+              "files identified in step 7"
+            ]
+          },
+          {
+            "step": 9,
+            "description": "Create comprehensive test case with custom class to verify symmetric comparison behavior",
+            "files_involved": [
+              "sympy/core/tests/test_basic.py"
+            ]
+          },
+          {
+            "step": 10,
+            "description": "Run targeted tests on modified classes to ensure no regressions",
+            "files_involved": [
+              "test files for modified classes"
+            ]
+          },
+          {
+            "step": 11,
+            "description": "Run core module tests to validate overall system stability",
+            "files_involved": [
+              "sympy/core/tests/"
+            ]
+          }
+        ],
+        "assumptions": [
+          "The primary issue is in sympy.core.basic.Basic.__eq__ at line 316 as specified in the GitHub issue",
+          "Many SymPy classes inherit from Basic and will automatically get the correct behavior once Basic is fixed",
+          "Only classes that explicitly override comparison methods need individual attention",
+          "The change should maintain backward compatibility for SymPy-internal comparisons while enabling proper delegation",
+          "Some specialized classes may legitimately need to return False instead of NotImplemented in specific cases"
+        ],
+        "risks": [
+          "Changing Basic.__eq__ could affect many derived classes if they don't override comparison methods",
+          "Existing tests might expect False return values and could fail with the new delegation behavior",
+          "Some edge cases might rely on the current False return behavior",
+          "Classes that override comparison methods might have inconsistent behavior if not all are updated",
+          "Performance impact from additional method calls through delegation mechanism"
+        ],
+        "validation": [
+          "Create test with custom class that implements comparison with Basic objects to verify f == s and s == f return the same result",
+          "Test that existing SymPy object comparisons continue to work correctly",
+          "Verify that when both sides return NotImplemented, the final result is False as expected",
+          "Run core test suite to ensure no regressions in fundamental comparison behavior",
+          "Test edge cases with complex expressions involving multiple comparison operations",
+          "Validate that the inheritance hierarchy correctly propagates the new behavior",
+          "Test comparisons between different types of SymPy objects to ensure consistency"
+        ]
+      }
+    ]
+  },
+  {
+    "task_id": "pydata__xarray-7019",
+    "complexity_tier": "architectural",
+    "ground_truth_count": 23,
+    "stages": [
+      {
+        "stage": 0,
+        "recall": 0.2609,
+        "precision": 0.5,
+        "plan_files_count": 12,
+        "plan_files": [
+          "xarray/core/__init__.py",
+          "xarray/core/computation.py",
+          "xarray/core/dask_array_ops.py",
+          "xarray/core/dataarray.py",
+          "xarray/core/dataset.py",
+          "xarray/core/duck_array_ops.py",
+          "xarray/core/options.py",
+          "xarray/core/parallel.py",
+          "xarray/core/parallel_managers.py",
+          "xarray/core/variable.py",
+          "xarray/tests/test_dask.py",
+          "xarray/tests/test_parallel_managers.py"
+        ]
+      },
+      {
+        "stage": 1,
+        "recall": 0.2609,
+        "precision": 0.5,
+        "plan_files_count": 12,
+        "plan_files": [
+          "xarray/core/__init__.py",
+          "xarray/core/computation.py",
+          "xarray/core/dask_array_ops.py",
+          "xarray/core/dataarray.py",
+          "xarray/core/dataset.py",
+          "xarray/core/duck_array_ops.py",
+          "xarray/core/options.py",
+          "xarray/core/parallel.py",
+          "xarray/core/parallel_managers.py",
+          "xarray/core/variable.py",
+          "xarray/tests/test_dask.py",
+          "xarray/tests/test_parallel_managers.py"
+        ],
+        "error": "Expecting value: line 1 column 1 (char 0)"
+      }
+    ],
+    "critiques": [
+      {
+        "concerns": [
+          "The plan doesn't address array creation functions that are currently dask-specific (like from_array, zeros_like, etc.) which would need parallel manager support",
+          "Missing consideration of how chunking behavior differs between frameworks - cubed may have different chunking constraints than dask",
+          "The plan assumes all parallel frameworks will have identical APIs, but there may be subtle differences in parameters or behavior that need framework-specific handling",
+          "No consideration of how this affects serialization/deserialization of chunked arrays across different frameworks",
+          "The abstraction layer could introduce significant performance overhead for hot code paths that currently call dask functions directly",
+          "Missing integration with xarray's lazy loading mechanisms in backends that currently assume dask arrays",
+          "The plan doesn't address how to handle framework-specific optimizations or hints that users might want to pass through"
+        ],
+        "missing_files": [
+          "xarray/core/indexing.py",
+          "xarray/core/missing.py",
+          "xarray/core/concat.py",
+          "xarray/core/combine.py",
+          "xarray/core/merge.py",
+          "xarray/core/alignment.py",
+          "xarray/core/rolling.py",
+          "xarray/core/groupby.py",
+          "xarray/core/resample.py",
+          "xarray/backends/common.py",
+          "xarray/backends/zarr.py",
+          "xarray/backends/netCDF4_.py",
+          "xarray/backends/api.py",
+          "xarray/tests/test_computation.py",
+          "xarray/tests/test_concat.py",
+          "xarray/tests/test_combine.py",
+          "xarray/tests/test_merge.py",
+          "xarray/tests/test_groupby.py",
+          "xarray/tests/test_backends.py"
+        ],
+        "suggested_changes": [
+          "Add xarray/core/array_creation.py or modify existing files to handle parallel array creation functions (zeros, ones, from_array, etc.) through the manager system",
+          "Include backend files in the modification plan since lazy loading and chunking during file I/O will need to work with different parallel frameworks",
+          "Add more comprehensive test files covering operations like concat, merge, groupby, and rolling with different parallel managers",
+          "Consider creating xarray/core/parallel_utils.py for shared utilities between parallel managers (chunk size validation, array compatibility checks, etc.)",
+          "Add validation in the parallel manager interface to ensure chunk patterns are compatible with the target framework's constraints",
+          "Include performance benchmarking files in asv_bench/benchmarks/ to monitor the overhead of the abstraction layer",
+          "Consider adding framework-specific configuration options beyond just the manager selection (e.g., cubed-specific executor settings)",
+          "Add explicit handling for array type coercion when switching between parallel frameworks",
+          "Include integration tests that verify data integrity when moving between different parallel managers",
+          "Add documentation files explaining the parallel manager system and migration guide for users"
+        ]
+      }
+    ],
+    "revised_plans": []
+  },
+  {
+    "task_id": "matplotlib__matplotlib-14623",
+    "complexity_tier": "localized",
+    "ground_truth_count": 3,
+    "stages": [
+      {
+        "stage": 0,
+        "recall": 0.3333,
+        "precision": 0.1667,
+        "plan_files_count": 6,
+        "plan_files": [
+          "examples/scales/log_demo.py",
+          "lib/matplotlib/axes/_base.py",
+          "lib/matplotlib/axis.py",
+          "lib/matplotlib/scale.py",
+          "lib/matplotlib/tests/test_axes.py",
+          "lib/matplotlib/tests/test_scale.py"
+        ]
+      },
+      {
+        "stage": 1,
+        "recall": 0.6667,
+        "precision": 0.2,
+        "plan_files_count": 10,
+        "plan_files": [
+          "examples/scales/log_demo.py",
+          "examples/subplots_axes_and_figures/invert_axes.py",
+          "lib/matplotlib/axes/_axes.py",
+          "lib/matplotlib/axes/_base.py",
+          "lib/matplotlib/axis.py",
+          "lib/matplotlib/scale.py",
+          "lib/matplotlib/tests/test_axes.py",
+          "lib/matplotlib/tests/test_scale.py",
+          "lib/matplotlib/ticker.py",
+          "lib/matplotlib/transforms.py"
+        ]
+      },
+      {
+        "stage": 2,
+        "recall": 0.3333,
+        "precision": 0.1667,
+        "plan_files_count": 6,
+        "plan_files": [
+          "examples/subplots_axes_and_figures/invert_axes.py",
+          "lib/matplotlib/axes/_base.py",
+          "lib/matplotlib/axis.py",
+          "lib/matplotlib/scale.py",
+          "lib/matplotlib/tests/test_axis.py",
+          "lib/matplotlib/tests/test_scale.py"
+        ]
+      }
+    ],
+    "critiques": [
+      {
+        "concerns": [
+          "The plan assumes the issue is primarily in LogScale class but doesn't consider that the problem might be in the axis inversion logic itself, which could be in the Axis class or transform system",
+          "The plan doesn't inspect any transform-related files which are crucial for coordinate transformations in matplotlib",
+          "Missing inspection of ticker/locator files that might be involved in log scale limit handling",
+          "The plan lacks consideration for testing both X and Y axis inversion, only focusing on Y axis",
+          "No inspection of baseline files to understand how axis inversion worked before the regression",
+          "The scope might be too narrow - focusing only on scale.py when the issue could be in the interaction between scales and axis limit setting"
+        ],
+        "missing_files": [
+          "lib/matplotlib/transforms.py",
+          "lib/matplotlib/ticker.py",
+          "lib/matplotlib/tests/test_axes.py",
+          "examples/subplots_axes_and_figures/invert_axes.py",
+          "lib/matplotlib/axes/_axes.py"
+        ],
+        "suggested_changes": [
+          "Add lib/matplotlib/transforms.py to files_to_inspect since transforms handle coordinate mappings and could be where log scale inversion fails",
+          "Include lib/matplotlib/ticker.py in inspection as it contains locators and formatters that work with scales",
+          "Add lib/matplotlib/axes/_axes.py to files_to_inspect since it contains the main plotting methods that interact with scales",
+          "Include examples/subplots_axes_and_figures/invert_axes.py to understand expected inversion behavior patterns",
+          "Expand test plan to include both set_xlim and set_ylim testing for log scales, not just ylim",
+          "Add implementation step to test the reproduction case with matplotlib 3.0.x vs 3.1.0 to identify the exact change that broke it",
+          "Consider adding lib/matplotlib/tests/test_transforms.py to files_to_inspect if it exists, to understand transform testing patterns",
+          "Add step to inspect git history around matplotlib 3.1.0 release to identify commits that changed scale or axis limit handling"
+        ]
+      },
+      {
+        "concerns": [
+          "The plan focuses heavily on inspecting many files but may be over-engineering the investigation phase. The issue is likely straightforward - log scale axis inversion not working properly.",
+          "The plan assumes the fix will be in scale.py but doesn't consider that the issue might be in the axis limit handling code in axes/_base.py where set_ylim/set_xlim are implemented.",
+          "Missing consideration of how axis inversion state is tracked and whether it's properly communicated between axes and scale objects.",
+          "The plan doesn't account for potential interactions with autoscaling logic that might override inversion settings for log scales.",
+          "No consideration of whether the issue affects other scale types beyond log (symlog, logit) which should be tested for regressions.",
+          "The implementation steps are too sequential and inspection-heavy rather than focusing on reproducing and isolating the root cause quickly."
+        ],
+        "missing_files": [
+          "lib/matplotlib/tests/test_axis.py",
+          "lib/matplotlib/_base.py",
+          "lib/matplotlib/tests/test_transforms.py"
+        ],
+        "suggested_changes": [
+          "Add lib/matplotlib/tests/test_axis.py to understand how axis inversion is currently tested and to add regression tests there as well",
+          "Include testing of symlog and logit scales in the validation plan to ensure the fix doesn't break other scale types",
+          "Reduce the number of inspection files initially - start with just axes/_base.py and scale.py to identify the issue quickly",
+          "Add a step to check git blame/history on scale.py around matplotlib 3.1.0 release to identify what changed",
+          "Include lib/matplotlib/_base.py if it exists, as it might contain shared axis functionality",
+          "Add lib/matplotlib/tests/test_transforms.py to the files to inspect since transforms handle coordinate mapping",
+          "Modify the plan to first reproduce the issue, then use git bisect or version comparison to identify the regression commit",
+          "Consider that the fix might need to be in axes/_base.py set_xlim/set_ylim methods rather than scale.py",
+          "Add validation that normal axis inversion methods (ax.invert_xaxis(), ax.invert_yaxis()) still work correctly with log scales",
+          "Include testing edge cases like setting inverted limits multiple times, and interaction with autoscale"
+        ]
+      }
+    ],
+    "revised_plans": [
+      {
+        "files_to_inspect": [
+          {
+            "path": "lib/matplotlib/axes/_base.py",
+            "reason": "Contains the base Axes class with set_ylim/set_xlim methods and axis limit handling logic"
+          },
+          {
+            "path": "lib/matplotlib/scale.py",
+            "reason": "Contains scale implementations including LogScale which likely handles log axis behavior and limit processing"
+          },
+          {
+            "path": "lib/matplotlib/axis.py",
+            "reason": "Contains Axis class that manages axis properties including limits and inversion state"
+          },
+          {
+            "path": "lib/matplotlib/transforms.py",
+            "reason": "Contains transform classes that handle coordinate mappings and could be where log scale inversion fails"
+          },
+          {
+            "path": "lib/matplotlib/ticker.py",
+            "reason": "Contains locators and formatters that work with scales and may be involved in limit handling"
+          },
+          {
+            "path": "lib/matplotlib/axes/_axes.py",
+            "reason": "Contains main plotting methods that interact with scales and axis limits"
+          },
+          {
+            "path": "examples/subplots_axes_and_figures/invert_axes.py",
+            "reason": "Example showing expected axis inversion behavior patterns to understand correct implementation"
+          },
+          {
+            "path": "lib/matplotlib/tests/test_scale.py",
+            "reason": "Existing tests for scale behavior that can help understand current test coverage and expected behavior"
+          },
+          {
+            "path": "lib/matplotlib/tests/test_axes.py",
+            "reason": "Tests for axis limit setting that could reveal the regression and provide testing patterns"
+          },
+          {
+            "path": "examples/scales/log_demo.py",
+            "reason": "Example showing log scale usage to understand expected behavior"
+          }
+        ],
+        "files_to_modify": [
+          {
+            "path": "lib/matplotlib/scale.py",
+            "change_type": "edit",
+            "description": "Fix the LogScale class to properly handle inverted limits when they are set"
+          },
+          {
+            "path": "lib/matplotlib/tests/test_scale.py",
+            "change_type": "edit",
+            "description": "Add comprehensive regression test to verify log scale inversion via limits works for both X and Y axes"
+          }
+        ],
+        "implementation_steps": [
+          {
+            "step": 1,
+            "description": "Run the reproduction code to confirm the issue and document current behavior",
+            "files_involved": []
+          },
+          {
+            "step": 2,
+            "description": "Inspect axes._base.py to understand how set_ylim/set_xlim work and how they interact with scales",
+            "files_involved": [
+              "lib/matplotlib/axes/_base.py"
+            ]
+          },
+          {
+            "step": 3,
+            "description": "Examine scale.py to understand LogScale implementation and identify where inversion logic may be broken",
+            "files_involved": [
+              "lib/matplotlib/scale.py"
+            ]
+          },
+          {
+            "step": 4,
+            "description": "Check axis.py to see how axis inversion state is managed and updated",
+            "files_involved": [
+              "lib/matplotlib/axis.py"
+            ]
+          },
+          {
+            "step": 5,
+            "description": "Examine transforms.py to understand coordinate transformation handling for log scales",
+            "files_involved": [
+              "lib/matplotlib/transforms.py"
+            ]
+          },
+          {
+            "step": 6,
+            "description": "Review ticker.py for any interaction between locators/formatters and limit setting",
+            "files_involved": [
+              "lib/matplotlib/ticker.py"
+            ]
+          },
+          {
+            "step": 7,
+            "description": "Inspect invert_axes.py example to understand expected inversion behavior patterns",
+            "files_involved": [
+              "examples/subplots_axes_and_figures/invert_axes.py"
+            ]
+          },
+          {
+            "step": 8,
+            "description": "Test reproduction case with matplotlib 3.0.x behavior as reference if possible, or examine git history around 3.1.0 release",
+            "files_involved": []
+          },
+          {
+            "step": 9,
+            "description": "Identify the specific code path where log scale limits are processed and inversion detection fails",
+            "files_involved": [
+              "lib/matplotlib/scale.py",
+              "lib/matplotlib/axis.py"
+            ]
+          },
+          {
+            "step": 10,
+            "description": "Implement fix to ensure LogScale properly detects and handles inverted limits",
+            "files_involved": [
+              "lib/matplotlib/scale.py"
+            ]
+          },
+          {
+            "step": 11,
+            "description": "Add comprehensive test cases for both X and Y axis inversion with log scales to prevent regression",
+            "files_involved": [
+              "lib/matplotlib/tests/test_scale.py"
+            ]
+          },
+          {
+            "step": 12,
+            "description": "Verify fix works with both the original reproduction case and new test cases",
+            "files_involved": []
+          }
+        ],
+        "assumptions": [
+          "The issue is in the LogScale class or its interaction with axis limit setting logic",
+          "The bug was introduced by changes to scale or axis handling in matplotlib 3.1.0",
+          "Linear scale inversion still works correctly and can serve as reference implementation",
+          "The fix should preserve backward compatibility and not affect other log scale behaviors",
+          "Both X and Y axis inversion should work consistently with log scales"
+        ],
+        "risks": [
+          "Fix might affect other logarithmic scale behaviors or cause side effects in transforms",
+          "Changes to scale.py could impact performance of log scale operations",
+          "The root cause might be in the interaction between multiple components (axis, scale, transforms) requiring more extensive changes",
+          "Fix might not work correctly with all log scale edge cases (very small values, negative values, etc.)",
+          "Changes could introduce regressions in other scale types or axis behaviors"
+        ],
+        "validation": [
+          "Run the original reproduction code and verify both linear and log scales show inverted axes",
+          "Run existing test suite to ensure no regressions in scale, axis, and transform behavior",
+          "Test edge cases like log scale with very small/large values and inversion",
+          "Verify the fix works for both set_ylim and set_xlim with log scales",
+          "Test that normal (non-inverted) log scale behavior remains unchanged",
+          "Test interaction with other scale types (symlog, logit) to ensure no side effects",
+          "Verify behavior is consistent across different backends and plotting functions"
+        ]
+      },
+      {
+        "files_to_inspect": [
+          {
+            "path": "lib/matplotlib/axes/_base.py",
+            "reason": "Contains set_ylim/set_xlim methods that handle axis limit setting and likely interact with axis inversion logic"
+          },
+          {
+            "path": "lib/matplotlib/scale.py",
+            "reason": "Contains LogScale implementation that may not be properly handling inverted limits detection"
+          },
+          {
+            "path": "lib/matplotlib/axis.py",
+            "reason": "Contains Axis class that manages axis inversion state and communicates with scales"
+          },
+          {
+            "path": "examples/subplots_axes_and_figures/invert_axes.py",
+            "reason": "Reference implementation showing expected axis inversion behavior patterns"
+          },
+          {
+            "path": "lib/matplotlib/tests/test_axis.py",
+            "reason": "Tests for axis behavior including inversion to understand current test coverage and add regression tests"
+          },
+          {
+            "path": "lib/matplotlib/tests/test_scale.py",
+            "reason": "Existing scale tests to understand current behavior and add log scale inversion tests"
+          }
+        ],
+        "files_to_modify": [
+          {
+            "path": "lib/matplotlib/scale.py",
+            "change_type": "edit",
+            "description": "Fix LogScale class to properly detect and handle inverted limits when set via set_xlim/set_ylim"
+          },
+          {
+            "path": "lib/matplotlib/tests/test_scale.py",
+            "change_type": "edit",
+            "description": "Add comprehensive regression test for log scale inversion via limits for both X and Y axes"
+          },
+          {
+            "path": "lib/matplotlib/tests/test_axis.py",
+            "change_type": "edit",
+            "description": "Add test cases for axis inversion with log scales to ensure no regressions in axis behavior"
+          }
+        ],
+        "implementation_steps": [
+          {
+            "step": 1,
+            "description": "Create and run reproduction script to confirm the issue and document current behavior",
+            "files_involved": []
+          },
+          {
+            "step": 2,
+            "description": "Use git log/blame on scale.py around matplotlib 3.1.0 to identify what changed",
+            "files_involved": [
+              "lib/matplotlib/scale.py"
+            ]
+          },
+          {
+            "step": 3,
+            "description": "Examine set_ylim/set_xlim in axes._base.py to understand how limits are processed and communicated to scales",
+            "files_involved": [
+              "lib/matplotlib/axes/_base.py"
+            ]
+          },
+          {
+            "step": 4,
+            "description": "Analyze LogScale class in scale.py to identify where inversion detection fails",
+            "files_involved": [
+              "lib/matplotlib/scale.py"
+            ]
+          },
+          {
+            "step": 5,
+            "description": "Check axis.py for how inversion state is managed and whether it's properly updated for log scales",
+            "files_involved": [
+              "lib/matplotlib/axis.py"
+            ]
+          },
+          {
+            "step": 6,
+            "description": "Identify the specific code path where log scale fails to detect inverted limits (high, low) ordering",
+            "files_involved": [
+              "lib/matplotlib/scale.py",
+              "lib/matplotlib/axis.py"
+            ]
+          },
+          {
+            "step": 7,
+            "description": "Implement fix in LogScale to properly handle inverted limits detection and axis inversion",
+            "files_involved": [
+              "lib/matplotlib/scale.py"
+            ]
+          },
+          {
+            "step": 8,
+            "description": "Add regression test that reproduces the original issue and verifies the fix for both X and Y axes",
+            "files_involved": [
+              "lib/matplotlib/tests/test_scale.py"
+            ]
+          },
+          {
+            "step": 9,
+            "description": "Add axis inversion tests with log scales to test_axis.py to prevent regressions",
+            "files_involved": [
+              "lib/matplotlib/tests/test_axis.py"
+            ]
+          },
+          {
+            "step": 10,
+            "description": "Test fix with original reproduction case and verify it works correctly",
+            "files_involved": []
+          },
+          {
+            "step": 11,
+            "description": "Run test suite to ensure no regressions in scale, axis, and transform behavior",
+            "files_involved": []
+          }
+        ],
+        "assumptions": [
+          "The regression was introduced in matplotlib 3.1.0 due to changes in scale or axis handling",
+          "The issue is in LogScale's limit processing rather than the axes limit setting methods",
+          "Linear scale inversion still works and can serve as reference for expected behavior",
+          "The fix should not affect other scale types (symlog, logit) or normal log scale behavior",
+          "Both invert_xaxis()/invert_yaxis() methods still work correctly with log scales"
+        ],
+        "risks": [
+          "Fix might affect other log scale behaviors or cause performance regressions",
+          "The root cause might be in axis-scale communication requiring changes to multiple files",
+          "Fix could introduce regressions in symlog or logit scale types",
+          "Edge cases with very small/large log values might not work correctly with inversion",
+          "Autoscaling logic might interfere with manual limit-based inversion"
+        ],
+        "validation": [
+          "Run original reproduction code and verify both linear and log scales show inverted axes",
+          "Test that ax.invert_xaxis() and ax.invert_yaxis() still work correctly with log scales",
+          "Verify normal (non-inverted) log scale behavior remains unchanged",
+          "Test edge cases: very small values, large values, repeated inversion calls",
+          "Run full test suite focusing on scale, axis, and transform tests",
+          "Test symlog and logit scales to ensure no side effects from the fix",
+          "Verify fix works with both set_xlim and set_ylim for log scales",
+          "Test interaction with autoscaling to ensure inversion is preserved"
+        ]
+      }
+    ]
+  },
+  {
+    "task_id": "pylint-dev__pylint-8898",
+    "complexity_tier": "localized",
+    "ground_truth_count": 3,
+    "stages": [
+      {
+        "stage": 0,
+        "recall": 0.3333,
+        "precision": 0.2,
+        "plan_files_count": 5,
+        "plan_files": [
+          "pylint/checkers/base/name_checker/checker.py",
+          "pylint/config/argument.py",
+          "pylint/config/arguments_manager.py",
+          "pylint/lint/base_options.py",
+          "tests/config/test_config.py"
+        ]
+      },
+      {
+        "stage": 1,
+        "recall": 0.3333,
+        "precision": 0.0769,
+        "plan_files_count": 13,
+        "plan_files": [
+          "doc/user_guide/configuration/all-options.rst",
+          "pylint/checkers/base/name_checker/__init__.py",
+          "pylint/checkers/base/name_checker/checker.py",
+          "pylint/config/argument.py",
+          "pylint/config/arguments_manager.py",
+          "pylint/config/callback_actions.py",
+          "pylint/config/option.py",
+          "pylint/lint/base_options.py",
+          "tests/checkers/test_base_name_checker.py",
+          "tests/config/test_argparse_config.py",
+          "tests/config/test_config.py",
+          "tests/integration/test_config_integration.py",
+          "tests/test_functional.py"
+        ]
+      },
+      {
+        "stage": 2,
+        "recall": 0.3333,
+        "precision": 0.0909,
+        "plan_files_count": 11,
+        "plan_files": [
+          "pylint/checkers/base/name_checker/__init__.py",
+          "pylint/checkers/base/name_checker/checker.py",
+          "pylint/config/argument.py",
+          "pylint/config/arguments_manager.py",
+          "pylint/config/option.py",
+          "pylint/config/utils.py",
+          "pylint/lint/base_options.py",
+          "tests/checkers/test_base_name_checker.py",
+          "tests/config/test_argument.py",
+          "tests/config/test_arguments_manager.py",
+          "tests/config/test_config.py"
+        ]
+      }
+    ],
+    "critiques": [
+      {
+        "concerns": [
+          "The plan assumes the issue is only with bad-name-rgxs, but the problem likely affects ALL regex CSV options in pylint, making the scope too narrow",
+          "Missing investigation of how other regex options are defined and handled - the fix should be consistent across all regex CSV options",
+          "No consideration for backward compatibility testing with existing configurations that might rely on current behavior",
+          "The plan doesn't identify where regex CSV options are actually registered/defined in the configuration system",
+          "Missing integration tests that would test the full pylint workflow with the problematic configuration",
+          "No investigation of documentation that might need updates to reflect the fix"
+        ],
+        "missing_files": [
+          "pylint/checkers/base/name_checker/__init__.py",
+          "pylint/config/option.py",
+          "pylint/config/_pylint_config/__init__.py",
+          "tests/config/test_argparse_config.py",
+          "tests/checkers/test_base_name_checker.py",
+          "tests/integration/test_config_integration.py",
+          "pylint/config/callback_actions.py",
+          "tests/test_functional.py",
+          "doc/user_guide/configuration/all-options.rst"
+        ],
+        "suggested_changes": [
+          "Expand investigation to find ALL regex CSV options in pylint, not just bad-name-rgxs, to ensure consistent fixing across the codebase",
+          "Add exploration of pylint/config/option.py and related configuration infrastructure to understand how option types are defined",
+          "Include tests/checkers/test_base_name_checker.py to add specific tests for the name checker with regex patterns containing commas",
+          "Add integration tests that test the complete pylint workflow with the problematic configuration to ensure end-to-end functionality",
+          "Include investigation of callback_actions.py as it may contain custom argument processing logic",
+          "Add documentation review and updates to reflect any changes in how regex patterns should be specified",
+          "Consider creating a new functional test case that specifically tests regex patterns with commas in various option contexts",
+          "Add backward compatibility tests to ensure existing configurations without commas continue to work"
+        ]
+      },
+      {
+        "concerns": [
+          "The plan assumes the issue is only in _regexp_csv_transfomer but doesn't verify this is the only function handling regex CSV parsing",
+          "The plan doesn't identify the specific checker modules that define regex CSV options beyond name_checker",
+          "Missing analysis of how different configuration file formats (TOML, INI, etc.) might be affected differently",
+          "The plan doesn't consider that there might be other CSV option types that could have similar issues",
+          "No consideration of command-line argument parsing vs config file parsing - they might behave differently",
+          "The scope might be too broad - creating integration tests and functional tests when unit tests might be sufficient initially",
+          "Missing investigation of existing escape mechanisms or quoting in pylint's configuration system"
+        ],
+        "missing_files": [
+          "pylint/checkers/imports/checker.py",
+          "pylint/checkers/variables/checker.py",
+          "pylint/checkers/classes/checker.py",
+          "pylint/checkers/refactoring/checker.py",
+          "pylint/config/utils.py",
+          "tests/config/test_arguments_manager.py",
+          "tests/config/test_argument.py",
+          "tests/test_config_functional.py",
+          "pylint/config/_pylint_config/__init__.py",
+          "pylint/config/_pylint_config/help_formatter.py"
+        ],
+        "suggested_changes": [
+          "Add step to grep/search the entire codebase for all usages of 'regexp_csv' or similar patterns to identify ALL affected options, not just name checker ones",
+          "Include analysis of pylint/config/utils.py which might contain additional CSV parsing utilities",
+          "Add investigation of existing test files like tests/config/test_argument.py to understand current test patterns for argument parsing",
+          "Consider examining how other pylint options handle special characters (like paths with spaces, regex with special chars)",
+          "Add step to test command-line vs config file behavior separately as they might use different parsing paths",
+          "Include analysis of how TOML array syntax vs INI CSV syntax should behave - TOML arrays might not have this issue",
+          "Add step to examine if there are any existing escape mechanisms in pylint's config system that could be leveraged",
+          "Reduce scope initially - focus on core fix and unit tests first, then add integration tests in follow-up",
+          "Add analysis of whether this affects other CSV option types beyond regex patterns"
+        ]
+      }
+    ],
+    "revised_plans": [
+      {
+        "files_to_inspect": [
+          {
+            "path": "pylint/config/argument.py",
+            "reason": "Contains _regexp_csv_transfomer function mentioned in the stack trace that's incorrectly splitting regex patterns on commas"
+          },
+          {
+            "path": "pylint/checkers/base/name_checker/checker.py",
+            "reason": "Likely contains the definition of bad-name-rgxs option and other regex CSV options"
+          },
+          {
+            "path": "pylint/checkers/base/name_checker/__init__.py",
+            "reason": "May contain additional name checker option definitions"
+          },
+          {
+            "path": "pylint/config/option.py",
+            "reason": "Contains the core configuration option infrastructure and type definitions"
+          },
+          {
+            "path": "pylint/config/arguments_manager.py",
+            "reason": "Handles configuration parsing and may show how CSV options are processed"
+          },
+          {
+            "path": "pylint/config/callback_actions.py",
+            "reason": "May contain custom argument processing logic for regex options"
+          },
+          {
+            "path": "pylint/lint/base_options.py",
+            "reason": "May contain base option definitions including other regex-type options"
+          },
+          {
+            "path": "tests/config/test_config.py",
+            "reason": "Contains tests for configuration parsing that might show expected behavior"
+          },
+          {
+            "path": "tests/config/test_argparse_config.py",
+            "reason": "Additional configuration parsing tests that may cover CSV options"
+          },
+          {
+            "path": "tests/checkers/test_base_name_checker.py",
+            "reason": "Tests for name checker that should include regex pattern testing"
+          }
+        ],
+        "files_to_modify": [
+          {
+            "path": "pylint/config/argument.py",
+            "change_type": "edit",
+            "description": "Fix _regexp_csv_transfomer to properly handle regular expressions containing commas, using proper CSV parsing or alternative approach that doesn't split on commas within patterns"
+          },
+          {
+            "path": "tests/config/test_config.py",
+            "change_type": "edit",
+            "description": "Add test cases to verify that regex patterns with commas are handled correctly in CSV regex options"
+          },
+          {
+            "path": "tests/checkers/test_base_name_checker.py",
+            "change_type": "edit",
+            "description": "Add specific tests for name checker with regex patterns containing commas to ensure end-to-end functionality"
+          },
+          {
+            "path": "tests/integration/test_config_integration.py",
+            "change_type": "create",
+            "description": "Create integration tests that test the complete pylint workflow with problematic regex configurations"
+          },
+          {
+            "path": "tests/test_functional.py",
+            "change_type": "edit",
+            "description": "Add functional test case for regex patterns with commas in configuration files"
+          },
+          {
+            "path": "doc/user_guide/configuration/all-options.rst",
+            "change_type": "edit",
+            "description": "Update documentation to clarify how regex patterns should be specified, especially those containing commas"
+          }
+        ],
+        "implementation_steps": [
+          {
+            "step": 1,
+            "description": "Examine the current _regexp_csv_transfomer implementation to understand how it splits CSV values and identify all regex CSV option types",
+            "files_involved": [
+              "pylint/config/argument.py",
+              "pylint/config/option.py"
+            ]
+          },
+          {
+            "step": 2,
+            "description": "Find ALL regex CSV options across the codebase (bad-name-rgxs, good-names-rgxs, etc.) to understand the full scope of the issue",
+            "files_involved": [
+              "pylint/checkers/base/name_checker/checker.py",
+              "pylint/checkers/base/name_checker/__init__.py",
+              "pylint/lint/base_options.py"
+            ]
+          },
+          {
+            "step": 3,
+            "description": "Examine existing configuration parsing tests and callback actions to understand current patterns and expected behavior",
+            "files_involved": [
+              "tests/config/test_config.py",
+              "tests/config/test_argparse_config.py",
+              "pylint/config/callback_actions.py"
+            ]
+          },
+          {
+            "step": 4,
+            "description": "Implement a robust fix for regex CSV parsing that uses proper CSV parsing with escaping or an alternative approach that preserves commas within regex patterns",
+            "files_involved": [
+              "pylint/config/argument.py"
+            ]
+          },
+          {
+            "step": 5,
+            "description": "Create comprehensive test cases covering all regex CSV options with comma-containing patterns in various contexts",
+            "files_involved": [
+              "tests/config/test_config.py",
+              "tests/config/test_argparse_config.py"
+            ]
+          },
+          {
+            "step": 6,
+            "description": "Add specific name checker tests to ensure end-to-end functionality with regex patterns containing commas",
+            "files_involved": [
+              "tests/checkers/test_base_name_checker.py"
+            ]
+          },
+          {
+            "step": 7,
+            "description": "Create integration tests that test the complete pylint workflow with the original failing configuration and other problematic cases",
+            "files_involved": [
+              "tests/integration/test_config_integration.py"
+            ]
+          },
+          {
+            "step": 8,
+            "description": "Add functional test cases and verify backward compatibility with existing configurations",
+            "files_involved": [
+              "tests/test_functional.py"
+            ]
+          },
+          {
+            "step": 9,
+            "description": "Update documentation to clarify regex pattern specification and any changes in behavior",
+            "files_involved": [
+              "doc/user_guide/configuration/all-options.rst"
+            ]
+          }
+        ],
+        "assumptions": [
+          "The issue affects ALL regex CSV options in pylint, not just bad-name-rgxs",
+          "The problem is in the CSV parsing logic that naively splits on commas without considering they might be part of regex patterns",
+          "Other regex-based CSV options throughout the codebase have the same vulnerability",
+          "The fix should maintain backward compatibility with existing configurations that don't use commas in regex patterns",
+          "Proper CSV parsing with escaping is the most robust solution"
+        ],
+        "risks": [
+          "Changing CSV parsing behavior could break existing configurations that rely on current comma splitting behavior",
+          "All regex CSV options across the entire pylint codebase need to be identified and fixed consistently",
+          "Performance impact of more sophisticated CSV parsing needs to be evaluated",
+          "Need to ensure escaping mechanism is intuitive and well-documented for users",
+          "Integration with different configuration file formats (INI, TOML, etc.) might behave differently"
+        ],
+        "validation": [
+          "Test with the exact configuration from the issue: bad-name-rgxs = \"(foo{1,3})\"",
+          "Test ALL identified regex CSV options with patterns containing commas",
+          "Test with multiple regex patterns containing commas in a single option",
+          "Test with existing configurations to ensure no regression across all regex options",
+          "Test edge cases like escaped commas, quotes, and complex regex patterns in all contexts",
+          "Run complete test suite to ensure no breaking changes",
+          "Test integration with different configuration file formats (pyproject.toml, .pylintrc, etc.)",
+          "Verify that error messages are helpful when regex patterns are invalid",
+          "Test performance with complex regex configurations"
+        ]
+      },
+      {
+        "files_to_inspect": [
+          {
+            "path": "pylint/config/argument.py",
+            "reason": "Contains _regexp_csv_transfomer function mentioned in the stack trace that's incorrectly splitting regex patterns on commas"
+          },
+          {
+            "path": "pylint/checkers/base/name_checker/checker.py",
+            "reason": "Likely contains the definition of bad-name-rgxs option and other regex CSV options"
+          },
+          {
+            "path": "pylint/checkers/base/name_checker/__init__.py",
+            "reason": "May contain additional name checker option definitions"
+          },
+          {
+            "path": "pylint/config/utils.py",
+            "reason": "May contain additional CSV parsing utilities that could be affected"
+          },
+          {
+            "path": "pylint/config/option.py",
+            "reason": "Contains the core configuration option infrastructure and type definitions"
+          },
+          {
+            "path": "pylint/config/arguments_manager.py",
+            "reason": "Handles configuration parsing and mentioned in stack trace"
+          },
+          {
+            "path": "pylint/lint/base_options.py",
+            "reason": "May contain base option definitions including other regex-type options"
+          },
+          {
+            "path": "tests/config/test_argument.py",
+            "reason": "Direct tests for argument parsing functionality to understand current test patterns"
+          },
+          {
+            "path": "tests/config/test_config.py",
+            "reason": "Contains tests for configuration parsing that might show expected behavior"
+          },
+          {
+            "path": "tests/config/test_arguments_manager.py",
+            "reason": "Tests for arguments manager to understand how CSV options are tested"
+          }
+        ],
+        "files_to_modify": [
+          {
+            "path": "pylint/config/argument.py",
+            "change_type": "edit",
+            "description": "Fix _regexp_csv_transfomer to properly handle regular expressions containing commas using proper CSV parsing with csv module or alternative approach"
+          },
+          {
+            "path": "tests/config/test_argument.py",
+            "change_type": "edit",
+            "description": "Add test cases specifically for _regexp_csv_transfomer with regex patterns containing commas"
+          },
+          {
+            "path": "tests/config/test_config.py",
+            "change_type": "edit",
+            "description": "Add integration test cases to verify that regex patterns with commas work in configuration files"
+          },
+          {
+            "path": "tests/checkers/test_base_name_checker.py",
+            "change_type": "edit",
+            "description": "Add specific tests for name checker with regex patterns containing commas to ensure end-to-end functionality"
+          }
+        ],
+        "implementation_steps": [
+          {
+            "step": 1,
+            "description": "Search the entire codebase for all usages of 'regexp_csv' pattern and CSV option types to identify all affected regex options",
+            "files_involved": [
+              "pylint/checkers/base/name_checker/checker.py",
+              "pylint/checkers/base/name_checker/__init__.py",
+              "pylint/lint/base_options.py"
+            ]
+          },
+          {
+            "step": 2,
+            "description": "Examine the current _regexp_csv_transfomer implementation in argument.py to understand how it splits CSV values",
+            "files_involved": [
+              "pylint/config/argument.py"
+            ]
+          },
+          {
+            "step": 3,
+            "description": "Test command-line vs config file behavior separately to understand if they use different parsing paths",
+            "files_involved": [
+              "pylint/config/arguments_manager.py",
+              "tests/config/test_arguments_manager.py"
+            ]
+          },
+          {
+            "step": 4,
+            "description": "Examine existing configuration parsing tests and option definitions to understand current patterns",
+            "files_involved": [
+              "tests/config/test_config.py",
+              "tests/config/test_argument.py",
+              "pylint/config/option.py"
+            ]
+          },
+          {
+            "step": 5,
+            "description": "Check if pylint has existing escape mechanisms in config system that could be leveraged",
+            "files_involved": [
+              "pylint/config/utils.py",
+              "pylint/config/arguments_manager.py"
+            ]
+          },
+          {
+            "step": 6,
+            "description": "Implement robust fix for regex CSV parsing using Python's csv module or alternative approach that preserves commas within patterns",
+            "files_involved": [
+              "pylint/config/argument.py"
+            ]
+          },
+          {
+            "step": 7,
+            "description": "Create unit tests for the specific _regexp_csv_transfomer function with comma-containing patterns",
+            "files_involved": [
+              "tests/config/test_argument.py"
+            ]
+          },
+          {
+            "step": 8,
+            "description": "Add integration tests for configuration parsing with the original failing case and other regex CSV options",
+            "files_involved": [
+              "tests/config/test_config.py"
+            ]
+          },
+          {
+            "step": 9,
+            "description": "Add end-to-end tests for name checker functionality with regex patterns containing commas",
+            "files_involved": [
+              "tests/checkers/test_base_name_checker.py"
+            ]
+          },
+          {
+            "step": 10,
+            "description": "Test with different configuration file formats (INI vs TOML) to ensure consistent behavior",
+            "files_involved": [
+              "tests/config/test_config.py"
+            ]
+          }
+        ],
+        "assumptions": [
+          "The issue is primarily in _regexp_csv_transfomer function that naively splits on commas",
+          "All regex CSV options throughout pylint use the same parsing mechanism",
+          "The fix should maintain backward compatibility with existing configurations",
+          "Python's csv module can be used to properly parse CSV with escaped commas",
+          "Command-line and config file parsing use the same underlying CSV transformation"
+        ],
+        "risks": [
+          "Changing CSV parsing behavior could break existing configurations that rely on current comma splitting",
+          "Other CSV option types beyond regex patterns might be affected by the fix",
+          "Performance impact of using csv module instead of simple string.split()",
+          "Different configuration file formats (INI, TOML) might behave inconsistently",
+          "May introduce new escaping requirements that users need to learn"
+        ],
+        "validation": [
+          "Test with the exact failing configuration: bad-name-rgxs = \"(foo{1,3})\"",
+          "Test all identified regex CSV options with patterns containing commas",
+          "Test with multiple regex patterns containing commas in a single option",
+          "Test backward compatibility with existing configurations without commas",
+          "Test edge cases like escaped commas, quotes, and nested parentheses in regex patterns",
+          "Test both command-line arguments and configuration files",
+          "Test with different config formats (pyproject.toml, .pylintrc)",
+          "Run complete test suite to ensure no regression",
+          "Verify error messages are helpful when regex patterns are invalid"
+        ]
+      }
+    ]
+  },
+  {
+    "task_id": "sympy__sympy-16597",
+    "complexity_tier": "cross-module",
+    "ground_truth_count": 6,
+    "stages": [
+      {
+        "stage": 0,
+        "recall": 0.3333,
+        "precision": 0.2857,
+        "plan_files_count": 7,
+        "plan_files": [
+          "sympy/assumptions/ask.py",
+          "sympy/assumptions/handlers/ntheory.py",
+          "sympy/assumptions/handlers/sets.py",
+          "sympy/assumptions/tests/test_query.py",
+          "sympy/core/assumptions.py",
+          "sympy/core/symbol.py",
+          "sympy/core/tests/test_assumptions.py"
+        ]
+      },
+      {
+        "stage": 1,
+        "recall": 0.3333,
+        "precision": 0.1818,
+        "plan_files_count": 11,
+        "plan_files": [
+          "sympy/assumptions/ask.py",
+          "sympy/assumptions/handlers/common.py",
+          "sympy/assumptions/handlers/ntheory.py",
+          "sympy/assumptions/handlers/order.py",
+          "sympy/assumptions/handlers/sets.py",
+          "sympy/assumptions/tests/test_assumptions_2.py",
+          "sympy/assumptions/tests/test_query.py",
+          "sympy/core/assumptions.py",
+          "sympy/core/symbol.py",
+          "sympy/core/tests/test_assumptions.py",
+          "sympy/core/tests/test_symbol.py"
+        ]
+      },
+      {
+        "stage": 2,
+        "recall": 0.3333,
+        "precision": 0.125,
+        "plan_files_count": 16,
+        "plan_files": [
+          "sympy/assumptions/ask.py",
+          "sympy/assumptions/handlers/calculus.py",
+          "sympy/assumptions/handlers/ntheory.py",
+          "sympy/assumptions/handlers/sets.py",
+          "sympy/assumptions/satask.py",
+          "sympy/assumptions/sathandlers.py",
+          "sympy/assumptions/tests/test_context.py",
+          "sympy/assumptions/tests/test_query.py",
+          "sympy/assumptions/tests/test_satask.py",
+          "sympy/assumptions/tests/test_sathandlers.py",
+          "sympy/core/assumptions.py",
+          "sympy/core/facts.py",
+          "sympy/core/symbol.py",
+          "sympy/core/tests/test_assumptions.py",
+          "sympy/core/tests/test_facts.py",
+          "sympy/core/tests/test_symbol.py"
+        ]
+      }
+    ],
+    "critiques": [
+      {
+        "concerns": [
+          "The plan assumes handlers are the only place where assumptions are derived, but SymPy has multiple assumption systems including the old assumptions system in sympy/core/assumptions.py",
+          "The plan doesn't consider that is_odd should also imply is_finite for consistency, but this isn't mentioned in the files to modify",
+          "The plan focuses only on handlers but doesn't inspect the actual assumption derivation mechanism in sympy/assumptions/ask.py thoroughly enough",
+          "Risk assessment mentions infinite even numbers as edge cases, but mathematically infinite numbers cannot be even/odd, so this should be the primary logic, not an edge case",
+          "The plan doesn't consider how this change might affect other number theory properties that depend on is_even or is_finite",
+          "No consideration of how this affects symbolic computation performance since assumption queries can be frequent"
+        ],
+        "missing_files": [
+          "sympy/assumptions/handlers/common.py",
+          "sympy/core/tests/test_symbol.py",
+          "sympy/assumptions/tests/test_assumptions_2.py",
+          "sympy/assumptions/handlers/order.py"
+        ],
+        "suggested_changes": [
+          "Add sympy/assumptions/handlers/common.py to inspection list as it may contain base handler logic that affects how implications work",
+          "Include sympy/core/tests/test_symbol.py in files to modify since the issue directly involves Symbol creation with assumptions",
+          "Add test cases for is_odd implying is_finite for consistency in the implementation steps",
+          "Inspect sympy/assumptions/handlers/order.py as it may contain related finite/infinite logic",
+          "Add a step to verify the change works with both the old assumptions system (sympy/core/assumptions.py) and new system",
+          "Include validation that other integer properties (is_integer, is_prime, etc.) are also properly handled with respect to finiteness",
+          "Add sympy/assumptions/tests/test_assumptions_2.py to the test files to ensure comprehensive coverage",
+          "Consider adding a specific test file for assumption implications rather than just modifying existing test files"
+        ]
+      },
+      {
+        "concerns": [
+          "The plan focuses heavily on the new assumptions system but may miss that the core issue is in the old assumptions system used by Symbol",
+          "No investigation of other integer-related properties that should also imply finiteness (is_prime, is_composite, is_integer when positive/negative)",
+          "Missing analysis of potential performance impact on assumption queries which are frequent in SymPy",
+          "No consideration of how this change might affect symbolic computation results throughout the codebase",
+          "The plan doesn't address potential circular dependency issues between assumption handlers",
+          "Missing validation that the change works correctly with both assumption systems simultaneously",
+          "No investigation of existing code that might rely on is_finite being None for even/odd symbols"
+        ],
+        "missing_files": [
+          "sympy/core/facts.py",
+          "sympy/assumptions/handlers/calculus.py",
+          "sympy/assumptions/satask.py",
+          "sympy/assumptions/sathandlers.py",
+          "sympy/assumptions/tests/test_satask.py",
+          "sympy/assumptions/tests/test_sathandlers.py",
+          "sympy/core/tests/test_facts.py",
+          "sympy/assumptions/tests/test_context.py"
+        ],
+        "suggested_changes": [
+          "Add investigation of sympy/core/facts.py to understand how the old assumptions system handles logical implications",
+          "Include sympy/assumptions/satask.py and sathandlers.py to ensure SAT-based assumption handling works correctly",
+          "Add comprehensive testing of other integer properties (is_prime, is_composite) for consistency",
+          "Include performance benchmarking tests to measure impact on assumption queries",
+          "Add validation that the change works correctly in symbolic computations throughout SymPy modules",
+          "Include investigation of how this affects mathematical functions and operations that depend on finiteness assumptions",
+          "Add tests for edge cases with conflicting assumptions and multiple assumption systems",
+          "Include analysis of existing SymPy code that might be affected by this logical implication change",
+          "Add investigation of sympy/assumptions/handlers/calculus.py for calculus-related finite/infinite logic"
+        ]
+      }
+    ],
+    "revised_plans": [
+      {
+        "files_to_inspect": [
+          {
+            "path": "sympy/core/symbol.py",
+            "reason": "Contains the Symbol class definition and how assumptions are handled during symbol creation"
+          },
+          {
+            "path": "sympy/core/assumptions.py",
+            "reason": "Core assumptions handling and property definitions for the old assumptions system"
+          },
+          {
+            "path": "sympy/assumptions/ask.py",
+            "reason": "Contains the assumption query system and handlers that process logical implications"
+          },
+          {
+            "path": "sympy/assumptions/handlers/ntheory.py",
+            "reason": "Contains handlers for number theory properties like is_even and is_odd"
+          },
+          {
+            "path": "sympy/assumptions/handlers/sets.py",
+            "reason": "Contains handlers for set-related properties like is_finite"
+          },
+          {
+            "path": "sympy/assumptions/handlers/common.py",
+            "reason": "Contains base handler logic that affects how implications work between assumptions"
+          },
+          {
+            "path": "sympy/assumptions/handlers/order.py",
+            "reason": "May contain related finite/infinite logic that could interact with the proposed change"
+          },
+          {
+            "path": "sympy/core/tests/test_assumptions.py",
+            "reason": "Test cases for the old assumptions system to understand current behavior"
+          },
+          {
+            "path": "sympy/core/tests/test_symbol.py",
+            "reason": "Test cases for Symbol class behavior with assumptions"
+          },
+          {
+            "path": "sympy/assumptions/tests/test_query.py",
+            "reason": "Test cases for the new assumptions system and query mechanisms"
+          },
+          {
+            "path": "sympy/assumptions/tests/test_assumptions_2.py",
+            "reason": "Additional comprehensive test cases for the new assumptions system"
+          }
+        ],
+        "files_to_modify": [
+          {
+            "path": "sympy/assumptions/handlers/sets.py",
+            "change_type": "edit",
+            "description": "Add logic in the finite handler to return True when is_even or is_odd is True"
+          },
+          {
+            "path": "sympy/assumptions/tests/test_query.py",
+            "change_type": "edit",
+            "description": "Add test cases to verify that is_even and is_odd imply is_finite"
+          },
+          {
+            "path": "sympy/core/tests/test_symbol.py",
+            "change_type": "edit",
+            "description": "Add test cases for Symbol creation with even/odd assumptions to verify is_finite behavior"
+          },
+          {
+            "path": "sympy/assumptions/tests/test_assumptions_2.py",
+            "change_type": "edit",
+            "description": "Add comprehensive test cases covering the implication of even/odd to finite with other number theory properties"
+          }
+        ],
+        "implementation_steps": [
+          {
+            "step": 1,
+            "description": "Inspect the Symbol class and both old and new assumption systems to understand how properties are derived",
+            "files_involved": [
+              "sympy/core/symbol.py",
+              "sympy/core/assumptions.py",
+              "sympy/assumptions/ask.py"
+            ]
+          },
+          {
+            "step": 2,
+            "description": "Examine the current handlers for is_even, is_odd, and is_finite to understand their logic and interaction patterns",
+            "files_involved": [
+              "sympy/assumptions/handlers/ntheory.py",
+              "sympy/assumptions/handlers/sets.py",
+              "sympy/assumptions/handlers/common.py",
+              "sympy/assumptions/handlers/order.py"
+            ]
+          },
+          {
+            "step": 3,
+            "description": "Review existing tests to understand expected behavior patterns for both assumption systems",
+            "files_involved": [
+              "sympy/core/tests/test_assumptions.py",
+              "sympy/core/tests/test_symbol.py",
+              "sympy/assumptions/tests/test_query.py",
+              "sympy/assumptions/tests/test_assumptions_2.py"
+            ]
+          },
+          {
+            "step": 4,
+            "description": "Modify the finite handler to return True when is_even or is_odd is True, ensuring compatibility with both assumption systems",
+            "files_involved": [
+              "sympy/assumptions/handlers/sets.py"
+            ]
+          },
+          {
+            "step": 5,
+            "description": "Add comprehensive test cases for both is_even and is_odd implying is_finite, including interaction with other number theory properties",
+            "files_involved": [
+              "sympy/assumptions/tests/test_query.py",
+              "sympy/core/tests/test_symbol.py",
+              "sympy/assumptions/tests/test_assumptions_2.py"
+            ]
+          },
+          {
+            "step": 6,
+            "description": "Verify that other integer-related properties (is_integer, is_prime, etc.) maintain consistent behavior with respect to finiteness",
+            "files_involved": [
+              "sympy/assumptions/handlers/ntheory.py",
+              "sympy/assumptions/tests/test_assumptions_2.py"
+            ]
+          },
+          {
+            "step": 7,
+            "description": "Run comprehensive tests to ensure no regressions are introduced in either assumption system",
+            "files_involved": [
+              "sympy/assumptions/tests/test_query.py",
+              "sympy/core/tests/test_assumptions.py",
+              "sympy/core/tests/test_symbol.py",
+              "sympy/assumptions/tests/test_assumptions_2.py"
+            ]
+          }
+        ],
+        "assumptions": [
+          "The assumption system uses handlers to derive properties from other properties",
+          "Both old and new assumption systems need to be considered for compatibility",
+          "Mathematically, infinite numbers cannot be even or odd, so is_even/is_odd should logically imply is_finite",
+          "The assumption system supports logical implication between properties through handlers",
+          "Other integer properties (is_prime, is_composite) likely also need to imply is_finite for consistency"
+        ],
+        "risks": [
+          "Could introduce circular dependencies in assumption derivation if not carefully implemented",
+          "May break existing code that relies on is_finite being None for symbols with even/odd assumptions",
+          "Could cause performance issues if handlers become too complex or create long implication chains",
+          "May require updates to other integer-related properties for consistency",
+          "Changes might affect both the old assumptions system in core and new system in assumptions module",
+          "Could impact symbolic computation performance since assumption queries are frequent in mathematical operations"
+        ],
+        "validation": [
+          "Create a symbol with even=True and verify is_finite returns True instead of None",
+          "Create a symbol with odd=True and verify is_finite returns True for consistency",
+          "Verify that existing tests still pass for both assumption systems",
+          "Test edge cases like symbols with multiple conflicting assumptions",
+          "Ensure that other integer properties (is_prime, is_integer) also properly imply is_finite",
+          "Check that the implication works correctly in both the old core assumptions and new assumptions system",
+          "Verify that mathematical operations using symbols with these assumptions maintain correct behavior",
+          "Test performance impact of the change on assumption queries",
+          "Confirm that the change doesn't break existing mathematical reasoning in other parts of SymPy"
+        ]
+      },
+      {
+        "files_to_inspect": [
+          {
+            "path": "sympy/core/symbol.py",
+            "reason": "Contains the Symbol class definition and how assumptions are handled during symbol creation - need to understand how old assumptions system works"
+          },
+          {
+            "path": "sympy/core/assumptions.py",
+            "reason": "Core assumptions handling and property definitions for the old assumptions system that Symbol uses"
+          },
+          {
+            "path": "sympy/core/facts.py",
+            "reason": "Contains the fact system that handles logical implications in the old assumptions system - critical for implementing even/odd -> finite"
+          },
+          {
+            "path": "sympy/assumptions/ask.py",
+            "reason": "Contains the assumption query system and handlers that process logical implications in the new system"
+          },
+          {
+            "path": "sympy/assumptions/handlers/ntheory.py",
+            "reason": "Contains handlers for number theory properties like is_even and is_odd"
+          },
+          {
+            "path": "sympy/assumptions/handlers/sets.py",
+            "reason": "Contains handlers for set-related properties like is_finite"
+          },
+          {
+            "path": "sympy/assumptions/handlers/calculus.py",
+            "reason": "May contain calculus-related finite/infinite logic that could interact with the proposed change"
+          },
+          {
+            "path": "sympy/assumptions/satask.py",
+            "reason": "SAT-based assumption system that needs to handle the new implication correctly"
+          },
+          {
+            "path": "sympy/assumptions/sathandlers.py",
+            "reason": "SAT handlers that may need updates for even/odd -> finite implication"
+          },
+          {
+            "path": "sympy/core/tests/test_assumptions.py",
+            "reason": "Test cases for the old assumptions system to understand current behavior and ensure no regressions"
+          },
+          {
+            "path": "sympy/core/tests/test_symbol.py",
+            "reason": "Test cases for Symbol class behavior with assumptions - primary test location for the issue"
+          },
+          {
+            "path": "sympy/core/tests/test_facts.py",
+            "reason": "Test cases for the fact system that handles logical implications"
+          },
+          {
+            "path": "sympy/assumptions/tests/test_query.py",
+            "reason": "Test cases for the new assumptions system and query mechanisms"
+          },
+          {
+            "path": "sympy/assumptions/tests/test_satask.py",
+            "reason": "Test cases for SAT-based assumption system"
+          },
+          {
+            "path": "sympy/assumptions/tests/test_sathandlers.py",
+            "reason": "Test cases for SAT handlers"
+          },
+          {
+            "path": "sympy/assumptions/tests/test_context.py",
+            "reason": "Test cases for assumption contexts that may be affected by the change"
+          }
+        ],
+        "files_to_modify": [
+          {
+            "path": "sympy/core/facts.py",
+            "change_type": "edit",
+            "description": "Add logical implications that even and odd numbers are finite in the old assumptions system fact rules"
+          },
+          {
+            "path": "sympy/assumptions/handlers/sets.py",
+            "change_type": "edit",
+            "description": "Add logic in the finite handler to return True when is_even or is_odd is True for the new assumptions system"
+          },
+          {
+            "path": "sympy/assumptions/sathandlers.py",
+            "change_type": "edit",
+            "description": "Update SAT handlers to include even/odd -> finite implications"
+          },
+          {
+            "path": "sympy/core/tests/test_symbol.py",
+            "change_type": "edit",
+            "description": "Add test cases for Symbol creation with even/odd assumptions to verify is_finite behavior"
+          },
+          {
+            "path": "sympy/core/tests/test_facts.py",
+            "change_type": "edit",
+            "description": "Add test cases for the even/odd -> finite implication in the fact system"
+          },
+          {
+            "path": "sympy/assumptions/tests/test_query.py",
+            "change_type": "edit",
+            "description": "Add test cases to verify that is_even and is_odd imply is_finite in the new system"
+          },
+          {
+            "path": "sympy/assumptions/tests/test_satask.py",
+            "change_type": "edit",
+            "description": "Add test cases for SAT-based assumption system handling of even/odd -> finite"
+          }
+        ],
+        "implementation_steps": [
+          {
+            "step": 1,
+            "description": "Inspect Symbol class and old assumptions system to understand how properties are derived and stored",
+            "files_involved": [
+              "sympy/core/symbol.py",
+              "sympy/core/assumptions.py",
+              "sympy/core/facts.py"
+            ]
+          },
+          {
+            "step": 2,
+            "description": "Examine new assumptions system handlers to understand current logic for even, odd, and finite properties",
+            "files_involved": [
+              "sympy/assumptions/ask.py",
+              "sympy/assumptions/handlers/ntheory.py",
+              "sympy/assumptions/handlers/sets.py",
+              "sympy/assumptions/satask.py",
+              "sympy/assumptions/sathandlers.py"
+            ]
+          },
+          {
+            "step": 3,
+            "description": "Review existing tests to understand expected behavior patterns and identify potential regression risks",
+            "files_involved": [
+              "sympy/core/tests/test_assumptions.py",
+              "sympy/core/tests/test_symbol.py",
+              "sympy/core/tests/test_facts.py",
+              "sympy/assumptions/tests/test_query.py",
+              "sympy/assumptions/tests/test_satask.py"
+            ]
+          },
+          {
+            "step": 4,
+            "description": "Add even/odd -> finite implications to the old assumptions system fact rules",
+            "files_involved": [
+              "sympy/core/facts.py"
+            ]
+          },
+          {
+            "step": 5,
+            "description": "Update new assumptions system handlers to return True for is_finite when is_even or is_odd is True",
+            "files_involved": [
+              "sympy/assumptions/handlers/sets.py"
+            ]
+          },
+          {
+            "step": 6,
+            "description": "Update SAT-based assumption handlers to include the even/odd -> finite implications",
+            "files_involved": [
+              "sympy/assumptions/sathandlers.py"
+            ]
+          },
+          {
+            "step": 7,
+            "description": "Add comprehensive test cases for Symbol with even/odd assumptions verifying is_finite behavior",
+            "files_involved": [
+              "sympy/core/tests/test_symbol.py",
+              "sympy/core/tests/test_facts.py"
+            ]
+          },
+          {
+            "step": 8,
+            "description": "Add test cases for new assumptions system to verify even/odd -> finite implication",
+            "files_involved": [
+              "sympy/assumptions/tests/test_query.py",
+              "sympy/assumptions/tests/test_satask.py"
+            ]
+          },
+          {
+            "step": 9,
+            "description": "Verify consistency with other integer properties (is_prime, is_composite, is_integer) and add similar implications if needed",
+            "files_involved": [
+              "sympy/assumptions/handlers/ntheory.py",
+              "sympy/core/facts.py"
+            ]
+          },
+          {
+            "step": 10,
+            "description": "Run comprehensive tests to ensure no regressions in both assumption systems and measure performance impact",
+            "files_involved": [
+              "sympy/core/tests/test_assumptions.py",
+              "sympy/core/tests/test_symbol.py",
+              "sympy/assumptions/tests/test_query.py",
+              "sympy/assumptions/tests/test_satask.py"
+            ]
+          },
+          {
+            "step": 11,
+            "description": "Test symbolic computation modules to ensure the change doesn't break mathematical operations",
+            "files_involved": [
+              "sympy/core/tests/test_expr.py",
+              "sympy/functions/tests/",
+              "sympy/integrals/tests/"
+            ]
+          }
+        ],
+        "assumptions": [
+          "The old assumptions system in sympy/core uses fact-based logical implications",
+          "Both old and new assumption systems need to be updated for full compatibility",
+          "Mathematically, infinite numbers cannot be even or odd, so is_even/is_odd should logically imply is_finite",
+          "The SAT-based assumption system also needs to handle this implication",
+          "Other integer properties (is_prime, is_composite, is_integer when constrained) should also imply is_finite for consistency",
+          "Symbol class primarily uses the old assumptions system in sympy/core"
+        ],
+        "risks": [
+          "Could introduce circular dependencies between assumption handlers if not carefully implemented",
+          "May break existing code that relies on is_finite being None for symbols with even/odd assumptions",
+          "Could cause performance degradation in assumption queries which are frequent in SymPy",
+          "Changes might affect symbolic computation results throughout the codebase in unexpected ways",
+          "SAT-based system could become inconsistent if not properly updated alongside other systems",
+          "May require extensive updates to other integer-related properties for mathematical consistency",
+          "Could break mathematical reasoning in calculus, integration, or other advanced modules",
+          "Fact system changes could have far-reaching implications in the old assumptions system"
+        ],
+        "validation": [
+          "Create a symbol with even=True and verify is_finite returns True instead of None",
+          "Create a symbol with odd=True and verify is_finite returns True for consistency",
+          "Verify that existing tests still pass for both the old and new assumption systems",
+          "Test edge cases like symbols with conflicting assumptions (even=True, finite=False)",
+          "Ensure that other integer properties (is_prime, is_integer) also properly imply is_finite",
+          "Check that the implication works correctly in old core assumptions, new assumptions system, and SAT system",
+          "Verify that mathematical operations using symbols with these assumptions maintain correct behavior",
+          "Test performance impact using benchmarks for assumption queries",
+          "Confirm that symbolic computations in calculus, integration, and other modules work correctly",
+          "Validate that the fact system properly handles the new implications without circular dependencies",
+          "Test interaction with assumption contexts and global assumption settings",
+          "Verify consistency across all three assumption systems (old, new query-based, SAT-based)"
+        ]
+      }
+    ]
+  },
+  {
+    "task_id": "matplotlib__matplotlib-24013",
+    "complexity_tier": "architectural",
+    "ground_truth_count": 18,
+    "stages": [
+      {
+        "stage": 0,
+        "recall": 0.3333,
+        "precision": 1.0,
+        "plan_files_count": 6,
+        "plan_files": [
+          "lib/matplotlib/tri/__init__.py",
+          "lib/matplotlib/tri/tricontour.py",
+          "lib/matplotlib/tri/triinterpolate.py",
+          "lib/matplotlib/tri/tripcolor.py",
+          "lib/matplotlib/tri/triplot.py",
+          "lib/matplotlib/tri/trirefine.py"
+        ]
+      },
+      {
+        "stage": 1,
+        "recall": 0.3333,
+        "precision": 0.4,
+        "plan_files_count": 15,
+        "plan_files": [
+          "lib/matplotlib/__init__.py",
+          "lib/matplotlib/axes/__init__.py",
+          "lib/matplotlib/mplot3d/__init__.py",
+          "lib/matplotlib/projections/__init__.py",
+          "lib/matplotlib/tests/test_tri.py",
+          "lib/matplotlib/tri/__init__.py",
+          "lib/matplotlib/tri/tests/__init__.py",
+          "lib/matplotlib/tri/tests/test_tricontour.py",
+          "lib/matplotlib/tri/tests/test_tripcolor.py",
+          "lib/matplotlib/tri/tests/test_triplot.py",
+          "lib/matplotlib/tri/tricontour.py",
+          "lib/matplotlib/tri/triinterpolate.py",
+          "lib/matplotlib/tri/tripcolor.py",
+          "lib/matplotlib/tri/triplot.py",
+          "lib/matplotlib/tri/trirefine.py"
+        ]
+      },
+      {
+        "stage": 2,
+        "recall": 0.3889,
+        "precision": 0.3333,
+        "plan_files_count": 21,
+        "plan_files": [
+          "examples/images_contours_and_fields/tricontour_demo.py",
+          "examples/images_contours_and_fields/triinterp_demo.py",
+          "examples/images_contours_and_fields/tripcolor_demo.py",
+          "examples/images_contours_and_fields/triplot_demo.py",
+          "examples/mplot3d/tricontour3d.py",
+          "examples/mplot3d/trisurf3d.py",
+          "lib/matplotlib/__init__.py",
+          "lib/matplotlib/axes/_axes.py",
+          "lib/matplotlib/mplot3d/__init__.py",
+          "lib/matplotlib/mplot3d/axes3d.py",
+          "lib/matplotlib/projections/__init__.py",
+          "lib/matplotlib/pylab.py",
+          "lib/matplotlib/pyplot.py",
+          "lib/matplotlib/tests/test_triangulation.py",
+          "lib/matplotlib/tri/__init__.py",
+          "lib/matplotlib/tri/triangulation.py",
+          "lib/matplotlib/tri/tricontour.py",
+          "lib/matplotlib/tri/triinterpolate.py",
+          "lib/matplotlib/tri/tripcolor.py",
+          "lib/matplotlib/tri/triplot.py",
+          "lib/matplotlib/tri/trirefine.py"
+        ]
+      }
+    ],
+    "critiques": [
+      {
+        "concerns": [
+          "The plan focuses only on matplotlib.tri but the issue mentions this is not the only object that shadows its module definition - other modules likely have similar problems that should be addressed consistently",
+          "Missing test files that would verify the current behavior and ensure the fix doesn't break existing functionality",
+          "No consideration of backward compatibility documentation or deprecation warnings if the fix changes any public APIs",
+          "The plan assumes all shadowing issues are in the tri module but doesn't verify this assumption by checking other potential problem areas",
+          "Missing analysis of how this change might affect other parts of matplotlib that import from these modules",
+          "No consideration of whether similar patterns exist in mplot3d or other subpackages that might have the same issue"
+        ],
+        "missing_files": [
+          "lib/matplotlib/tests/test_tri.py",
+          "lib/matplotlib/tri/tests/test_tripcolor.py",
+          "lib/matplotlib/tri/tests/test_tricontour.py",
+          "lib/matplotlib/tri/tests/test_triplot.py",
+          "lib/matplotlib/tri/tests/__init__.py",
+          "lib/matplotlib/mplot3d/__init__.py",
+          "lib/matplotlib/axes/__init__.py",
+          "lib/matplotlib/__init__.py"
+        ],
+        "suggested_changes": [
+          "Add inspection of lib/matplotlib/__init__.py and other major __init__.py files to identify if similar shadowing patterns exist elsewhere in the codebase",
+          "Include existing test files for tri module functionality to understand current test coverage and identify what needs to be preserved",
+          "Add a systematic search step to identify all function/module shadowing issues across the entire matplotlib codebase, not just tri",
+          "Include documentation files that might need updates to reflect any API changes (such as import examples in docs)",
+          "Add validation that the fix works with importlib.import_module() and the fully qualified name reconstruction pattern mentioned in the issue",
+          "Consider adding a step to check if any existing code in matplotlib itself relies on the current shadowing behavior",
+          "Add inspection of similar subpackages like mplot3d to see if they have comparable patterns that should be addressed consistently"
+        ]
+      },
+      {
+        "concerns": [
+          "The plan focuses heavily on tri module but doesn't check for similar shadowing issues in other matplotlib submodules that likely have the same pattern",
+          "Missing test files that actually exist in the repository structure - the plan assumes test locations that don't match the actual structure",
+          "The plan doesn't consider documentation files that may need updates when import patterns change",
+          "No consideration of pyplot module which likely imports from tri and could be affected by changes",
+          "The plan assumes test files exist in tri/tests/ but the repository shows tests are in matplotlib/tests/",
+          "Missing consideration of mplot3d tri-related functionality that could be affected",
+          "The plan doesn't check axes module integration with tri functions",
+          "No validation of backend compatibility with changed import patterns"
+        ],
+        "missing_files": [
+          "lib/matplotlib/tests/test_triangulation.py",
+          "lib/matplotlib/tests/test_tri.py",
+          "lib/matplotlib/mplot3d/__init__.py",
+          "lib/matplotlib/mplot3d/axes3d.py",
+          "lib/matplotlib/pyplot.py",
+          "lib/matplotlib/pylab.py",
+          "doc/api/tri_api.rst",
+          "doc/users/whats_new.rst",
+          "lib/matplotlib/tri/_tri.py",
+          "lib/matplotlib/tri/_triinterpolate.py",
+          "lib/matplotlib/tri/_tripcolor.py",
+          "lib/matplotlib/tri/_triplot.py",
+          "lib/matplotlib/tri/_tricontour.py",
+          "lib/matplotlib/tri/_trirefine.py",
+          "lib/matplotlib/tri/triangulation.py"
+        ],
+        "suggested_changes": [
+          "Add inspection of lib/matplotlib/pyplot.py and lib/matplotlib/pylab.py to check how they import tri functions and ensure compatibility",
+          "Include lib/matplotlib/mplot3d/axes3d.py to check 3D plotting integration with tri functions",
+          "Correct the test file paths - use lib/matplotlib/tests/test_tri*.py instead of lib/matplotlib/tri/tests/",
+          "Add inspection of actual tri module structure files like triangulation.py and the C extension interfaces",
+          "Include documentation files that may need updates when import behavior changes",
+          "Add systematic check of all matplotlib submodules (not just tri) for similar shadowing patterns using a script",
+          "Include lib/matplotlib/axes/_axes.py to check axes method integration with tri functions",
+          "Add validation that all example files in examples/images_contours_and_fields/tri*.py continue to work",
+          "Include lib/matplotlib/__init__.py inspection to understand top-level import implications",
+          "Add step to verify that introspection tools (like IPython's help system) work correctly after changes"
+        ]
+      }
+    ],
+    "revised_plans": [
+      {
+        "files_to_inspect": [
+          {
+            "path": "lib/matplotlib/__init__.py",
+            "reason": "Main matplotlib init file - need to check if similar shadowing patterns exist at the top level"
+          },
+          {
+            "path": "lib/matplotlib/tri/__init__.py",
+            "reason": "Primary location of the reported issue - contains wildcard imports causing tripcolor function to shadow tripcolor module"
+          },
+          {
+            "path": "lib/matplotlib/tri/tripcolor.py",
+            "reason": "The module that defines the tripcolor function - need to understand what's being exported via __all__"
+          },
+          {
+            "path": "lib/matplotlib/tri/tricontour.py",
+            "reason": "Check if this has similar shadowing issues with tricontour function"
+          },
+          {
+            "path": "lib/matplotlib/tri/triplot.py",
+            "reason": "Check if this has similar shadowing issues with triplot function"
+          },
+          {
+            "path": "lib/matplotlib/tri/triinterpolate.py",
+            "reason": "Check if this has similar shadowing issues - may export multiple functions"
+          },
+          {
+            "path": "lib/matplotlib/tri/trirefine.py",
+            "reason": "Check if this has similar shadowing issues with trirefine functions"
+          },
+          {
+            "path": "lib/matplotlib/mplot3d/__init__.py",
+            "reason": "Check if 3D plotting module has similar function/module shadowing patterns"
+          },
+          {
+            "path": "lib/matplotlib/axes/__init__.py",
+            "reason": "Check if axes module has similar shadowing patterns that should be addressed consistently"
+          },
+          {
+            "path": "lib/matplotlib/projections/__init__.py",
+            "reason": "Check projections module for similar patterns"
+          },
+          {
+            "path": "lib/matplotlib/tests/test_tri.py",
+            "reason": "Main test file for tri module functionality to understand current test coverage and expected behavior"
+          },
+          {
+            "path": "lib/matplotlib/tri/tests/__init__.py",
+            "reason": "Check if tri has its own test subdirectory structure"
+          },
+          {
+            "path": "lib/matplotlib/tri/tests/test_tripcolor.py",
+            "reason": "Specific tests for tripcolor functionality to ensure changes don't break existing behavior"
+          },
+          {
+            "path": "lib/matplotlib/tri/tests/test_tricontour.py",
+            "reason": "Tests for tricontour to check if similar issues exist and ensure consistency"
+          },
+          {
+            "path": "lib/matplotlib/tri/tests/test_triplot.py",
+            "reason": "Tests for triplot functionality"
+          }
+        ],
+        "files_to_modify": [
+          {
+            "path": "lib/matplotlib/tri/__init__.py",
+            "change_type": "edit",
+            "description": "Replace wildcard imports with explicit imports to prevent function names from shadowing module names"
+          },
+          {
+            "path": "lib/matplotlib/tri/tripcolor.py",
+            "change_type": "edit",
+            "description": "Review and potentially adjust __all__ to ensure only intended functions are exported"
+          },
+          {
+            "path": "lib/matplotlib/tri/tricontour.py",
+            "change_type": "edit",
+            "description": "If shadowing issues exist, adjust __all__ similar to tripcolor.py"
+          },
+          {
+            "path": "lib/matplotlib/tri/triplot.py",
+            "change_type": "edit",
+            "description": "If shadowing issues exist, adjust __all__ similar to tripcolor.py"
+          },
+          {
+            "path": "lib/matplotlib/tri/triinterpolate.py",
+            "change_type": "edit",
+            "description": "If shadowing issues exist, adjust __all__ similar to tripcolor.py"
+          },
+          {
+            "path": "lib/matplotlib/tri/trirefine.py",
+            "change_type": "edit",
+            "description": "If shadowing issues exist, adjust __all__ similar to tripcolor.py"
+          }
+        ],
+        "implementation_steps": [
+          {
+            "step": 1,
+            "description": "Systematically identify all function/module shadowing issues across matplotlib by inspecting __init__.py files and checking for wildcard imports from modules with same-named functions",
+            "files_involved": [
+              "lib/matplotlib/__init__.py",
+              "lib/matplotlib/tri/__init__.py",
+              "lib/matplotlib/mplot3d/__init__.py",
+              "lib/matplotlib/axes/__init__.py",
+              "lib/matplotlib/projections/__init__.py"
+            ]
+          },
+          {
+            "step": 2,
+            "description": "Inspect all tri submodules to understand current export patterns via __all__ and identify which functions shadow their module names",
+            "files_involved": [
+              "lib/matplotlib/tri/tripcolor.py",
+              "lib/matplotlib/tri/tricontour.py",
+              "lib/matplotlib/tri/triplot.py",
+              "lib/matplotlib/tri/triinterpolate.py",
+              "lib/matplotlib/tri/trirefine.py"
+            ]
+          },
+          {
+            "step": 3,
+            "description": "Review existing test coverage to understand what behavior needs to be preserved and what tests need to be updated",
+            "files_involved": [
+              "lib/matplotlib/tests/test_tri.py",
+              "lib/matplotlib/tri/tests/test_tripcolor.py",
+              "lib/matplotlib/tri/tests/test_tricontour.py",
+              "lib/matplotlib/tri/tests/test_triplot.py"
+            ]
+          },
+          {
+            "step": 4,
+            "description": "Create a test script to validate the current shadowing behavior and the fully qualified name reconstruction issue mentioned in the bug report",
+            "files_involved": []
+          },
+          {
+            "step": 5,
+            "description": "Replace wildcard imports in tri/__init__.py with explicit function imports to eliminate shadowing while preserving the public API",
+            "files_involved": [
+              "lib/matplotlib/tri/__init__.py"
+            ]
+          },
+          {
+            "step": 6,
+            "description": "Test that the fix resolves the fully qualified name reconstruction issue (obj.__module__ + '.' + obj.__name__ should work with getattr)",
+            "files_involved": [
+              "lib/matplotlib/tri/__init__.py"
+            ]
+          },
+          {
+            "step": 7,
+            "description": "Test that importlib.import_module('matplotlib.tri.tripcolor') works correctly after changes",
+            "files_involved": [
+              "lib/matplotlib/tri/__init__.py"
+            ]
+          },
+          {
+            "step": 8,
+            "description": "Run full test suite to ensure no regressions in matplotlib.tri functionality",
+            "files_involved": [
+              "lib/matplotlib/tests/test_tri.py",
+              "lib/matplotlib/tri/tests/"
+            ]
+          },
+          {
+            "step": 9,
+            "description": "If similar shadowing patterns are found in other modules (mplot3d, etc.), apply consistent fixes",
+            "files_involved": [
+              "lib/matplotlib/mplot3d/__init__.py"
+            ]
+          }
+        ],
+        "assumptions": [
+          "The issue is primarily caused by wildcard imports (from .tripcolor import *) in tri/__init__.py",
+          "The tripcolor module exports a tripcolor function that shadows the module name when imported into tri namespace",
+          "Similar patterns may exist in other matplotlib submodules beyond just tri",
+          "The main public API (from matplotlib.tri import tripcolor) should remain unchanged for backward compatibility",
+          "Test files exist and provide adequate coverage to detect regressions"
+        ],
+        "risks": [
+          "Changing import patterns could break existing code that relies on undocumented import behaviors",
+          "Other matplotlib modules may import from tri submodules in ways that depend on current behavior",
+          "Similar shadowing issues in other modules may need coordinated fixes for consistency",
+          "Performance implications of replacing wildcard imports with explicit imports",
+          "Documentation and examples may need updates if import patterns change",
+          "Third-party code that depends on the current shadowing behavior could break"
+        ],
+        "validation": [
+          "Test that 'from matplotlib.tri import tripcolor' continues to work",
+          "Test that 'matplotlib.tri.tripcolor' now refers to the module, not the function when accessed as attribute",
+          "Test that 'importlib.import_module(\"matplotlib.tri.tripcolor\")' works correctly",
+          "Verify the fully qualified name reconstruction pattern works: obj = getattr(matplotlib, 'tri'); getattr(obj, 'tripcolor') should return the module",
+          "Test that tripcolor.__module__ + '.' + tripcolor.__name__ allows recursive getattr access to the function",
+          "Run the complete matplotlib test suite with special attention to tri module tests",
+          "Test similar scenarios with other tri functions (tricontour, triplot, etc.) if they have shadowing issues",
+          "Verify that all public functions remain accessible through their expected import paths",
+          "Test that IPython's object <-> fully qualified name bijection now works for tri functions",
+          "Create comprehensive test cases that cover the specific use case mentioned in the issue report"
+        ]
+      },
+      {
+        "files_to_inspect": [
+          {
+            "path": "lib/matplotlib/tri/__init__.py",
+            "reason": "Primary location of the reported issue - contains wildcard imports causing tripcolor function to shadow tripcolor module"
+          },
+          {
+            "path": "lib/matplotlib/tri/tripcolor.py",
+            "reason": "The module that defines the tripcolor function - need to understand what's being exported via __all__"
+          },
+          {
+            "path": "lib/matplotlib/tri/tricontour.py",
+            "reason": "Check if this has similar shadowing issues with tricontour function"
+          },
+          {
+            "path": "lib/matplotlib/tri/triplot.py",
+            "reason": "Check if this has similar shadowing issues with triplot function"
+          },
+          {
+            "path": "lib/matplotlib/tri/triinterpolate.py",
+            "reason": "Check if this has similar shadowing issues - may export multiple functions"
+          },
+          {
+            "path": "lib/matplotlib/tri/trirefine.py",
+            "reason": "Check if this has similar shadowing issues with trirefine functions"
+          },
+          {
+            "path": "lib/matplotlib/tri/triangulation.py",
+            "reason": "Core triangulation module that may also have shadowing issues"
+          },
+          {
+            "path": "lib/matplotlib/pyplot.py",
+            "reason": "Check how pyplot imports tri functions and ensure compatibility with changes"
+          },
+          {
+            "path": "lib/matplotlib/pylab.py",
+            "reason": "Check if pylab imports tri functions and would be affected by changes"
+          },
+          {
+            "path": "lib/matplotlib/__init__.py",
+            "reason": "Main matplotlib init file - need to check if similar shadowing patterns exist at the top level"
+          },
+          {
+            "path": "lib/matplotlib/mplot3d/__init__.py",
+            "reason": "Check if 3D plotting module has similar function/module shadowing patterns"
+          },
+          {
+            "path": "lib/matplotlib/mplot3d/axes3d.py",
+            "reason": "Check 3D axes integration with tri functions that could be affected"
+          },
+          {
+            "path": "lib/matplotlib/axes/_axes.py",
+            "reason": "Check axes method integration with tri functions to ensure compatibility"
+          },
+          {
+            "path": "lib/matplotlib/projections/__init__.py",
+            "reason": "Check projections module for similar patterns that should be addressed consistently"
+          },
+          {
+            "path": "lib/matplotlib/tests/test_triangulation.py",
+            "reason": "Main test file for triangulation functionality to understand current test coverage"
+          },
+          {
+            "path": "examples/images_contours_and_fields/tripcolor_demo.py",
+            "reason": "Example file that uses tripcolor - must continue to work after changes"
+          },
+          {
+            "path": "examples/images_contours_and_fields/tricontour_demo.py",
+            "reason": "Example file that uses tricontour - check if similar issues exist"
+          },
+          {
+            "path": "examples/images_contours_and_fields/triplot_demo.py",
+            "reason": "Example file that uses triplot - check if similar issues exist"
+          },
+          {
+            "path": "examples/images_contours_and_fields/triinterp_demo.py",
+            "reason": "Example file that uses triinterp - check for consistency"
+          },
+          {
+            "path": "examples/mplot3d/tricontour3d.py",
+            "reason": "3D example that may import tri functions - ensure compatibility"
+          },
+          {
+            "path": "examples/mplot3d/trisurf3d.py",
+            "reason": "3D surface example that may import tri functions - ensure compatibility"
+          }
+        ],
+        "files_to_modify": [
+          {
+            "path": "lib/matplotlib/tri/__init__.py",
+            "change_type": "edit",
+            "description": "Replace wildcard imports with explicit function imports to prevent function names from shadowing module names"
+          },
+          {
+            "path": "lib/matplotlib/tri/tripcolor.py",
+            "change_type": "edit",
+            "description": "Review and potentially adjust __all__ to ensure only intended functions are exported"
+          },
+          {
+            "path": "lib/matplotlib/tri/tricontour.py",
+            "change_type": "edit",
+            "description": "If shadowing issues exist, adjust __all__ similar to tripcolor.py"
+          },
+          {
+            "path": "lib/matplotlib/tri/triplot.py",
+            "change_type": "edit",
+            "description": "If shadowing issues exist, adjust __all__ similar to tripcolor.py"
+          },
+          {
+            "path": "lib/matplotlib/tri/triinterpolate.py",
+            "change_type": "edit",
+            "description": "If shadowing issues exist, adjust __all__ similar to tripcolor.py"
+          },
+          {
+            "path": "lib/matplotlib/tri/trirefine.py",
+            "change_type": "edit",
+            "description": "If shadowing issues exist, adjust __all__ similar to tripcolor.py"
+          }
+        ],
+        "implementation_steps": [
+          {
+            "step": 1,
+            "description": "Create a script to systematically identify all function/module shadowing issues across matplotlib by checking for wildcard imports from modules with same-named functions",
+            "files_involved": [
+              "lib/matplotlib/__init__.py",
+              "lib/matplotlib/tri/__init__.py",
+              "lib/matplotlib/mplot3d/__init__.py",
+              "lib/matplotlib/projections/__init__.py"
+            ]
+          },
+          {
+            "step": 2,
+            "description": "Inspect all tri submodules to understand current export patterns via __all__ and identify which functions shadow their module names",
+            "files_involved": [
+              "lib/matplotlib/tri/tripcolor.py",
+              "lib/matplotlib/tri/tricontour.py",
+              "lib/matplotlib/tri/triplot.py",
+              "lib/matplotlib/tri/triinterpolate.py",
+              "lib/matplotlib/tri/trirefine.py",
+              "lib/matplotlib/tri/triangulation.py"
+            ]
+          },
+          {
+            "step": 3,
+            "description": "Review existing test coverage and example files to understand what behavior needs to be preserved",
+            "files_involved": [
+              "lib/matplotlib/tests/test_triangulation.py",
+              "examples/images_contours_and_fields/tripcolor_demo.py",
+              "examples/images_contours_and_fields/tricontour_demo.py",
+              "examples/images_contours_and_fields/triplot_demo.py",
+              "examples/images_contours_and_fields/triinterp_demo.py"
+            ]
+          },
+          {
+            "step": 4,
+            "description": "Check pyplot and pylab imports to ensure compatibility with changes to tri module structure",
+            "files_involved": [
+              "lib/matplotlib/pyplot.py",
+              "lib/matplotlib/pylab.py"
+            ]
+          },
+          {
+            "step": 5,
+            "description": "Create a test script to validate the current shadowing behavior and reproduce the fully qualified name reconstruction issue",
+            "files_involved": []
+          },
+          {
+            "step": 6,
+            "description": "Replace wildcard imports in tri/__init__.py with explicit function imports, ensuring matplotlib.tri.tripcolor refers to the module while maintaining all public API functions",
+            "files_involved": [
+              "lib/matplotlib/tri/__init__.py"
+            ]
+          },
+          {
+            "step": 7,
+            "description": "Test that the fix resolves the fully qualified name reconstruction issue (obj.__module__ + '.' + obj.__name__ should work with getattr)",
+            "files_involved": [
+              "lib/matplotlib/tri/__init__.py"
+            ]
+          },
+          {
+            "step": 8,
+            "description": "Verify that importlib.import_module('matplotlib.tri.tripcolor') works correctly and returns the module, not the function",
+            "files_involved": [
+              "lib/matplotlib/tri/__init__.py"
+            ]
+          },
+          {
+            "step": 9,
+            "description": "Run all tri-related examples to ensure they continue to work with the new import structure",
+            "files_involved": [
+              "examples/images_contours_and_fields/tripcolor_demo.py",
+              "examples/images_contours_and_fields/tricontour_demo.py",
+              "examples/images_contours_and_fields/triplot_demo.py",
+              "examples/images_contours_and_fields/triinterp_demo.py",
+              "examples/mplot3d/tricontour3d.py",
+              "examples/mplot3d/trisurf3d.py"
+            ]
+          },
+          {
+            "step": 10,
+            "description": "Run full test suite to ensure no regressions in matplotlib.tri functionality and related modules",
+            "files_involved": [
+              "lib/matplotlib/tests/test_triangulation.py"
+            ]
+          },
+          {
+            "step": 11,
+            "description": "Test integration with mplot3d and axes modules to ensure tri function imports still work correctly",
+            "files_involved": [
+              "lib/matplotlib/mplot3d/axes3d.py",
+              "lib/matplotlib/axes/_axes.py"
+            ]
+          },
+          {
+            "step": 12,
+            "description": "If similar shadowing patterns are found in other modules, apply consistent fixes while maintaining API compatibility",
+            "files_involved": [
+              "lib/matplotlib/mplot3d/__init__.py",
+              "lib/matplotlib/projections/__init__.py"
+            ]
+          }
+        ],
+        "assumptions": [
+          "The issue is primarily caused by wildcard imports (from .tripcolor import *) in tri/__init__.py",
+          "The tripcolor module exports a tripcolor function that shadows the module name when imported into tri namespace",
+          "Tests are located in lib/matplotlib/tests/ rather than in module-specific test subdirectories",
+          "Similar patterns may exist in other matplotlib submodules beyond just tri",
+          "The main public API (from matplotlib.tri import tripcolor) should remain unchanged for backward compatibility",
+          "Examples in examples/images_contours_and_fields/ use the standard import patterns and provide good validation"
+        ],
+        "risks": [
+          "Changing import patterns could break existing code that relies on undocumented import behaviors",
+          "Other matplotlib modules (pyplot, mplot3d, axes) may import from tri submodules in ways that depend on current behavior",
+          "Third-party code that depends on the current shadowing behavior could break",
+          "Performance implications of replacing wildcard imports with explicit imports",
+          "Documentation and examples may need updates if import patterns change significantly",
+          "Similar shadowing issues in other modules may need coordinated fixes for consistency",
+          "IPython and other introspection tools may have additional dependencies on the current behavior"
+        ],
+        "validation": [
+          "Test that 'from matplotlib.tri import tripcolor' continues to work",
+          "Test that 'matplotlib.tri.tripcolor' now refers to the module, not the function when accessed as attribute",
+          "Test that 'importlib.import_module(\"matplotlib.tri.tripcolor\")' works correctly and returns the module",
+          "Verify the fully qualified name reconstruction pattern works: getattr(matplotlib.tri, 'tripcolor') should return the module",
+          "Test that tripcolor.__module__ + '.' + tripcolor.__name__ allows recursive getattr access to the function",
+          "Verify that all tri-related example files continue to run without modification",
+          "Run the complete matplotlib test suite with special attention to triangulation tests",
+          "Test similar scenarios with other tri functions (tricontour, triplot, etc.) if they have shadowing issues",
+          "Verify that all public functions remain accessible through their expected import paths",
+          "Test integration with pyplot, pylab, mplot3d, and axes modules",
+          "Test that IPython's object <-> fully qualified name bijection now works for tri functions",
+          "Verify that backend compatibility is maintained with changed import patterns",
+          "Create comprehensive test cases that cover the specific use case mentioned in the issue report"
+        ]
+      }
+    ]
+  },
+  {
+    "task_id": "django__django-11532",
+    "complexity_tier": "cross-module",
+    "ground_truth_count": 5,
+    "stages": [
+      {
+        "stage": 0,
+        "recall": 0.4,
+        "precision": 0.5,
+        "plan_files_count": 4,
+        "plan_files": [
+          "django/core/mail/__init__.py",
+          "django/core/mail/message.py",
+          "django/core/mail/utils.py",
+          "tests/mail/tests.py"
+        ]
+      },
+      {
+        "stage": 1,
+        "recall": 0.4,
+        "precision": 0.5,
+        "plan_files_count": 4,
+        "plan_files": [
+          "django/core/mail/__init__.py",
+          "django/core/mail/message.py",
+          "django/core/mail/utils.py",
+          "tests/mail/tests.py"
+        ]
+      },
+      {
+        "stage": 2,
+        "recall": 0.4,
+        "precision": 0.4,
+        "plan_files_count": 5,
+        "plan_files": [
+          "django/core/mail/__init__.py",
+          "django/core/mail/message.py",
+          "django/core/mail/utils.py",
+          "tests/mail/test_encoding.py",
+          "tests/mail/tests.py"
+        ]
+      }
+    ],
+    "critiques": [
+      {
+        "concerns": [
+          "The plan assumes DNS_NAME is defined in django/core/mail/__init__.py but doesn't inspect this file to understand how DNS_NAME is actually obtained (likely from socket.getfqdn())",
+          "The plan doesn't consider that the punycode conversion logic might be better placed in a utility function rather than directly in the message() method",
+          "The test example in the issue shows patching 'django.core.mailmessage.DNS_NAME' but this path doesn't match Django's actual module structure",
+          "The plan doesn't account for potential edge cases like already-encoded punycode domains or invalid domain names",
+          "Missing consideration of whether other parts of the mail system might also be affected by non-ASCII domain names"
+        ],
+        "missing_files": [
+          "django/core/mail/__init__.py"
+        ],
+        "suggested_changes": [
+          "Add django/core/mail/__init__.py to files_to_inspect to understand how DNS_NAME is actually defined and imported",
+          "Consider adding a utility function in django/core/mail/utils.py for domain punycode conversion instead of inline conversion",
+          "Add step to verify the correct import path for DNS_NAME by examining the actual module structure",
+          "Include validation step to test edge cases like already-encoded punycode domains and malformed domain names",
+          "Add inspection of email.utils module usage to understand make_msgid function behavior with non-ASCII domains",
+          "Consider examining other uses of DNS_NAME in the codebase to ensure consistent handling",
+          "Add step to verify the test patch path matches the actual module structure (likely should be 'django.core.mail.message.DNS_NAME')"
+        ]
+      },
+      {
+        "concerns": [
+          "The plan assumes DNS_NAME is defined in django/core/mail/message.py or __init__.py without verifying this assumption first",
+          "The test case in the issue description has incorrect import path 'django.core.mailmessage.DNS_NAME' which doesn't match Django's actual module structure",
+          "The plan doesn't account for where DNS_NAME is actually defined - it could be imported from socket.getfqdn() or defined elsewhere",
+          "No consideration for backward compatibility testing with existing Message-ID generation",
+          "Missing validation that the punycode conversion doesn't break other parts of the email system",
+          "The plan doesn't address potential circular import issues when adding utility functions",
+          "No consideration of how this affects other email headers that might contain domain names",
+          "The scope might be too narrow - other email components might also need punycode handling"
+        ],
+        "missing_files": [
+          "tests/mail/test_encoding.py",
+          "docs/releases/notes.txt"
+        ],
+        "suggested_changes": [
+          "Add step to search entire codebase for DNS_NAME definition using grep/find before making assumptions about its location",
+          "Include inspection of how DNS_NAME is currently imported and used across the mail module",
+          "Add comprehensive test file specifically for email encoding edge cases beyond the single test case",
+          "Include testing of other email headers that might contain domain names (Return-Path, Reply-To with domain parts)",
+          "Add validation step to ensure punycode domains work end-to-end with actual email sending",
+          "Consider if other parts of Django's email system (like email validation) need similar punycode handling",
+          "Add step to verify the fix works with different email backends (SMTP, console, file-based, etc.)",
+          "Include documentation updates explaining the punycode conversion behavior",
+          "Add regression testing for ASCII-only domains to ensure no performance impact",
+          "Consider thread safety of the punycode conversion utility function"
+        ]
+      }
+    ],
+    "revised_plans": [
+      {
+        "files_to_inspect": [
+          {
+            "path": "django/core/mail/message.py",
+            "reason": "Contains the message() method where Message-ID is set (line 260), forbid_multi_line_headers function where encoding fails, and likely defines DNS_NAME"
+          },
+          {
+            "path": "django/core/mail/__init__.py",
+            "reason": "May contain DNS_NAME definition or import, and other mail-related constants and utilities"
+          },
+          {
+            "path": "django/core/mail/utils.py",
+            "reason": "Contains mail utilities and may be the appropriate place for domain punycode conversion utility function"
+          },
+          {
+            "path": "tests/mail/tests.py",
+            "reason": "Contains the failing test case mentioned in the issue (line 368) and shows the expected behavior"
+          }
+        ],
+        "files_to_modify": [
+          {
+            "path": "django/core/mail/utils.py",
+            "change_type": "edit",
+            "description": "Add utility function to convert domain names to punycode for email headers"
+          },
+          {
+            "path": "django/core/mail/message.py",
+            "change_type": "edit",
+            "description": "Modify the message() method to use punycode conversion utility for DNS_NAME before passing to make_msgid()"
+          },
+          {
+            "path": "tests/mail/tests.py",
+            "change_type": "edit",
+            "description": "Add or modify test case to verify that non-ASCII domain names are properly converted to punycode with correct module path"
+          }
+        ],
+        "implementation_steps": [
+          {
+            "step": 1,
+            "description": "Examine django/core/mail/message.py to understand how DNS_NAME is defined, imported, and used in Message-ID generation",
+            "files_involved": [
+              "django/core/mail/message.py"
+            ]
+          },
+          {
+            "step": 2,
+            "description": "Check django/core/mail/__init__.py to understand DNS_NAME definition and module structure",
+            "files_involved": [
+              "django/core/mail/__init__.py"
+            ]
+          },
+          {
+            "step": 3,
+            "description": "Examine the failing test in tests/mail/tests.py to understand expected behavior and correct module path for mocking",
+            "files_involved": [
+              "tests/mail/tests.py"
+            ]
+          },
+          {
+            "step": 4,
+            "description": "Check existing utilities in django/core/mail/utils.py to understand the current structure and determine appropriate location for punycode utility",
+            "files_involved": [
+              "django/core/mail/utils.py"
+            ]
+          },
+          {
+            "step": 5,
+            "description": "Create punycode conversion utility function in django/core/mail/utils.py that handles domain encoding with edge case handling",
+            "files_involved": [
+              "django/core/mail/utils.py"
+            ]
+          },
+          {
+            "step": 6,
+            "description": "Modify the message() method in django/core/mail/message.py to use the punycode utility for DNS_NAME before make_msgid()",
+            "files_involved": [
+              "django/core/mail/message.py"
+            ]
+          },
+          {
+            "step": 7,
+            "description": "Update test case with correct module path for DNS_NAME mocking and verify punycode conversion behavior",
+            "files_involved": [
+              "tests/mail/tests.py"
+            ]
+          },
+          {
+            "step": 8,
+            "description": "Run mail tests to ensure the fix works and no regressions are introduced",
+            "files_involved": [
+              "tests/mail/tests.py"
+            ]
+          }
+        ],
+        "assumptions": [
+          "DNS_NAME is likely defined or imported in django/core/mail/message.py or django/core/mail/__init__.py",
+          "Python's email.utils.make_msgid function is being used to generate Message-ID",
+          "The punycode conversion should only be applied to the domain part when it contains non-ASCII characters",
+          "The existing test structure can be used as a base for the fix validation",
+          "The correct module path for mocking DNS_NAME is likely 'django.core.mail.message.DNS_NAME'"
+        ],
+        "risks": [
+          "Punycode conversion might affect valid ASCII domain names if not properly handled",
+          "The fix might break existing Message-ID generation for edge cases like None or empty DNS_NAME",
+          "Import of additional modules (like encodings.idna) might cause import errors in some environments",
+          "Already-encoded punycode domains might get double-encoded if not detected properly",
+          "Invalid or malformed domain names might cause exceptions during punycode conversion",
+          "The solution might not handle all Unicode normalization edge cases"
+        ],
+        "validation": [
+          "Run the specific failing test case mentioned in the issue with corrected module path",
+          "Run all mail tests to ensure no regressions are introduced",
+          "Test with both ASCII and non-ASCII hostnames to verify backward compatibility",
+          "Test with different email encodings (iso-8859-1, utf-8, etc.) to ensure encoding compatibility",
+          "Verify that the generated Message-ID contains proper punycode domain (xn--p8s937b for \u6f22\u5b57)",
+          "Test edge cases: already-encoded punycode domains, empty domains, None values, malformed domains",
+          "Test that emails with punycode Message-IDs can still be properly sent and received",
+          "Verify that ASCII domains are not affected by the punycode conversion"
+        ]
+      },
+      {
+        "files_to_inspect": [
+          {
+            "path": "django/core/mail/message.py",
+            "reason": "Contains the message() method where Message-ID is set, forbid_multi_line_headers function where encoding fails, and needs inspection to find actual DNS_NAME definition/import"
+          },
+          {
+            "path": "django/core/mail/__init__.py",
+            "reason": "May contain DNS_NAME definition or import, and other mail-related constants that need to be understood"
+          },
+          {
+            "path": "django/core/mail/utils.py",
+            "reason": "Contains mail utilities and is the likely location for adding punycode conversion utility function"
+          },
+          {
+            "path": "tests/mail/tests.py",
+            "reason": "Contains the failing test case mentioned in the issue and shows the expected behavior, need to find correct DNS_NAME location"
+          },
+          {
+            "path": "tests/mail/test_encoding.py",
+            "reason": "May contain existing email encoding tests that could be relevant or serve as a template for new tests"
+          }
+        ],
+        "files_to_modify": [
+          {
+            "path": "django/core/mail/utils.py",
+            "change_type": "edit",
+            "description": "Add utility function to convert domain names to punycode for email headers with proper error handling"
+          },
+          {
+            "path": "django/core/mail/message.py",
+            "change_type": "edit",
+            "description": "Modify the message() method to use punycode conversion utility for DNS_NAME before passing to make_msgid(), and import the utility function"
+          },
+          {
+            "path": "tests/mail/tests.py",
+            "change_type": "edit",
+            "description": "Fix existing test case with correct module path for DNS_NAME mocking and verify punycode conversion behavior"
+          },
+          {
+            "path": "tests/mail/test_encoding.py",
+            "change_type": "create",
+            "description": "Create comprehensive test file for email encoding edge cases including punycode domain handling, various encodings, and backward compatibility"
+          }
+        ],
+        "implementation_steps": [
+          {
+            "step": 1,
+            "description": "Search entire codebase for DNS_NAME definition and usage to understand its actual location and import pattern",
+            "files_involved": [
+              "django/core/mail/message.py",
+              "django/core/mail/__init__.py"
+            ]
+          },
+          {
+            "step": 2,
+            "description": "Examine django/core/mail/message.py to understand current Message-ID generation, DNS_NAME usage, and encoding handling",
+            "files_involved": [
+              "django/core/mail/message.py"
+            ]
+          },
+          {
+            "step": 3,
+            "description": "Check existing utilities in django/core/mail/utils.py and verify structure for adding new punycode utility",
+            "files_involved": [
+              "django/core/mail/utils.py"
+            ]
+          },
+          {
+            "step": 4,
+            "description": "Examine failing test in tests/mail/tests.py to understand current test structure and determine correct mocking approach",
+            "files_involved": [
+              "tests/mail/tests.py"
+            ]
+          },
+          {
+            "step": 5,
+            "description": "Check if tests/mail/test_encoding.py exists and examine existing email encoding tests for patterns and coverage",
+            "files_involved": [
+              "tests/mail/test_encoding.py"
+            ]
+          },
+          {
+            "step": 6,
+            "description": "Create robust punycode conversion utility in django/core/mail/utils.py with comprehensive error handling for edge cases",
+            "files_involved": [
+              "django/core/mail/utils.py"
+            ]
+          },
+          {
+            "step": 7,
+            "description": "Modify message() method in django/core/mail/message.py to use punycode utility before make_msgid() call",
+            "files_involved": [
+              "django/core/mail/message.py"
+            ]
+          },
+          {
+            "step": 8,
+            "description": "Fix existing test with correct DNS_NAME module path and add verification for punycode conversion",
+            "files_involved": [
+              "tests/mail/tests.py"
+            ]
+          },
+          {
+            "step": 9,
+            "description": "Create comprehensive test suite for email encoding edge cases including various Unicode domains, encodings, and backward compatibility",
+            "files_involved": [
+              "tests/mail/test_encoding.py"
+            ]
+          },
+          {
+            "step": 10,
+            "description": "Test with different email backends (SMTP, console, file-based) to ensure punycode domains work end-to-end",
+            "files_involved": [
+              "tests/mail/test_encoding.py"
+            ]
+          },
+          {
+            "step": 11,
+            "description": "Run comprehensive test suite to verify fix works and no regressions are introduced",
+            "files_involved": [
+              "tests/mail/tests.py",
+              "tests/mail/test_encoding.py"
+            ]
+          }
+        ],
+        "assumptions": [
+          "DNS_NAME location needs to be discovered through codebase search rather than assumed",
+          "Python's email.utils.make_msgid function is being used to generate Message-ID",
+          "The punycode conversion should only be applied when domain contains non-ASCII characters",
+          "Existing ASCII-only domains should remain unaffected for backward compatibility"
+        ],
+        "risks": [
+          "DNS_NAME might be defined in an unexpected location or imported dynamically",
+          "Punycode conversion might affect valid ASCII domain names if not properly handled",
+          "The fix might break existing Message-ID generation for edge cases like None or empty DNS_NAME",
+          "Import of encodings.idna might cause import errors in some environments",
+          "Already-encoded punycode domains might get double-encoded if not detected properly",
+          "Invalid or malformed domain names might cause exceptions during punycode conversion",
+          "The solution might impact performance for high-volume email sending",
+          "Other email headers containing domain names might also need similar treatment but are not addressed",
+          "Thread safety concerns if the utility function maintains state"
+        ],
+        "validation": [
+          "Search codebase to locate actual DNS_NAME definition and usage patterns",
+          "Run the specific failing test case mentioned in the issue with corrected module path",
+          "Run all existing mail tests to ensure no regressions are introduced",
+          "Test with both ASCII and non-ASCII hostnames to verify backward compatibility",
+          "Test with different email encodings (iso-8859-1, utf-8, etc.) to ensure encoding compatibility",
+          "Verify that the generated Message-ID contains proper punycode domain (xn--p8s937b for \u6f22\u5b57)",
+          "Test edge cases: already-encoded punycode domains, empty domains, None values, malformed domains",
+          "Test that emails with punycode Message-IDs work with different email backends (SMTP, console, file-based)",
+          "Verify that ASCII-only domains are not affected and maintain same performance",
+          "Test other email headers that might contain domain names to ensure they don't break",
+          "Validate that the fix works end-to-end with actual email sending and receiving",
+          "Test with various Unicode domain names from different scripts (Chinese, Arabic, etc.)",
+          "Ensure thread safety by testing concurrent email generation"
+        ]
+      }
+    ]
+  }
+]

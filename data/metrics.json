@@ -1,0 +1,997 @@
+[
+  {
+    "task_id": "django__django-13195",
+    "complexity_tier": "localized",
+    "total_repo_files": 2651,
+    "ground_truth_count": 3,
+    "plan_files_count": 5,
+    "plan_file_recall": 0.6667,
+    "plan_file_precision": 0.4,
+    "plan_search_reduction": 0.001886,
+    "plan_files_matched": [
+      "django/contrib/messages/storage/cookie.py",
+      "django/http/response.py"
+    ],
+    "plan_files_missed": [
+      "django/contrib/sessions/middleware.py"
+    ],
+    "plan_files_extra": [
+      "django/conf/global_settings.py",
+      "django/http/__init__.py",
+      "tests/responses/test_cookie.py"
+    ],
+    "baseline_b_file_recall": 0.6667,
+    "baseline_b_file_precision": 0.087,
+    "baseline_b_search_reduction": 0.008676,
+    "baseline_b_files_matched": [
+      "django/contrib/messages/storage/cookie.py",
+      "django/http/response.py"
+    ],
+    "baseline_b_files_missed": [
+      "django/contrib/sessions/middleware.py"
+    ],
+    "baseline_b_files_extra": [
+      "django/contrib/sessions/backends/signed_cookies.py",
+      "django/core/servers/basehttp.py",
+      "django/http/__init__.py",
+      "django/http/cookie.py",
+      "django/http/multipartparser.py",
+      "django/http/request.py",
+      "django/middleware/http.py",
+      "django/utils/http.py",
+      "django/views/decorators/http.py",
+      "tests/httpwrappers/__init__.py",
+      "tests/httpwrappers/tests.py",
+      "tests/messages_tests/test_cookie.py",
+      "tests/responses/test_cookie.py",
+      "tests/servers/test_basehttp.py",
+      "tests/signed_cookies_tests/__init__.py",
+      "tests/signed_cookies_tests/tests.py",
+      "tests/sitemaps_tests/test_http.py",
+      "tests/sitemaps_tests/test_https.py",
+      "tests/sitemaps_tests/urls/http.py",
+      "tests/sitemaps_tests/urls/https.py",
+      "tests/utils_tests/test_http.py"
+    ],
+    "baseline_b_keywords": [
+      "HTTP",
+      "Cookie"
+    ],
+    "baseline_b_files_count": 23
+  },
+  {
+    "task_id": "matplotlib__matplotlib-14623",
+    "complexity_tier": "localized",
+    "total_repo_files": 860,
+    "ground_truth_count": 3,
+    "plan_files_count": 6,
+    "plan_file_recall": 0.3333,
+    "plan_file_precision": 0.1667,
+    "plan_search_reduction": 0.006977,
+    "plan_files_matched": [
+      "lib/matplotlib/axes/_base.py"
+    ],
+    "plan_files_missed": [
+      "lib/matplotlib/ticker.py",
+      "lib/mpl_toolkits/mplot3d/axes3d.py"
+    ],
+    "plan_files_extra": [
+      "examples/scales/log_demo.py",
+      "lib/matplotlib/axis.py",
+      "lib/matplotlib/scale.py",
+      "lib/matplotlib/tests/test_axes.py",
+      "lib/matplotlib/tests/test_scale.py"
+    ],
+    "baseline_b_file_recall": 0.0,
+    "baseline_b_file_precision": 0.0,
+    "baseline_b_search_reduction": 0.033721,
+    "baseline_b_files_matched": [],
+    "baseline_b_files_missed": [
+      "lib/matplotlib/axes/_base.py",
+      "lib/matplotlib/ticker.py",
+      "lib/mpl_toolkits/mplot3d/axes3d.py"
+    ],
+    "baseline_b_files_extra": [
+      "examples/pyplots/align_ylabels.py",
+      "examples/pyplots/annotate_transform.py",
+      "examples/pyplots/annotation_basic.py",
+      "examples/pyplots/annotation_polar.py",
+      "examples/pyplots/auto_subplots_adjust.py",
+      "examples/pyplots/boxplot_demo_pyplot.py",
+      "examples/pyplots/dollar_ticks.py",
+      "examples/pyplots/fig_axes_customize_simple.py",
+      "examples/pyplots/fig_axes_labels_simple.py",
+      "examples/pyplots/fig_x.py",
+      "examples/pyplots/pyplot_formatstr.py",
+      "examples/pyplots/pyplot_mathtext.py",
+      "examples/pyplots/pyplot_scales.py",
+      "examples/pyplots/pyplot_simple.py",
+      "examples/pyplots/pyplot_text.py",
+      "examples/pyplots/pyplot_three.py",
+      "examples/pyplots/pyplot_two_subplots.py",
+      "examples/pyplots/text_commands.py",
+      "examples/pyplots/text_layout.py",
+      "examples/pyplots/whats_new_1_subplot3d.py",
+      "examples/pyplots/whats_new_98_4_fancy.py",
+      "examples/pyplots/whats_new_98_4_fill_between.py",
+      "examples/pyplots/whats_new_98_4_legend.py",
+      "examples/pyplots/whats_new_99_axes_grid.py",
+      "examples/pyplots/whats_new_99_mplot3d.py",
+      "examples/pyplots/whats_new_99_spines.py",
+      "lib/matplotlib/pyplot.py",
+      "lib/matplotlib/tests/test_pyplot.py",
+      "tutorials/introductory/pyplot.py"
+    ],
+    "baseline_b_keywords": [
+      "pyplot",
+      "matplotlib.pyplot",
+      "matplotlib/pyplot"
+    ],
+    "baseline_b_files_count": 29
+  },
+  {
+    "task_id": "pylint-dev__pylint-8898",
+    "complexity_tier": "localized",
+    "total_repo_files": 2189,
+    "ground_truth_count": 3,
+    "plan_files_count": 5,
+    "plan_file_recall": 0.3333,
+    "plan_file_precision": 0.2,
+    "plan_search_reduction": 0.002284,
+    "plan_files_matched": [
+      "pylint/config/argument.py"
+    ],
+    "plan_files_missed": [
+      "pylint/utils/__init__.py",
+      "pylint/utils/utils.py"
+    ],
+    "plan_files_extra": [
+      "pylint/checkers/base/name_checker/checker.py",
+      "pylint/config/arguments_manager.py",
+      "pylint/lint/base_options.py",
+      "tests/config/test_config.py"
+    ],
+    "baseline_b_file_recall": 0.3333,
+    "baseline_b_file_precision": 0.0244,
+    "baseline_b_search_reduction": 0.01873,
+    "baseline_b_files_matched": [
+      "pylint/config/argument.py"
+    ],
+    "baseline_b_files_missed": [
+      "pylint/utils/__init__.py",
+      "pylint/utils/utils.py"
+    ],
+    "baseline_b_files_extra": [
+      "doc/data/messages/c/consider-using-sys-exit/bad.py",
+      "doc/data/messages/c/consider-using-sys-exit/good.py",
+      "pylint/checkers/base/basic_checker.py",
+      "pylint/checkers/base/basic_error_checker.py",
+      "pylint/config/arguments_manager.py",
+      "pylint/config/config_file_parser.py",
+      "pylint/config/config_initialization.py",
+      "pylint/lint/pylinter.py",
+      "pylint/lint/run.py",
+      "pylint/message/message_definition_store.py",
+      "pylint/message/message_id_store.py",
+      "pylint/testutils/_run.py",
+      "pylint/testutils/global_test_linter.py",
+      "pylint/testutils/unittest_linter.py",
+      "pylint/utils/linterstats.py",
+      "pylint/utils/pragma_parser.py",
+      "tests/config/pylint_config/test_run_pylint_config.py",
+      "tests/config/test_argparse_config.py",
+      "tests/functional/b/bad_staticmethod_argument.py",
+      "tests/functional/c/consider/consider_using_sys_exit.py",
+      "tests/functional/c/consider/consider_using_sys_exit_exempted.py",
+      "tests/functional/c/consider/consider_using_sys_exit_local_scope.py",
+      "tests/functional/d/duplicate/duplicate_string_formatting_argument.py",
+      "tests/functional/ext/typing/redundant_typehint_argument.py",
+      "tests/functional/ext/typing/typing_consider_using_alias_without_future.py",
+      "tests/functional/ext/typing/typing_consider_using_union_without_future.py",
+      "tests/functional/i/isinstance_second_argument.py",
+      "tests/functional/m/misplaced_future.py",
+      "tests/functional/m/missing/missing_self_argument.py",
+      "tests/functional/n/no/no_self_argument.py",
+      "tests/functional/r/regression/regression_4612_crash_pytest_fixture.py",
+      "tests/functional/t/test_compile.py",
+      "tests/functional/u/unexpected_special_method_signature.py",
+      "tests/functional/u/unused/unused_argument.py",
+      "tests/lint/test_pylinter.py",
+      "tests/lint/test_run_pylint.py",
+      "tests/message/unittest_message_definition_store.py",
+      "tests/message/unittest_message_id_store.py",
+      "tests/regrtest_data/pep420/basic/project/namespace/package/__init__.py",
+      "tests/test_pragma_parser.py"
+    ],
+    "baseline_b_keywords": [
+      "re.py",
+      "argument.py",
+      "linter",
+      "exit",
+      "parse",
+      "_parse",
+      "basic",
+      "run.py",
+      "run_pylint",
+      "config_initialization.py",
+      "arguments_manager.py",
+      "config_initialization",
+      "arguments_manager",
+      "_compile",
+      "compile",
+      "argparse"
+    ],
+    "baseline_b_files_count": 41
+  },
+  {
+    "task_id": "scikit-learn__scikit-learn-12682",
+    "complexity_tier": "localized",
+    "total_repo_files": 726,
+    "ground_truth_count": 2,
+    "plan_files_count": 5,
+    "plan_file_recall": 1.0,
+    "plan_file_precision": 0.4,
+    "plan_search_reduction": 0.006887,
+    "plan_files_matched": [
+      "examples/decomposition/plot_sparse_coding.py",
+      "sklearn/decomposition/dict_learning.py"
+    ],
+    "plan_files_missed": [],
+    "plan_files_extra": [
+      "sklearn/decomposition/__init__.py",
+      "sklearn/decomposition/tests/test_dict_learning.py",
+      "sklearn/linear_model/coordinate_descent.py"
+    ],
+    "baseline_b_file_recall": 0.5,
+    "baseline_b_file_precision": 1.0,
+    "baseline_b_search_reduction": 0.001377,
+    "baseline_b_files_matched": [
+      "examples/decomposition/plot_sparse_coding.py"
+    ],
+    "baseline_b_files_missed": [
+      "sklearn/decomposition/dict_learning.py"
+    ],
+    "baseline_b_files_extra": [],
+    "baseline_b_keywords": [
+      "plot_sparse_coding.py",
+      "plot_sparse_coding",
+      "examples/decomposition/plot_sparse_coding.py"
+    ],
+    "baseline_b_files_count": 1
+  },
+  {
+    "task_id": "sphinx-doc__sphinx-9461",
+    "complexity_tier": "localized",
+    "total_repo_files": 548,
+    "ground_truth_count": 3,
+    "plan_files_count": 6,
+    "plan_file_recall": 1.0,
+    "plan_file_precision": 0.5,
+    "plan_search_reduction": 0.010949,
+    "plan_files_matched": [
+      "sphinx/domains/python.py",
+      "sphinx/ext/autodoc/__init__.py",
+      "sphinx/util/inspect.py"
+    ],
+    "plan_files_missed": [],
+    "plan_files_extra": [
+      "sphinx/ext/autodoc/importer.py",
+      "tests/roots/test-ext-autodoc/target/properties.py",
+      "tests/test_ext_autodoc_autoproperty.py"
+    ],
+    "baseline_b_file_recall": 0.3333,
+    "baseline_b_file_precision": 0.0152,
+    "baseline_b_search_reduction": 0.120438,
+    "baseline_b_files_matched": [
+      "sphinx/ext/autodoc/__init__.py"
+    ],
+    "baseline_b_files_missed": [
+      "sphinx/domains/python.py",
+      "sphinx/util/inspect.py"
+    ],
+    "baseline_b_files_extra": [
+      "sphinx/builders/dirhtml.py",
+      "sphinx/builders/html/__init__.py",
+      "sphinx/builders/html/transforms.py",
+      "sphinx/builders/singlehtml.py",
+      "sphinx/ext/autodoc/deprecated.py",
+      "sphinx/ext/autodoc/directive.py",
+      "sphinx/ext/autodoc/importer.py",
+      "sphinx/ext/autodoc/mock.py",
+      "sphinx/ext/autodoc/preserve_defaults.py",
+      "sphinx/ext/autodoc/type_comment.py",
+      "sphinx/ext/autodoc/typehints.py",
+      "sphinx/ext/autosummary/__init__.py",
+      "sphinx/ext/autosummary/generate.py",
+      "sphinx/ext/githubpages.py",
+      "sphinx/writers/html.py",
+      "sphinx/writers/html5.py",
+      "tests/roots/test-autosummary/conf.py",
+      "tests/roots/test-autosummary/dummy_module.py",
+      "tests/roots/test-autosummary/underscore_module_.py",
+      "tests/roots/test-build-html-translator/conf.py",
+      "tests/roots/test-builder-dirhtml/conf.py",
+      "tests/roots/test-ext-autodoc/autodoc_dummy_module.py",
+      "tests/roots/test-ext-autosummary-filename-map/autosummary_dummy_module.py",
+      "tests/roots/test-ext-autosummary-filename-map/conf.py",
+      "tests/roots/test-ext-autosummary-imported_members/autosummary_dummy_package/__init__.py",
+      "tests/roots/test-ext-autosummary-imported_members/autosummary_dummy_package/autosummary_dummy_module.py",
+      "tests/roots/test-ext-autosummary-imported_members/conf.py",
+      "tests/roots/test-ext-autosummary-mock_imports/conf.py",
+      "tests/roots/test-ext-autosummary-mock_imports/foo.py",
+      "tests/roots/test-ext-autosummary-recursive/conf.py",
+      "tests/roots/test-ext-autosummary-recursive/package/__init__.py",
+      "tests/roots/test-ext-autosummary-recursive/package/module.py",
+      "tests/roots/test-ext-autosummary-recursive/package/module_importfail.py",
+      "tests/roots/test-ext-autosummary-recursive/package/package/__init__.py",
+      "tests/roots/test-ext-autosummary-recursive/package/package/module.py",
+      "tests/roots/test-ext-autosummary-recursive/package2/__init__.py",
+      "tests/roots/test-ext-autosummary-recursive/package2/module.py",
+      "tests/roots/test-ext-autosummary-skip-member/conf.py",
+      "tests/roots/test-ext-autosummary-skip-member/target.py",
+      "tests/roots/test-ext-autosummary-template/conf.py",
+      "tests/roots/test-ext-autosummary-template/target.py",
+      "tests/roots/test-ext-autosummary/autosummary_dummy_module.py",
+      "tests/roots/test-ext-autosummary/autosummary_importfail.py",
+      "tests/roots/test-ext-autosummary/conf.py",
+      "tests/roots/test-ext-githubpages/conf.py",
+      "tests/roots/test-ext-viewcode-find/not_a_package/submodule.py",
+      "tests/roots/test-html_assets/conf.py",
+      "tests/roots/test-html_entity/conf.py",
+      "tests/roots/test-html_scaled_image_link/conf.py",
+      "tests/roots/test-html_signaturereturn_icon/conf.py",
+      "tests/roots/test-html_style/conf.py",
+      "tests/test_build.py",
+      "tests/test_build_changes.py",
+      "tests/test_build_dirhtml.py",
+      "tests/test_build_epub.py",
+      "tests/test_build_gettext.py",
+      "tests/test_build_html.py",
+      "tests/test_build_latex.py",
+      "tests/test_build_linkcheck.py",
+      "tests/test_build_manpage.py",
+      "tests/test_build_texinfo.py",
+      "tests/test_build_text.py",
+      "tests/test_builder.py",
+      "tests/test_ext_autosummary.py",
+      "tests/test_ext_githubpages.py"
+    ],
+    "baseline_b_keywords": [
+      "autosummary",
+      "html",
+      "_build",
+      "sphinx/ext/autodoc",
+      "sphinx.ext.autodoc",
+      "dummy_module",
+      "github",
+      "sphinx.ext.autosummary",
+      "sphinx/ext/autosummary",
+      "submodule"
+    ],
+    "baseline_b_files_count": 66
+  },
+  {
+    "task_id": "django__django-11532",
+    "complexity_tier": "cross-module",
+    "total_repo_files": 2565,
+    "ground_truth_count": 5,
+    "plan_files_count": 4,
+    "plan_file_recall": 0.4,
+    "plan_file_precision": 0.5,
+    "plan_search_reduction": 0.001559,
+    "plan_files_matched": [
+      "django/core/mail/message.py",
+      "django/core/mail/utils.py"
+    ],
+    "plan_files_missed": [
+      "django/core/validators.py",
+      "django/utils/encoding.py",
+      "django/utils/html.py"
+    ],
+    "plan_files_extra": [
+      "django/core/mail/__init__.py",
+      "tests/mail/tests.py"
+    ],
+    "baseline_b_file_recall": 0.6,
+    "baseline_b_file_precision": 0.1304,
+    "baseline_b_search_reduction": 0.008967,
+    "baseline_b_files_matched": [
+      "django/core/mail/message.py",
+      "django/core/mail/utils.py",
+      "django/utils/encoding.py"
+    ],
+    "baseline_b_files_missed": [
+      "django/core/validators.py",
+      "django/utils/html.py"
+    ],
+    "baseline_b_files_extra": [
+      "django/contrib/auth/migrations/0003_alter_user_email_max_length.py",
+      "django/core/mail/__init__.py",
+      "django/core/mail/backends/__init__.py",
+      "django/core/mail/backends/base.py",
+      "django/core/mail/backends/console.py",
+      "django/core/mail/backends/dummy.py",
+      "django/core/mail/backends/filebased.py",
+      "django/core/mail/backends/locmem.py",
+      "django/core/mail/backends/smtp.py",
+      "django/core/management/commands/sendtestemail.py",
+      "tests/auth_tests/models/with_custom_email_field.py",
+      "tests/forms_tests/field_tests/test_emailfield.py",
+      "tests/mail/__init__.py",
+      "tests/mail/custombackend.py",
+      "tests/mail/test_sendtestemail.py",
+      "tests/mail/tests.py",
+      "tests/template_tests/filter_tests/test_iriencode.py",
+      "tests/template_tests/filter_tests/test_urlencode.py",
+      "tests/utils_tests/test_encoding.py",
+      "tests/utils_tests/test_encoding_deprecations.py"
+    ],
+    "baseline_b_keywords": [
+      "mail",
+      "django/core/mail",
+      "django.core.mail",
+      "email",
+      "encoding",
+      "encode",
+      "django.core.mail.utils",
+      "django/core/mail/utils",
+      "message.py",
+      "django.core.mail.message",
+      "django/core/mail/message"
+    ],
+    "baseline_b_files_count": 23
+  },
+  {
+    "task_id": "pylint-dev__pylint-6386",
+    "complexity_tier": "cross-module",
+    "total_repo_files": 1388,
+    "ground_truth_count": 4,
+    "plan_files_count": 5,
+    "plan_file_recall": 0.75,
+    "plan_file_precision": 0.6,
+    "plan_search_reduction": 0.003602,
+    "plan_files_matched": [
+      "pylint/config/argument.py",
+      "pylint/config/arguments_manager.py",
+      "pylint/lint/base_options.py"
+    ],
+    "plan_files_missed": [
+      "pylint/config/utils.py"
+    ],
+    "plan_files_extra": [
+      "pylint/config/option.py",
+      "pylint/lint/run.py"
+    ],
+    "baseline_b_file_recall": 0.0,
+    "baseline_b_file_precision": 0.0,
+    "baseline_b_search_reduction": 0.0,
+    "baseline_b_files_matched": [],
+    "baseline_b_files_missed": [
+      "pylint/config/argument.py",
+      "pylint/config/arguments_manager.py",
+      "pylint/config/utils.py",
+      "pylint/lint/base_options.py"
+    ],
+    "baseline_b_files_extra": [],
+    "baseline_b_keywords": [],
+    "baseline_b_files_count": 0
+  },
+  {
+    "task_id": "sympy__sympy-16597",
+    "complexity_tier": "cross-module",
+    "total_repo_files": 1309,
+    "ground_truth_count": 6,
+    "plan_files_count": 7,
+    "plan_file_recall": 0.3333,
+    "plan_file_precision": 0.2857,
+    "plan_search_reduction": 0.005348,
+    "plan_files_matched": [
+      "sympy/assumptions/ask.py",
+      "sympy/core/assumptions.py"
+    ],
+    "plan_files_missed": [
+      "sympy/assumptions/ask_generated.py",
+      "sympy/core/power.py",
+      "sympy/printing/tree.py",
+      "sympy/tensor/indexed.py"
+    ],
+    "plan_files_extra": [
+      "sympy/assumptions/handlers/ntheory.py",
+      "sympy/assumptions/handlers/sets.py",
+      "sympy/assumptions/tests/test_query.py",
+      "sympy/core/symbol.py",
+      "sympy/core/tests/test_assumptions.py"
+    ],
+    "baseline_b_file_recall": 0.0,
+    "baseline_b_file_precision": 0.0,
+    "baseline_b_search_reduction": 0.0,
+    "baseline_b_files_matched": [],
+    "baseline_b_files_missed": [
+      "sympy/assumptions/ask.py",
+      "sympy/assumptions/ask_generated.py",
+      "sympy/core/assumptions.py",
+      "sympy/core/power.py",
+      "sympy/printing/tree.py",
+      "sympy/tensor/indexed.py"
+    ],
+    "baseline_b_files_extra": [],
+    "baseline_b_keywords": [],
+    "baseline_b_files_count": 0
+  },
+  {
+    "task_id": "astropy__astropy-8747",
+    "complexity_tier": "cross-module",
+    "total_repo_files": 781,
+    "ground_truth_count": 5,
+    "plan_files_count": 5,
+    "plan_file_recall": 0.4,
+    "plan_file_precision": 0.4,
+    "plan_search_reduction": 0.006402,
+    "plan_files_matched": [
+      "astropy/units/quantity.py",
+      "astropy/units/quantity_helper/helpers.py"
+    ],
+    "plan_files_missed": [
+      "astropy/units/function/core.py",
+      "astropy/units/quantity_helper/converters.py",
+      "astropy/utils/compat/numpycompat.py"
+    ],
+    "plan_files_extra": [
+      "astropy/units/quantity_helper/__init__.py",
+      "astropy/units/tests/test_quantity_non_ufuncs.py",
+      "astropy/units/tests/test_quantity_ufuncs.py"
+    ],
+    "baseline_b_file_recall": 0.0,
+    "baseline_b_file_precision": 0.0,
+    "baseline_b_search_reduction": 0.006402,
+    "baseline_b_files_matched": [],
+    "baseline_b_files_missed": [
+      "astropy/units/function/core.py",
+      "astropy/units/quantity.py",
+      "astropy/units/quantity_helper/converters.py",
+      "astropy/units/quantity_helper/helpers.py",
+      "astropy/utils/compat/numpycompat.py"
+    ],
+    "baseline_b_files_extra": [
+      "astropy/coordinates/builtin_frames/ecliptic.py",
+      "astropy/coordinates/builtin_frames/ecliptic_transforms.py",
+      "astropy/coordinates/tests/accuracy/test_ecliptic.py",
+      "astropy/stats/sigma_clipping.py",
+      "astropy/stats/tests/test_sigma_clipping.py"
+    ],
+    "baseline_b_keywords": [
+      "clip"
+    ],
+    "baseline_b_files_count": 5
+  },
+  {
+    "task_id": "django__django-13841",
+    "complexity_tier": "cross-module",
+    "total_repo_files": 2691,
+    "ground_truth_count": 4,
+    "plan_files_count": 5,
+    "plan_file_recall": 1.0,
+    "plan_file_precision": 0.8,
+    "plan_search_reduction": 0.001858,
+    "plan_files_matched": [
+      "django/contrib/auth/password_validation.py",
+      "django/forms/renderers.py",
+      "django/utils/version.py",
+      "django/views/debug.py"
+    ],
+    "plan_files_missed": [],
+    "plan_files_extra": [
+      "django/utils/translation/trans_real.py"
+    ],
+    "baseline_b_file_recall": 1.0,
+    "baseline_b_file_precision": 0.1667,
+    "baseline_b_search_reduction": 0.008919,
+    "baseline_b_files_matched": [
+      "django/contrib/auth/password_validation.py",
+      "django/forms/renderers.py",
+      "django/utils/version.py",
+      "django/views/debug.py"
+    ],
+    "baseline_b_files_missed": [],
+    "baseline_b_files_extra": [
+      "django/core/checks/translation.py",
+      "django/utils/functional.py",
+      "django/utils/translation/__init__.py",
+      "django/utils/translation/reloader.py",
+      "django/utils/translation/template.py",
+      "django/utils/translation/trans_null.py",
+      "django/utils/translation/trans_real.py",
+      "django/views/decorators/debug.py",
+      "scripts/manage_translations.py",
+      "tests/check_framework/test_translation.py",
+      "tests/forms_tests/tests/test_renderers.py",
+      "tests/test_runner/test_debug_sql.py",
+      "tests/urlpatterns_reverse/translations/__init__.py",
+      "tests/urlpatterns_reverse/translations/locale/__init__.py",
+      "tests/urlpatterns_reverse/translations/locale/de/__init__.py",
+      "tests/urlpatterns_reverse/translations/locale/fr/__init__.py",
+      "tests/user_commands/management/commands/no_translations.py",
+      "tests/utils_tests/test_functional.py",
+      "tests/view_tests/templatetags/debugtags.py",
+      "tests/view_tests/tests/test_debug.py"
+    ],
+    "baseline_b_keywords": [
+      "translation",
+      "debug",
+      "functional",
+      "renderers",
+      "password_validation",
+      "django/forms/renderers",
+      "django/contrib/auth/password_validation",
+      "django.utils.version",
+      "django.utils.translation.trans_real",
+      "django/utils/version",
+      "django.forms.renderers",
+      "django.views.debug",
+      "django/utils/translation/trans_real",
+      "django/views/debug",
+      "trans_real",
+      "django.contrib.auth.password_validation"
+    ],
+    "baseline_b_files_count": 24
+  },
+  {
+    "task_id": "sympy__sympy-13091",
+    "complexity_tier": "architectural",
+    "total_repo_files": 1140,
+    "ground_truth_count": 21,
+    "plan_files_count": 9,
+    "plan_file_recall": 0.0952,
+    "plan_file_precision": 0.2222,
+    "plan_search_reduction": 0.007895,
+    "plan_files_matched": [
+      "sympy/core/basic.py",
+      "sympy/core/numbers.py"
+    ],
+    "plan_files_missed": [
+      "sympy/core/exprtools.py",
+      "sympy/geometry/entity.py",
+      "sympy/physics/optics/medium.py",
+      "sympy/physics/vector/dyadic.py",
+      "sympy/physics/vector/frame.py",
+      "sympy/physics/vector/vector.py",
+      "sympy/polys/agca/modules.py",
+      "sympy/polys/domains/domain.py",
+      "sympy/polys/domains/expressiondomain.py",
+      "sympy/polys/domains/pythonrational.py",
+      "sympy/polys/domains/quotientring.py",
+      "sympy/polys/fields.py",
+      "sympy/polys/monomials.py",
+      "sympy/polys/polyclasses.py",
+      "sympy/polys/polytools.py",
+      "sympy/polys/rings.py",
+      "sympy/polys/rootoftools.py",
+      "sympy/tensor/array/ndim_array.py",
+      "sympy/utilities/enumerative.py"
+    ],
+    "plan_files_extra": [
+      "sympy/core/expr.py",
+      "sympy/core/relational.py",
+      "sympy/core/symbol.py",
+      "sympy/core/tests/test_basic.py",
+      "sympy/core/tests/test_equal.py",
+      "sympy/matrices/expressions/matexpr.py",
+      "sympy/matrices/matrices.py"
+    ],
+    "baseline_b_file_recall": 0.0476,
+    "baseline_b_file_precision": 0.1667,
+    "baseline_b_search_reduction": 0.005263,
+    "baseline_b_files_matched": [
+      "sympy/core/basic.py"
+    ],
+    "baseline_b_files_missed": [
+      "sympy/core/exprtools.py",
+      "sympy/core/numbers.py",
+      "sympy/geometry/entity.py",
+      "sympy/physics/optics/medium.py",
+      "sympy/physics/vector/dyadic.py",
+      "sympy/physics/vector/frame.py",
+      "sympy/physics/vector/vector.py",
+      "sympy/polys/agca/modules.py",
+      "sympy/polys/domains/domain.py",
+      "sympy/polys/domains/expressiondomain.py",
+      "sympy/polys/domains/pythonrational.py",
+      "sympy/polys/domains/quotientring.py",
+      "sympy/polys/fields.py",
+      "sympy/polys/monomials.py",
+      "sympy/polys/polyclasses.py",
+      "sympy/polys/polytools.py",
+      "sympy/polys/rings.py",
+      "sympy/polys/rootoftools.py",
+      "sympy/tensor/array/ndim_array.py",
+      "sympy/utilities/enumerative.py"
+    ],
+    "baseline_b_files_extra": [
+      "examples/beginner/basic.py",
+      "sympy/core/benchmarks/bench_basic.py",
+      "sympy/core/tests/test_basic.py",
+      "sympy/polys/densebasic.py",
+      "sympy/polys/tests/test_densebasic.py"
+    ],
+    "baseline_b_keywords": [
+      "basic.py",
+      "Basic",
+      "basic"
+    ],
+    "baseline_b_files_count": 6
+  },
+  {
+    "task_id": "django__django-10989",
+    "complexity_tier": "architectural",
+    "total_repo_files": 2534,
+    "ground_truth_count": 13,
+    "plan_files_count": 3,
+    "plan_file_recall": 0.0769,
+    "plan_file_precision": 0.3333,
+    "plan_search_reduction": 0.001184,
+    "plan_files_matched": [
+      "django/core/management/commands/runserver.py"
+    ],
+    "plan_files_missed": [
+      "django/contrib/gis/utils/layermapping.py",
+      "django/core/management/commands/loaddata.py",
+      "django/core/management/commands/migrate.py",
+      "django/core/management/commands/showmigrations.py",
+      "django/core/management/commands/squashmigrations.py",
+      "django/db/backends/base/creation.py",
+      "django/db/backends/mysql/creation.py",
+      "django/db/backends/oracle/creation.py",
+      "django/db/backends/postgresql/creation.py",
+      "django/db/backends/sqlite3/creation.py",
+      "django/db/models/query.py",
+      "django/db/models/sql/query.py"
+    ],
+    "plan_files_extra": [
+      "django/contrib/staticfiles/management/commands/runserver.py",
+      "django/core/management/base.py"
+    ],
+    "baseline_b_file_recall": 0.0769,
+    "baseline_b_file_precision": 0.0909,
+    "baseline_b_search_reduction": 0.004341,
+    "baseline_b_files_matched": [
+      "django/core/management/commands/runserver.py"
+    ],
+    "baseline_b_files_missed": [
+      "django/contrib/gis/utils/layermapping.py",
+      "django/core/management/commands/loaddata.py",
+      "django/core/management/commands/migrate.py",
+      "django/core/management/commands/showmigrations.py",
+      "django/core/management/commands/squashmigrations.py",
+      "django/db/backends/base/creation.py",
+      "django/db/backends/mysql/creation.py",
+      "django/db/backends/oracle/creation.py",
+      "django/db/backends/postgresql/creation.py",
+      "django/db/backends/sqlite3/creation.py",
+      "django/db/models/query.py",
+      "django/db/models/sql/query.py"
+    ],
+    "baseline_b_files_extra": [
+      "django/contrib/staticfiles/management/commands/runserver.py",
+      "django/db/migrations/writer.py",
+      "django/utils/autoreload.py",
+      "tests/admin_scripts/configured_settings_manage.py",
+      "tests/i18n/sampleproject/manage.py",
+      "tests/migrations/test_writer.py",
+      "tests/urlpatterns_reverse/included_no_kwargs_urls.py",
+      "tests/urlpatterns_reverse/urlconf_outer.py",
+      "tests/user_commands/management/commands/common_args.py",
+      "tests/utils_tests/test_autoreload.py"
+    ],
+    "baseline_b_keywords": [
+      "write",
+      "autoreload",
+      "manage.py",
+      "runserver",
+      "runserver.py",
+      "autoreload.py",
+      "_kwargs",
+      "_out",
+      "_args"
+    ],
+    "baseline_b_files_count": 11
+  },
+  {
+    "task_id": "matplotlib__matplotlib-24013",
+    "complexity_tier": "architectural",
+    "total_repo_files": 896,
+    "ground_truth_count": 18,
+    "plan_files_count": 6,
+    "plan_file_recall": 0.3333,
+    "plan_file_precision": 1.0,
+    "plan_search_reduction": 0.006696,
+    "plan_files_matched": [
+      "lib/matplotlib/tri/__init__.py",
+      "lib/matplotlib/tri/tricontour.py",
+      "lib/matplotlib/tri/triinterpolate.py",
+      "lib/matplotlib/tri/tripcolor.py",
+      "lib/matplotlib/tri/triplot.py",
+      "lib/matplotlib/tri/trirefine.py"
+    ],
+    "plan_files_missed": [
+      "lib/matplotlib/tri/_triangulation.py",
+      "lib/matplotlib/tri/_tricontour.py",
+      "lib/matplotlib/tri/_trifinder.py",
+      "lib/matplotlib/tri/_triinterpolate.py",
+      "lib/matplotlib/tri/_tripcolor.py",
+      "lib/matplotlib/tri/_triplot.py",
+      "lib/matplotlib/tri/_trirefine.py",
+      "lib/matplotlib/tri/_tritools.py",
+      "lib/matplotlib/tri/triangulation.py",
+      "lib/matplotlib/tri/trifinder.py",
+      "lib/matplotlib/tri/tritools.py",
+      "lib/mpl_toolkits/mplot3d/axes3d.py"
+    ],
+    "plan_files_extra": [],
+    "baseline_b_file_recall": 0.5,
+    "baseline_b_file_precision": 0.3,
+    "baseline_b_search_reduction": 0.033482,
+    "baseline_b_files_matched": [
+      "lib/matplotlib/tri/__init__.py",
+      "lib/matplotlib/tri/triangulation.py",
+      "lib/matplotlib/tri/tricontour.py",
+      "lib/matplotlib/tri/trifinder.py",
+      "lib/matplotlib/tri/triinterpolate.py",
+      "lib/matplotlib/tri/tripcolor.py",
+      "lib/matplotlib/tri/triplot.py",
+      "lib/matplotlib/tri/trirefine.py",
+      "lib/matplotlib/tri/tritools.py"
+    ],
+    "baseline_b_files_missed": [
+      "lib/matplotlib/tri/_triangulation.py",
+      "lib/matplotlib/tri/_tricontour.py",
+      "lib/matplotlib/tri/_trifinder.py",
+      "lib/matplotlib/tri/_triinterpolate.py",
+      "lib/matplotlib/tri/_tripcolor.py",
+      "lib/matplotlib/tri/_triplot.py",
+      "lib/matplotlib/tri/_trirefine.py",
+      "lib/matplotlib/tri/_tritools.py",
+      "lib/mpl_toolkits/mplot3d/axes3d.py"
+    ],
+    "baseline_b_files_extra": [
+      "doc/sphinxext/__init__.py",
+      "examples/images_contours_and_fields/tripcolor_demo.py",
+      "lib/matplotlib/__init__.py",
+      "lib/matplotlib/_api/__init__.py",
+      "lib/matplotlib/axes/__init__.py",
+      "lib/matplotlib/backends/__init__.py",
+      "lib/matplotlib/backends/qt_editor/__init__.py",
+      "lib/matplotlib/cbook/__init__.py",
+      "lib/matplotlib/projections/__init__.py",
+      "lib/matplotlib/sphinxext/__init__.py",
+      "lib/matplotlib/style/__init__.py",
+      "lib/matplotlib/testing/__init__.py",
+      "lib/matplotlib/testing/jpl_units/__init__.py",
+      "lib/matplotlib/tests/__init__.py",
+      "lib/matplotlib/tests/test_getattr.py",
+      "lib/mpl_toolkits/__init__.py",
+      "lib/mpl_toolkits/axes_grid1/__init__.py",
+      "lib/mpl_toolkits/axisartist/__init__.py",
+      "lib/mpl_toolkits/mplot3d/__init__.py",
+      "lib/mpl_toolkits/tests/__init__.py",
+      "plot_types/unstructured/tripcolor.py"
+    ],
+    "baseline_b_keywords": [
+      "__init__.py",
+      "__init__",
+      "matplotlib.tri",
+      "matplotlib/tri",
+      "tripcolor",
+      "tri/__init__.py",
+      "getattr",
+      "matplotlib/tri/tripcolor",
+      "matplotlib.tri.tripcolor"
+    ],
+    "baseline_b_files_count": 30
+  },
+  {
+    "task_id": "pydata__xarray-7019",
+    "complexity_tier": "architectural",
+    "total_repo_files": 171,
+    "ground_truth_count": 23,
+    "plan_files_count": 12,
+    "plan_file_recall": 0.2609,
+    "plan_file_precision": 0.5,
+    "plan_search_reduction": 0.070175,
+    "plan_files_matched": [
+      "xarray/core/computation.py",
+      "xarray/core/dask_array_ops.py",
+      "xarray/core/dataarray.py",
+      "xarray/core/dataset.py",
+      "xarray/core/duck_array_ops.py",
+      "xarray/core/variable.py"
+    ],
+    "plan_files_missed": [
+      "xarray/backends/api.py",
+      "xarray/backends/common.py",
+      "xarray/backends/plugins.py",
+      "xarray/backends/zarr.py",
+      "xarray/coding/strings.py",
+      "xarray/coding/variables.py",
+      "xarray/core/common.py",
+      "xarray/core/daskmanager.py",
+      "xarray/core/indexing.py",
+      "xarray/core/missing.py",
+      "xarray/core/nanops.py",
+      "xarray/core/parallelcompat.py",
+      "xarray/core/pycompat.py",
+      "xarray/core/rolling.py",
+      "xarray/core/types.py",
+      "xarray/core/utils.py",
+      "xarray/core/weighted.py"
+    ],
+    "plan_files_extra": [
+      "xarray/core/__init__.py",
+      "xarray/core/options.py",
+      "xarray/core/parallel.py",
+      "xarray/core/parallel_managers.py",
+      "xarray/tests/test_dask.py",
+      "xarray/tests/test_parallel_managers.py"
+    ],
+    "baseline_b_file_recall": 0.1739,
+    "baseline_b_file_precision": 0.16,
+    "baseline_b_search_reduction": 0.146199,
+    "baseline_b_files_matched": [
+      "xarray/core/dask_array_ops.py",
+      "xarray/core/duck_array_ops.py",
+      "xarray/core/indexing.py",
+      "xarray/core/nanops.py"
+    ],
+    "baseline_b_files_missed": [
+      "xarray/backends/api.py",
+      "xarray/backends/common.py",
+      "xarray/backends/plugins.py",
+      "xarray/backends/zarr.py",
+      "xarray/coding/strings.py",
+      "xarray/coding/variables.py",
+      "xarray/core/common.py",
+      "xarray/core/computation.py",
+      "xarray/core/daskmanager.py",
+      "xarray/core/dataarray.py",
+      "xarray/core/dataset.py",
+      "xarray/core/missing.py",
+      "xarray/core/parallelcompat.py",
+      "xarray/core/pycompat.py",
+      "xarray/core/rolling.py",
+      "xarray/core/types.py",
+      "xarray/core/utils.py",
+      "xarray/core/variable.py",
+      "xarray/core/weighted.py"
+    ],
+    "baseline_b_files_extra": [
+      ".github/workflows/configure-testpypi-version.py",
+      ".github/workflows/parse_logs.py",
+      "asv_bench/benchmarks/indexing.py",
+      "asv_bench/benchmarks/reindexing.py",
+      "xarray/coding/calendar_ops.py",
+      "xarray/coding/cftimeindex.py",
+      "xarray/core/_typed_ops.py",
+      "xarray/core/formatting_html.py",
+      "xarray/core/indexes.py",
+      "xarray/core/ops.py",
+      "xarray/indexes/__init__.py",
+      "xarray/static/html/__init__.py",
+      "xarray/tests/test_calendar_ops.py",
+      "xarray/tests/test_cftimeindex.py",
+      "xarray/tests/test_cftimeindex_resample.py",
+      "xarray/tests/test_dask.py",
+      "xarray/tests/test_duck_array_ops.py",
+      "xarray/tests/test_formatting_html.py",
+      "xarray/tests/test_indexes.py",
+      "xarray/tests/test_indexing.py",
+      "xarray/util/generate_ops.py"
+    ],
+    "baseline_b_keywords": [
+      "index",
+      "ops.py",
+      "html",
+      "github",
+      "dask"
+    ],
+    "baseline_b_files_count": 25
+  }
+]

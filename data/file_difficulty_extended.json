@@ -1,0 +1,109 @@
+{
+  "rates": {
+    "distant_module": {
+      "missed": 208,
+      "found": 0,
+      "total": 208,
+      "miss_rate": 1.0
+    },
+    "same_package": {
+      "missed": 137,
+      "found": 362,
+      "total": 499,
+      "miss_rate": 0.2745490981963928
+    },
+    "config_init": {
+      "missed": 27,
+      "found": 35,
+      "total": 62,
+      "miss_rate": 0.43548387096774194
+    },
+    "shared_utility": {
+      "missed": 66,
+      "found": 42,
+      "total": 108,
+      "miss_rate": 0.6111111111111112
+    },
+    "documentation": {
+      "missed": 1,
+      "found": 1,
+      "total": 2,
+      "miss_rate": 0.5
+    },
+    "sibling_package": {
+      "missed": 193,
+      "found": 0,
+      "total": 193,
+      "miss_rate": 1.0
+    },
+    "test_file": {
+      "missed": 1,
+      "found": 0,
+      "total": 1,
+      "miss_rate": 1.0
+    }
+  },
+  "detail": {
+    "label": "extended",
+    "total_missed": 633,
+    "total_found": 440,
+    "missed_categories": {
+      "distant_module": 208,
+      "config_init": 27,
+      "test_file": 1,
+      "sibling_package": 193,
+      "shared_utility": 66,
+      "documentation": 1,
+      "same_package": 137
+    },
+    "found_categories": {
+      "same_package": 362,
+      "shared_utility": 42,
+      "config_init": 35,
+      "documentation": 1
+    },
+    "tier_missed": {
+      "localized": {
+        "distant_module": 56,
+        "config_init": 11,
+        "test_file": 1,
+        "sibling_package": 31,
+        "shared_utility": 19,
+        "documentation": 1,
+        "same_package": 10
+      },
+      "cross-module": {
+        "same_package": 31,
+        "distant_module": 47,
+        "sibling_package": 34,
+        "config_init": 8,
+        "shared_utility": 16
+      },
+      "architectural": {
+        "distant_module": 105,
+        "shared_utility": 31,
+        "same_package": 96,
+        "config_init": 8,
+        "sibling_package": 128
+      }
+    },
+    "tier_found": {
+      "localized": {
+        "same_package": 167,
+        "shared_utility": 27,
+        "config_init": 16
+      },
+      "cross-module": {
+        "same_package": 104,
+        "config_init": 10,
+        "shared_utility": 8,
+        "documentation": 1
+      },
+      "architectural": {
+        "same_package": 91,
+        "shared_utility": 7,
+        "config_init": 9
+      }
+    }
+  }
+}

@@ -1,0 +1,1124 @@
+[
+  {
+    "task_id": "astropy__astropy-14907",
+    "complexity_tier": "localized",
+    "plan_file_recall": 0.0,
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0.0,
+    "diff_similarity": 0.026143790849673203,
+    "gen_files_count": 3,
+    "gt_files_count": 2,
+    "gen_files": [
+      "astropy/table/column.py",
+      "astropy/table/groups.py",
+      "astropy/table/tests/test_groups.py"
+    ],
+    "gt_files": [
+      "astropy/table/index.py",
+      "astropy/time/core.py"
+    ]
+  },
+  {
+    "task_id": "sphinx-doc__sphinx-9053",
+    "complexity_tier": "localized",
+    "plan_file_recall": 0.0,
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0.0,
+    "diff_similarity": 0.011764705882352941,
+    "gen_files_count": 5,
+    "gt_files_count": 3,
+    "gen_files": [
+      "setup.py",
+      "sphinx/util/docutils.py",
+      "tests/conftest.py",
+      "tests/test_docutils_compatibility.py",
+      "tests/test_util_docutils.py"
+    ],
+    "gt_files": [
+      "sphinx/environment/adapters/toctree.py",
+      "sphinx/writers/html.py",
+      "sphinx/writers/html5.py"
+    ]
+  },
+  {
+    "task_id": "matplotlib__matplotlib-24691",
+    "complexity_tier": "localized",
+    "plan_file_recall": 0.3333,
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0,
+    "diff_similarity": 0.0,
+    "gen_files_count": 0,
+    "gt_files_count": 3,
+    "gen_files": [],
+    "gt_files": [
+      "galleries/examples/color/set_alpha.py",
+      "galleries/users_explain/colors/colors.py",
+      "lib/matplotlib/colors.py"
+    ]
+  },
+  {
+    "task_id": "django__django-12671",
+    "complexity_tier": "localized",
+    "plan_file_recall": 0.3333,
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0.0,
+    "diff_similarity": 0.4,
+    "gen_files_count": 1,
+    "gt_files_count": 3,
+    "gen_files": [
+      "django/core/management/color.py"
+    ],
+    "gt_files": [
+      "django/contrib/staticfiles/management/commands/collectstatic.py",
+      "django/core/management/base.py",
+      "django/core/management/commands/loaddata.py"
+    ]
+  },
+  {
+    "task_id": "pydata__xarray-6548",
+    "complexity_tier": "localized",
+    "plan_file_recall": 0.5,
+    "gen_file_recall": 0.5,
+    "gen_file_precision": 0.5,
+    "diff_similarity": 0.060240963855421686,
+    "gen_files_count": 2,
+    "gt_files_count": 2,
+    "gen_files": [
+      "xarray/core/computation.py",
+      "xarray/tests/test_computation.py"
+    ],
+    "gt_files": [
+      "asv_bench/benchmarks/polyfit.py",
+      "xarray/core/computation.py"
+    ]
+  },
+  {
+    "task_id": "django__django-11885",
+    "complexity_tier": "localized",
+    "plan_file_recall": 0.5,
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0,
+    "diff_similarity": 0.0,
+    "gen_files_count": 0,
+    "gt_files_count": 2,
+    "gen_files": [],
+    "gt_files": [
+      "django/contrib/admin/utils.py",
+      "django/db/models/deletion.py"
+    ]
+  },
+  {
+    "task_id": "matplotlib__matplotlib-26122",
+    "complexity_tier": "localized",
+    "plan_file_recall": 0.5,
+    "gen_file_recall": 0.5,
+    "gen_file_precision": 1.0,
+    "diff_similarity": 0.10526315789473684,
+    "gen_files_count": 1,
+    "gt_files_count": 2,
+    "gen_files": [
+      "lib/matplotlib/axes/_axes.py"
+    ],
+    "gt_files": [
+      "galleries/examples/misc/demo_ribbon_box.py",
+      "lib/matplotlib/axes/_axes.py"
+    ]
+  },
+  {
+    "task_id": "matplotlib__matplotlib-25779",
+    "complexity_tier": "localized",
+    "plan_file_recall": 0.5,
+    "gen_file_recall": 0.5,
+    "gen_file_precision": 0.25,
+    "diff_similarity": 0.06451612903225806,
+    "gen_files_count": 4,
+    "gt_files_count": 2,
+    "gen_files": [
+      "examples/shapes_and_collections/ellipse_demo.py",
+      "examples/shapes_and_collections/ellipse_with_rotation_arrow.py",
+      "lib/matplotlib/patches.py",
+      "lib/matplotlib/tests/test_patches.py"
+    ],
+    "gt_files": [
+      "galleries/examples/shapes_and_collections/ellipse_arrow.py",
+      "lib/matplotlib/patches.py"
+    ]
+  },
+  {
+    "task_id": "django__django-15052",
+    "complexity_tier": "localized",
+    "plan_file_recall": 0.5,
+    "gen_file_recall": 0.5,
+    "gen_file_precision": 1.0,
+    "diff_similarity": 0.6666666666666666,
+    "gen_files_count": 1,
+    "gt_files_count": 2,
+    "gen_files": [
+      "django/db/models/aggregates.py"
+    ],
+    "gt_files": [
+      "django/contrib/postgres/aggregates/mixins.py",
+      "django/db/models/aggregates.py"
+    ]
+  },
+  {
+    "task_id": "sympy__sympy-13001",
+    "complexity_tier": "localized",
+    "plan_file_recall": 0.5,
+    "gen_file_recall": 0.5,
+    "gen_file_precision": 0.5,
+    "diff_similarity": 0.0,
+    "gen_files_count": 2,
+    "gt_files_count": 2,
+    "gen_files": [
+      "sympy/simplify/cse_main.py",
+      "sympy/simplify/tests/test_cse.py"
+    ],
+    "gt_files": [
+      "sympy/simplify/cse_main.py",
+      "sympy/solvers/ode.py"
+    ]
+  },
+  {
+    "task_id": "django__django-15423",
+    "complexity_tier": "localized",
+    "plan_file_recall": 0.5,
+    "gen_file_recall": 0.5,
+    "gen_file_precision": 0.5,
+    "diff_similarity": 0.007259528130671506,
+    "gen_files_count": 2,
+    "gt_files_count": 2,
+    "gen_files": [
+      "django/utils/functional.py",
+      "tests/utils_tests/test_functional.py"
+    ],
+    "gt_files": [
+      "django/conf/__init__.py",
+      "django/utils/functional.py"
+    ]
+  },
+  {
+    "task_id": "sympy__sympy-12144",
+    "complexity_tier": "localized",
+    "plan_file_recall": 0.6667,
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0,
+    "diff_similarity": 0.0,
+    "gen_files_count": 0,
+    "gt_files_count": 3,
+    "gen_files": [],
+    "gt_files": [
+      "sympy/core/function.py",
+      "sympy/core/symbol.py",
+      "sympy/printing/repr.py"
+    ]
+  },
+  {
+    "task_id": "matplotlib__matplotlib-25515",
+    "complexity_tier": "localized",
+    "plan_file_recall": 0.6667,
+    "gen_file_recall": 0.3333333333333333,
+    "gen_file_precision": 1.0,
+    "diff_similarity": 0.0023501762632197414,
+    "gen_files_count": 1,
+    "gt_files_count": 3,
+    "gen_files": [
+      "lib/matplotlib/sphinxext/plot_directive.py"
+    ],
+    "gt_files": [
+      "doc/conf.py",
+      "lib/matplotlib/sphinxext/figmpl_directive.py",
+      "lib/matplotlib/sphinxext/plot_directive.py"
+    ]
+  },
+  {
+    "task_id": "django__django-12869",
+    "complexity_tier": "localized",
+    "plan_file_recall": 0.6667,
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0,
+    "diff_similarity": 0.0,
+    "gen_files_count": 0,
+    "gt_files_count": 3,
+    "gen_files": [],
+    "gt_files": [
+      "django/contrib/staticfiles/apps.py",
+      "django/contrib/staticfiles/management/commands/collectstatic.py",
+      "django/core/checks/registry.py"
+    ]
+  },
+  {
+    "task_id": "sphinx-doc__sphinx-8551",
+    "complexity_tier": "localized",
+    "plan_file_recall": 1.0,
+    "gen_file_recall": 0.5,
+    "gen_file_precision": 0.5,
+    "diff_similarity": 0.0,
+    "gen_files_count": 2,
+    "gt_files_count": 2,
+    "gen_files": [
+      "sphinx/domains/python.py",
+      "tests/test_domain_py.py"
+    ],
+    "gt_files": [
+      "sphinx/domains/python.py",
+      "sphinx/util/docfields.py"
+    ]
+  },
+  {
+    "task_id": "scikit-learn__scikit-learn-13549",
+    "complexity_tier": "localized",
+    "plan_file_recall": 1.0,
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0.0,
+    "diff_similarity": 0.09185185185185185,
+    "gen_files_count": 2,
+    "gt_files_count": 2,
+    "gen_files": [
+      "sklearn/utils/random.py",
+      "sklearn/utils/tests/test_random.py"
+    ],
+    "gt_files": [
+      "sklearn/model_selection/_split.py",
+      "sklearn/utils/__init__.py"
+    ]
+  },
+  {
+    "task_id": "django__django-15103",
+    "complexity_tier": "localized",
+    "plan_file_recall": 1.0,
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0,
+    "diff_similarity": 0.0,
+    "gen_files_count": 0,
+    "gt_files_count": 2,
+    "gen_files": [],
+    "gt_files": [
+      "django/template/defaultfilters.py",
+      "django/utils/html.py"
+    ]
+  },
+  {
+    "task_id": "django__django-12518",
+    "complexity_tier": "localized",
+    "plan_file_recall": 1.0,
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0,
+    "diff_similarity": 0.0,
+    "gen_files_count": 0,
+    "gt_files_count": 3,
+    "gen_files": [],
+    "gt_files": [
+      "django/core/management/commands/sqlmigrate.py",
+      "django/db/migrations/executor.py",
+      "django/db/migrations/loader.py"
+    ]
+  },
+  {
+    "task_id": "django__django-11754",
+    "complexity_tier": "localized",
+    "plan_file_recall": 1.0,
+    "gen_file_recall": 0.6666666666666666,
+    "gen_file_precision": 0.5,
+    "diff_similarity": 0.07894736842105263,
+    "gen_files_count": 4,
+    "gt_files_count": 3,
+    "gen_files": [
+      "django/conf/global_settings.py",
+      "django/core/handlers/exception.py",
+      "django/views/debug.py",
+      "django/views/defaults.py"
+    ],
+    "gt_files": [
+      "django/conf/global_settings.py",
+      "django/utils/log.py",
+      "django/views/debug.py"
+    ]
+  },
+  {
+    "task_id": "django__django-15828",
+    "complexity_tier": "localized",
+    "plan_file_recall": 1.0,
+    "gen_file_recall": 0.5,
+    "gen_file_precision": 0.5,
+    "diff_similarity": 0.16216216216216217,
+    "gen_files_count": 2,
+    "gt_files_count": 2,
+    "gen_files": [
+      "django/db/models/constraints.py",
+      "tests/constraints/tests.py"
+    ],
+    "gt_files": [
+      "django/contrib/postgres/constraints.py",
+      "django/db/models/constraints.py"
+    ]
+  },
+  {
+    "task_id": "pylint-dev__pylint-5839",
+    "complexity_tier": "cross-module",
+    "plan_file_recall": 0.0,
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0.0,
+    "diff_similarity": 0.029069767441860465,
+    "gen_files_count": 6,
+    "gt_files_count": 4,
+    "gen_files": [
+      "pylint/exceptions.py",
+      "pylint/message/__init__.py",
+      "pylint/message/_deleted_message_ids.py",
+      "pylint/message/message_definition_store.py",
+      "pylint/message/message_id_store.py",
+      "tests/message/test_deleted_message_ids.py"
+    ],
+    "gt_files": [
+      "pylint/checkers/__init__.py",
+      "pylint/checkers/unsupported_version.py",
+      "pylint/constants.py",
+      "script/get_unused_message_id_category.py"
+    ]
+  },
+  {
+    "task_id": "django__django-16302",
+    "complexity_tier": "cross-module",
+    "plan_file_recall": 0.2,
+    "gen_file_recall": 0.2,
+    "gen_file_precision": 0.16666666666666666,
+    "diff_similarity": 0.014388489208633094,
+    "gen_files_count": 6,
+    "gt_files_count": 5,
+    "gen_files": [
+      "django/db/backends/base/schema.py",
+      "django/db/backends/mysql/schema.py",
+      "django/db/backends/oracle/schema.py",
+      "django/db/backends/postgresql/schema.py",
+      "django/db/backends/sqlite3/schema.py",
+      "django/db/models/fields/__init__.py"
+    ],
+    "gt_files": [
+      "django/core/management/commands/inspectdb.py",
+      "django/db/backends/base/features.py",
+      "django/db/backends/postgresql/base.py",
+      "django/db/backends/postgresql/features.py",
+      "django/db/models/fields/__init__.py"
+    ]
+  },
+  {
+    "task_id": "django__django-12928",
+    "complexity_tier": "cross-module",
+    "plan_file_recall": 0.2,
+    "gen_file_recall": 0.2,
+    "gen_file_precision": 0.3333333333333333,
+    "diff_similarity": 0.0975609756097561,
+    "gen_files_count": 3,
+    "gt_files_count": 5,
+    "gen_files": [
+      "django/template/backends/django.py",
+      "django/template/engine.py",
+      "django/template/loaders/cached.py"
+    ],
+    "gt_files": [
+      "django/template/__init__.py",
+      "django/template/autoreload.py",
+      "django/template/loaders/cached.py",
+      "django/utils/autoreload.py",
+      "django/utils/translation/reloader.py"
+    ]
+  },
+  {
+    "task_id": "sympy__sympy-17340",
+    "complexity_tier": "cross-module",
+    "plan_file_recall": 0.2,
+    "gen_file_recall": 0.2,
+    "gen_file_precision": 0.5,
+    "diff_similarity": 0.030303030303030304,
+    "gen_files_count": 2,
+    "gt_files_count": 5,
+    "gen_files": [
+      "sympy/combinatorics/permutations.py",
+      "sympy/combinatorics/tests/test_permutations.py"
+    ],
+    "gt_files": [
+      "sympy/codegen/array_utils.py",
+      "sympy/combinatorics/perm_groups.py",
+      "sympy/combinatorics/permutations.py",
+      "sympy/printing/pycode.py",
+      "sympy/printing/tensorflow.py"
+    ]
+  },
+  {
+    "task_id": "django__django-14026",
+    "complexity_tier": "cross-module",
+    "plan_file_recall": 0.25,
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0,
+    "diff_similarity": 0.0,
+    "gen_files_count": 0,
+    "gt_files_count": 4,
+    "gen_files": [],
+    "gt_files": [
+      "django/contrib/postgres/aggregates/general.py",
+      "django/contrib/postgres/aggregates/statistics.py",
+      "django/db/backends/mysql/features.py",
+      "django/db/models/aggregates.py"
+    ]
+  },
+  {
+    "task_id": "pylint-dev__pylint-8929",
+    "complexity_tier": "cross-module",
+    "plan_file_recall": 0.4,
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0,
+    "diff_similarity": 0.0,
+    "gen_files_count": 0,
+    "gt_files_count": 5,
+    "gen_files": [],
+    "gt_files": [
+      "pylint/interfaces.py",
+      "pylint/lint/base_options.py",
+      "pylint/reporters/__init__.py",
+      "pylint/reporters/json_reporter.py",
+      "pylint/testutils/_primer/primer_run_command.py"
+    ]
+  },
+  {
+    "task_id": "django__django-12396",
+    "complexity_tier": "cross-module",
+    "plan_file_recall": 0.5,
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0,
+    "diff_similarity": 0.0,
+    "gen_files_count": 0,
+    "gt_files_count": 6,
+    "gen_files": [],
+    "gt_files": [
+      "django/core/checks/database.py",
+      "django/core/checks/registry.py",
+      "django/core/management/base.py",
+      "django/core/management/commands/check.py",
+      "django/core/management/commands/migrate.py",
+      "django/db/models/base.py"
+    ]
+  },
+  {
+    "task_id": "sphinx-doc__sphinx-9828",
+    "complexity_tier": "cross-module",
+    "plan_file_recall": 0.5,
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0,
+    "diff_similarity": 0.0,
+    "gen_files_count": 0,
+    "gt_files_count": 4,
+    "gen_files": [],
+    "gt_files": [
+      "sphinx/application.py",
+      "sphinx/builders/__init__.py",
+      "sphinx/config.py",
+      "sphinx/util/i18n.py"
+    ]
+  },
+  {
+    "task_id": "sympy__sympy-15586",
+    "complexity_tier": "cross-module",
+    "plan_file_recall": 0.5,
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0,
+    "diff_similarity": 0.0,
+    "gen_files_count": 0,
+    "gt_files_count": 4,
+    "gen_files": [],
+    "gt_files": [
+      "sympy/matrices/expressions/inverse.py",
+      "sympy/printing/pycode.py",
+      "sympy/printing/str.py",
+      "sympy/utilities/lambdify.py"
+    ]
+  },
+  {
+    "task_id": "sympy__sympy-16906",
+    "complexity_tier": "cross-module",
+    "plan_file_recall": 0.6,
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0,
+    "diff_similarity": 0.0,
+    "gen_files_count": 0,
+    "gt_files_count": 5,
+    "gen_files": [],
+    "gt_files": [
+      "sympy/matrices/expressions/hadamard.py",
+      "sympy/printing/latex.py",
+      "sympy/printing/mathml.py",
+      "sympy/printing/pretty/pretty.py",
+      "sympy/printing/str.py"
+    ]
+  },
+  {
+    "task_id": "matplotlib__matplotlib-19743",
+    "complexity_tier": "cross-module",
+    "plan_file_recall": 0.6667,
+    "gen_file_recall": 0.3333333333333333,
+    "gen_file_precision": 0.5,
+    "diff_similarity": 0.02320185614849188,
+    "gen_files_count": 4,
+    "gt_files_count": 6,
+    "gen_files": [
+      "examples/subplots_axes_and_figures/demo_constrained_layout.py",
+      "lib/matplotlib/_constrained_layout.py",
+      "lib/matplotlib/figure.py",
+      "lib/matplotlib/tests/test_constrainedlayout.py"
+    ],
+    "gt_files": [
+      "examples/text_labels_and_annotations/figlegend_demo.py",
+      "lib/matplotlib/_constrained_layout.py",
+      "lib/matplotlib/axes/_axes.py",
+      "lib/matplotlib/figure.py",
+      "lib/matplotlib/legend.py",
+      "tutorials/intermediate/legend_guide.py"
+    ]
+  },
+  {
+    "task_id": "django__django-12513",
+    "complexity_tier": "cross-module",
+    "plan_file_recall": 0.6667,
+    "gen_file_recall": 0.6666666666666666,
+    "gen_file_precision": 0.6666666666666666,
+    "diff_similarity": 0.09565217391304348,
+    "gen_files_count": 6,
+    "gt_files_count": 6,
+    "gen_files": [
+      "django/contrib/auth/signals.py",
+      "django/contrib/postgres/signals.py",
+      "django/core/signals.py",
+      "django/db/models/signals.py",
+      "django/dispatch/dispatcher.py",
+      "tests/dispatch/tests.py"
+    ],
+    "gt_files": [
+      "django/contrib/auth/signals.py",
+      "django/core/signals.py",
+      "django/db/backends/signals.py",
+      "django/db/models/signals.py",
+      "django/dispatch/dispatcher.py",
+      "django/utils/autoreload.py"
+    ]
+  },
+  {
+    "task_id": "sphinx-doc__sphinx-8291",
+    "complexity_tier": "cross-module",
+    "plan_file_recall": 0.75,
+    "gen_file_recall": 0.5,
+    "gen_file_precision": 0.4,
+    "diff_similarity": 0.017057569296375266,
+    "gen_files_count": 5,
+    "gt_files_count": 4,
+    "gen_files": [
+      "sphinx/ext/napoleon/__init__.py",
+      "sphinx/ext/napoleon/docstring.py",
+      "tests/ext_napoleon_pep526_data_google.py",
+      "tests/test_ext_napoleon.py",
+      "tests/test_ext_napoleon_docstring.py"
+    ],
+    "gt_files": [
+      "doc/usage/extensions/example_google.py",
+      "sphinx/ext/napoleon/__init__.py",
+      "sphinx/ext/napoleon/docstring.py",
+      "sphinx/util/typing.py"
+    ]
+  },
+  {
+    "task_id": "django__django-15139",
+    "complexity_tier": "cross-module",
+    "plan_file_recall": 0.75,
+    "gen_file_recall": 0.25,
+    "gen_file_precision": 0.25,
+    "diff_similarity": 0.0273972602739726,
+    "gen_files_count": 4,
+    "gt_files_count": 4,
+    "gen_files": [
+      "django/contrib/sessions/serializers.py",
+      "docs/releases/deprecation_notes.txt",
+      "tests/sessions_tests/test_serializers.py",
+      "tests/sessions_tests/tests.py"
+    ],
+    "gt_files": [
+      "django/contrib/sessions/backends/base.py",
+      "django/contrib/sessions/serializers.py",
+      "django/core/cache/backends/redis.py",
+      "django/core/serializers/base.py"
+    ]
+  },
+  {
+    "task_id": "sympy__sympy-19201",
+    "complexity_tier": "cross-module",
+    "plan_file_recall": 1.0,
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0,
+    "diff_similarity": 0.0,
+    "gen_files_count": 0,
+    "gt_files_count": 4,
+    "gen_files": [],
+    "gt_files": [
+      "sympy/matrices/expressions/slice.py",
+      "sympy/printing/latex.py",
+      "sympy/printing/pretty/pretty.py",
+      "sympy/printing/str.py"
+    ]
+  },
+  {
+    "task_id": "scikit-learn__scikit-learn-25363",
+    "complexity_tier": "architectural",
+    "plan_file_recall": 0.0323,
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0.0,
+    "diff_similarity": 0.04930662557781202,
+    "gen_files_count": 4,
+    "gt_files_count": 31,
+    "gen_files": [
+      "sklearn/_config.py",
+      "sklearn/externals/joblib/__init__.py",
+      "sklearn/utils/__init__.py",
+      "sklearn/utils/_joblib.py"
+    ],
+    "gt_files": [
+      "benchmarks/bench_saga.py",
+      "sklearn/calibration.py",
+      "sklearn/cluster/_mean_shift.py",
+      "sklearn/compose/_column_transformer.py",
+      "sklearn/covariance/_graph_lasso.py",
+      "sklearn/decomposition/_dict_learning.py",
+      "sklearn/decomposition/_lda.py",
+      "sklearn/ensemble/_bagging.py",
+      "sklearn/ensemble/_forest.py",
+      "sklearn/ensemble/_stacking.py",
+      "sklearn/ensemble/_voting.py",
+      "sklearn/feature_selection/_rfe.py",
+      "sklearn/inspection/_permutation_importance.py",
+      "sklearn/inspection/_plot/partial_dependence.py",
+      "sklearn/linear_model/_base.py",
+      "sklearn/linear_model/_coordinate_descent.py",
+      "sklearn/linear_model/_least_angle.py",
+      "sklearn/linear_model/_logistic.py",
+      "sklearn/linear_model/_omp.py",
+      "sklearn/linear_model/_stochastic_gradient.py",
+      "sklearn/linear_model/_theil_sen.py",
+      "sklearn/manifold/_mds.py",
+      "sklearn/metrics/pairwise.py",
+      "sklearn/model_selection/_search.py",
+      "sklearn/model_selection/_validation.py",
+      "sklearn/multiclass.py",
+      "sklearn/multioutput.py",
+      "sklearn/neighbors/_base.py",
+      "sklearn/pipeline.py",
+      "sklearn/utils/fixes.py",
+      "sklearn/utils/parallel.py"
+    ]
+  },
+  {
+    "task_id": "django__django-14374",
+    "complexity_tier": "architectural",
+    "plan_file_recall": 0.0833,
+    "gen_file_recall": 0.25,
+    "gen_file_precision": 0.3333333333333333,
+    "diff_similarity": 0.01990049751243781,
+    "gen_files_count": 9,
+    "gt_files_count": 12,
+    "gen_files": [
+      "django/contrib/admin/models.py",
+      "django/contrib/auth/tokens.py",
+      "django/contrib/sessions/backends/base.py",
+      "django/contrib/sessions/backends/db.py",
+      "django/contrib/sessions/backends/file.py",
+      "django/core/signing.py",
+      "django/utils/cache.py",
+      "django/utils/http.py",
+      "django/utils/timezone.py"
+    ],
+    "gt_files": [
+      "django/contrib/sessions/backends/file.py",
+      "django/contrib/sitemaps/views.py",
+      "django/contrib/syndication/views.py",
+      "django/core/cache/backends/db.py",
+      "django/core/files/storage.py",
+      "django/http/response.py",
+      "django/utils/dateformat.py",
+      "django/utils/feedgenerator.py",
+      "django/utils/http.py",
+      "django/utils/timezone.py",
+      "django/utils/version.py",
+      "django/views/decorators/http.py"
+    ]
+  },
+  {
+    "task_id": "scikit-learn__scikit-learn-25969",
+    "complexity_tier": "architectural",
+    "plan_file_recall": 0.1111,
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0.0,
+    "diff_similarity": 0.03801478352692714,
+    "gen_files_count": 7,
+    "gt_files_count": 9,
+    "gen_files": [
+      "sklearn/metrics/__init__.py",
+      "sklearn/metrics/_plot/__init__.py",
+      "sklearn/metrics/_plot/_check_response.py",
+      "sklearn/metrics/_plot/curve_display_mixin.py",
+      "sklearn/metrics/_plot/tests/__init__.py",
+      "sklearn/metrics/_plot/tests/test_check_response.py",
+      "sklearn/metrics/_plot/tests/test_curve_display_mixin.py"
+    ],
+    "gt_files": [
+      "sklearn/calibration.py",
+      "sklearn/metrics/_base.py",
+      "sklearn/metrics/_classification.py",
+      "sklearn/metrics/_plot/det_curve.py",
+      "sklearn/metrics/_plot/precision_recall_curve.py",
+      "sklearn/metrics/_plot/roc_curve.py",
+      "sklearn/metrics/_ranking.py",
+      "sklearn/utils/_plotting.py",
+      "sklearn/utils/validation.py"
+    ]
+  },
+  {
+    "task_id": "sphinx-doc__sphinx-10207",
+    "complexity_tier": "architectural",
+    "plan_file_recall": 0.1429,
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0,
+    "diff_similarity": 0.0,
+    "gen_files_count": 0,
+    "gt_files_count": 7,
+    "gen_files": [],
+    "gt_files": [
+      "sphinx/builders/latex/transforms.py",
+      "sphinx/ext/autodoc/__init__.py",
+      "sphinx/ext/autodoc/directive.py",
+      "sphinx/ext/napoleon/docstring.py",
+      "sphinx/util/typing.py",
+      "sphinx/writers/html.py",
+      "sphinx/writers/latex.py"
+    ]
+  },
+  {
+    "task_id": "sympy__sympy-18116",
+    "complexity_tier": "architectural",
+    "plan_file_recall": 0.1429,
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0.0,
+    "diff_similarity": 0.0,
+    "gen_files_count": 6,
+    "gt_files_count": 7,
+    "gen_files": [
+      "sympy/core/__init__.py",
+      "sympy/core/relational.py",
+      "sympy/core/tests/test_relational.py",
+      "sympy/logic/__init__.py",
+      "sympy/logic/boolalg.py",
+      "sympy/logic/tests/test_boolalg.py"
+    ],
+    "gt_files": [
+      "sympy/codegen/array_utils.py",
+      "sympy/core/decorators.py",
+      "sympy/core/expr.py",
+      "sympy/core/numbers.py",
+      "sympy/sets/sets.py",
+      "sympy/simplify/trigsimp.py",
+      "sympy/solvers/ode.py"
+    ]
+  },
+  {
+    "task_id": "sympy__sympy-21931",
+    "complexity_tier": "architectural",
+    "plan_file_recall": 0.1765,
+    "gen_file_recall": 0.058823529411764705,
+    "gen_file_precision": 0.5,
+    "diff_similarity": 0.0,
+    "gen_files_count": 2,
+    "gt_files_count": 17,
+    "gen_files": [
+      "sympy/combinatorics/partitions.py",
+      "sympy/combinatorics/tests/test_partitions.py"
+    ],
+    "gt_files": [
+      "sympy/calculus/singularities.py",
+      "sympy/calculus/util.py",
+      "sympy/categories/baseclasses.py",
+      "sympy/combinatorics/partitions.py",
+      "sympy/combinatorics/polyhedron.py",
+      "sympy/core/function.py",
+      "sympy/logic/boolalg.py",
+      "sympy/printing/str.py",
+      "sympy/sets/conditionset.py",
+      "sympy/sets/fancysets.py",
+      "sympy/sets/powerset.py",
+      "sympy/sets/sets.py",
+      "sympy/solvers/inequalities.py",
+      "sympy/solvers/solveset.py",
+      "sympy/stats/rv_interface.py",
+      "sympy/stats/stochastic_process_types.py",
+      "sympy/vector/implicitregion.py"
+    ]
+  },
+  {
+    "task_id": "sympy__sympy-17845",
+    "complexity_tier": "architectural",
+    "plan_file_recall": 0.2,
+    "gen_file_recall": 0.2,
+    "gen_file_precision": 0.5,
+    "diff_similarity": 0.01444043321299639,
+    "gen_files_count": 6,
+    "gt_files_count": 15,
+    "gen_files": [
+      "sympy/printing/str.py",
+      "sympy/printing/tests/test_str.py",
+      "sympy/sets/__init__.py",
+      "sympy/sets/fancysets.py",
+      "sympy/sets/sets.py",
+      "sympy/sets/tests/test_sets.py"
+    ],
+    "gt_files": [
+      "sympy/calculus/singularities.py",
+      "sympy/calculus/util.py",
+      "sympy/categories/baseclasses.py",
+      "sympy/combinatorics/partitions.py",
+      "sympy/combinatorics/polyhedron.py",
+      "sympy/core/function.py",
+      "sympy/logic/boolalg.py",
+      "sympy/printing/str.py",
+      "sympy/sets/conditionset.py",
+      "sympy/sets/fancysets.py",
+      "sympy/sets/powerset.py",
+      "sympy/sets/sets.py",
+      "sympy/solvers/inequalities.py",
+      "sympy/solvers/solveset.py",
+      "sympy/stats/stochastic_process_types.py"
+    ]
+  },
+  {
+    "task_id": "sphinx-doc__sphinx-10807",
+    "complexity_tier": "architectural",
+    "plan_file_recall": 0.2222,
+    "gen_file_recall": 0.2222222222222222,
+    "gen_file_precision": 1.0,
+    "diff_similarity": 0.04953560371517028,
+    "gen_files_count": 2,
+    "gt_files_count": 9,
+    "gen_files": [
+      "sphinx/domains/python.py",
+      "sphinx/ext/autodoc/__init__.py"
+    ],
+    "gt_files": [
+      "sphinx/config.py",
+      "sphinx/directives/__init__.py",
+      "sphinx/domains/c.py",
+      "sphinx/domains/cpp.py",
+      "sphinx/domains/javascript.py",
+      "sphinx/domains/python.py",
+      "sphinx/domains/rst.py",
+      "sphinx/environment/collectors/toctree.py",
+      "sphinx/ext/autodoc/__init__.py"
+    ]
+  },
+  {
+    "task_id": "sympy__sympy-16963",
+    "complexity_tier": "architectural",
+    "plan_file_recall": 0.25,
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0,
+    "diff_similarity": 0.0,
+    "gen_files_count": 0,
+    "gt_files_count": 8,
+    "gen_files": [],
+    "gt_files": [
+      "sympy/core/compatibility.py",
+      "sympy/core/containers.py",
+      "sympy/core/evalf.py",
+      "sympy/core/function.py",
+      "sympy/core/operations.py",
+      "sympy/core/sympify.py",
+      "sympy/ntheory/factor_.py",
+      "sympy/tensor/indexed.py"
+    ]
+  },
+  {
+    "task_id": "django__django-12910",
+    "complexity_tier": "architectural",
+    "plan_file_recall": 0.25,
+    "gen_file_recall": 0.1875,
+    "gen_file_precision": 0.6,
+    "diff_similarity": 0.05434782608695652,
+    "gen_files_count": 5,
+    "gt_files_count": 16,
+    "gen_files": [
+      "django/contrib/staticfiles/management/commands/runserver.py",
+      "django/core/management/base.py",
+      "django/core/management/commands/migrate.py",
+      "django/core/management/commands/runserver.py",
+      "django/core/management/commands/test.py"
+    ],
+    "gt_files": [
+      "django/contrib/auth/management/commands/changepassword.py",
+      "django/contrib/gis/management/commands/ogrinspect.py",
+      "django/contrib/staticfiles/management/commands/collectstatic.py",
+      "django/core/management/base.py",
+      "django/core/management/commands/check.py",
+      "django/core/management/commands/compilemessages.py",
+      "django/core/management/commands/createcachetable.py",
+      "django/core/management/commands/dbshell.py",
+      "django/core/management/commands/diffsettings.py",
+      "django/core/management/commands/inspectdb.py",
+      "django/core/management/commands/makemessages.py",
+      "django/core/management/commands/migrate.py",
+      "django/core/management/commands/runserver.py",
+      "django/core/management/commands/shell.py",
+      "django/core/management/commands/testserver.py",
+      "django/core/management/templates.py"
+    ]
+  },
+  {
+    "task_id": "sympy__sympy-13236",
+    "complexity_tier": "architectural",
+    "plan_file_recall": 0.2857,
+    "gen_file_recall": 0.14285714285714285,
+    "gen_file_precision": 0.5,
+    "diff_similarity": 0.032,
+    "gen_files_count": 2,
+    "gt_files_count": 7,
+    "gen_files": [
+      "sympy/core/mod.py",
+      "sympy/functions/combinatorial/tests/test_comb_factorials.py"
+    ],
+    "gt_files": [
+      "sympy/core/assumptions.py",
+      "sympy/core/exprtools.py",
+      "sympy/core/mod.py",
+      "sympy/core/mul.py",
+      "sympy/core/power.py",
+      "sympy/functions/combinatorial/factorials.py",
+      "sympy/ntheory/factor_.py"
+    ]
+  },
+  {
+    "task_id": "django__django-14463",
+    "complexity_tier": "architectural",
+    "plan_file_recall": 0.3529,
+    "gen_file_recall": 0.4117647058823529,
+    "gen_file_precision": 0.6363636363636364,
+    "diff_similarity": 0.05865102639296188,
+    "gen_files_count": 11,
+    "gt_files_count": 17,
+    "gen_files": [
+      "django/db/backends/base/schema.py",
+      "django/db/backends/mysql/schema.py",
+      "django/db/backends/oracle/schema.py",
+      "django/db/backends/postgresql/schema.py",
+      "django/db/backends/sqlite3/schema.py",
+      "django/db/migrations/autodetector.py",
+      "django/db/migrations/operations/__init__.py",
+      "django/db/migrations/operations/fields.py",
+      "django/db/migrations/operations/models.py",
+      "django/db/models/fields/__init__.py",
+      "django/db/models/options.py"
+    ],
+    "gt_files": [
+      "django/core/management/commands/inspectdb.py",
+      "django/db/backends/base/features.py",
+      "django/db/backends/base/schema.py",
+      "django/db/backends/mysql/features.py",
+      "django/db/backends/mysql/introspection.py",
+      "django/db/backends/mysql/schema.py",
+      "django/db/backends/oracle/features.py",
+      "django/db/backends/oracle/introspection.py",
+      "django/db/backends/postgresql/features.py",
+      "django/db/backends/postgresql/introspection.py",
+      "django/db/migrations/autodetector.py",
+      "django/db/migrations/operations/__init__.py",
+      "django/db/migrations/operations/models.py",
+      "django/db/models/base.py",
+      "django/db/models/fields/__init__.py",
+      "django/db/models/fields/related.py",
+      "django/db/models/options.py"
+    ]
+  },
+  {
+    "task_id": "pydata__xarray-7052",
+    "complexity_tier": "architectural",
+    "plan_file_recall": 0.4167,
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0,
+    "diff_similarity": 0.0,
+    "gen_files_count": 0,
+    "gt_files_count": 12,
+    "gen_files": [],
+    "gt_files": [
+      "xarray/core/alignment.py",
+      "xarray/core/dataarray.py",
+      "xarray/core/dataset.py",
+      "xarray/core/pycompat.py",
+      "xarray/core/types.py",
+      "xarray/plot/__init__.py",
+      "xarray/plot/accessor.py",
+      "xarray/plot/dataarray_plot.py",
+      "xarray/plot/dataset_plot.py",
+      "xarray/plot/facetgrid.py",
+      "xarray/plot/plot.py",
+      "xarray/plot/utils.py"
+    ]
+  },
+  {
+    "task_id": "django__django-11991",
+    "complexity_tier": "architectural",
+    "plan_file_recall": 0.5556,
+    "gen_file_recall": 0.4444444444444444,
+    "gen_file_precision": 0.5714285714285714,
+    "diff_similarity": 0.045454545454545456,
+    "gen_files_count": 7,
+    "gt_files_count": 9,
+    "gen_files": [
+      "django/db/backends/base/schema.py",
+      "django/db/backends/mysql/schema.py",
+      "django/db/backends/oracle/schema.py",
+      "django/db/backends/postgresql/schema.py",
+      "django/db/backends/sqlite3/schema.py",
+      "django/db/models/constraints.py",
+      "django/db/models/indexes.py"
+    ],
+    "gt_files": [
+      "django/contrib/gis/db/backends/postgis/schema.py",
+      "django/contrib/postgres/indexes.py",
+      "django/db/backends/base/features.py",
+      "django/db/backends/base/schema.py",
+      "django/db/backends/postgresql/features.py",
+      "django/db/backends/postgresql/schema.py",
+      "django/db/models/base.py",
+      "django/db/models/constraints.py",
+      "django/db/models/indexes.py"
+    ]
+  },
+  {
+    "task_id": "django__django-12508",
+    "complexity_tier": "architectural",
+    "plan_file_recall": 0.75,
+    "gen_file_recall": 0.75,
+    "gen_file_precision": 1.0,
+    "diff_similarity": 0.013921113689095127,
+    "gen_files_count": 6,
+    "gt_files_count": 8,
+    "gen_files": [
+      "django/core/management/commands/dbshell.py",
+      "django/db/backends/base/client.py",
+      "django/db/backends/mysql/client.py",
+      "django/db/backends/oracle/client.py",
+      "django/db/backends/postgresql/client.py",
+      "django/db/backends/sqlite3/client.py"
+    ],
+    "gt_files": [
+      "django/core/management/base.py",
+      "django/core/management/commands/dbshell.py",
+      "django/db/backends/base/client.py",
+      "django/db/backends/mysql/client.py",
+      "django/db/backends/mysql/creation.py",
+      "django/db/backends/oracle/client.py",
+      "django/db/backends/postgresql/client.py",
+      "django/db/backends/sqlite3/client.py"
+    ]
+  }
+]

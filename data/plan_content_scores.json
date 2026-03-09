@@ -1,0 +1,975 @@
+[
+  {
+    "task_id": "django__django-13195",
+    "scores": {
+      "step_coverage": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "The plan covers most of the necessary implementation steps including examining the current implementation, modifying the delete_cookie method, and adding tests. However, it misses the critical step of updating other Django components that call delete_cookie (like messages and sessions middleware) to pass the samesite parameter, which is shown in the reference implementation."
+      },
+      "step_granularity": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "The steps are reasonably detailed, breaking down the task into examination, modification, and testing phases. Each step clearly identifies the files to be modified. However, some steps could be more specific about what exactly needs to be changed (e.g., Step 4 is somewhat redundant with Step 3)."
+      },
+      "approach_alignment": {
+        "score": 3,
+        "confidence": 3,
+        "explanation": "The plan's approach closely aligns with the reference implementation. Both recognize the need to add a samesite parameter to delete_cookie and pass it through to set_cookie. The plan also correctly identifies the need for backward compatibility by making the parameter optional."
+      },
+      "implementation_usefulness": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "The plan provides useful guidance for the core implementation change in delete_cookie. However, it's missing the crucial detail about updating callers of delete_cookie throughout Django (like messages and sessions) to actually use the new parameter. The reference shows this is necessary for the fix to be effective."
+      },
+      "assumptions_relevance": {
+        "score": 3,
+        "confidence": 3,
+        "explanation": "The assumptions are accurate and relevant. The plan correctly identifies the location of delete_cookie, its internal use of set_cookie, the need for backward compatibility, and the importance of consistent validation with set_cookie."
+      },
+      "risks_relevance": {
+        "score": 3,
+        "confidence": 3,
+        "explanation": "The identified risks are highly relevant. The plan correctly highlights backward compatibility concerns, validation consistency, the samesite=None/secure requirement, and the need to verify across different backends. The reference implementation actually addresses the samesite=None/secure risk by automatically setting secure=True when samesite='none'."
+      },
+      "step_by_step_analysis": [
+        {
+          "plan_step": "1. Examine current delete_cookie implementation",
+          "reference_match": "Partial match - reference shows the actual implementation",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "2. Review existing cookie tests",
+          "reference_match": "Not shown in reference but good practice",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "3. Modify delete_cookie method to accept samesite parameter",
+          "reference_match": "Direct match - reference adds samesite parameter",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "4. Update delete_cookie method signature and implementation",
+          "reference_match": "Redundant with step 3, but matches reference",
+          "assessment": "partially useful"
+        },
+        {
+          "plan_step": "5. Add comprehensive tests for delete_cookie",
+          "reference_match": "Not shown in reference but necessary",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "6. Test the fix with various samesite values",
+          "reference_match": "Not shown in reference but good practice",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "Missing: Update callers of delete_cookie",
+          "reference_match": "Reference shows updates to messages/storage/cookie.py and sessions/middleware.py",
+          "assessment": "not useful"
+        }
+      ]
+    }
+  },
+  {
+    "task_id": "matplotlib__matplotlib-14623",
+    "scores": {
+      "step_coverage": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "The plan covers most necessary steps including investigation, implementation, and testing. However, it misses the critical insight from the reference that the issue is in axes._base.py's set_ylim/set_xlim methods and the nonsingular() method in ticker.py, not in scale.py as assumed."
+      },
+      "step_granularity": {
+        "score": 3,
+        "confidence": 3,
+        "explanation": "The plan provides good detail in each step, specifying exact files to examine and the logical progression from investigation to implementation to testing. Each step has a clear purpose and deliverable."
+      },
+      "approach_alignment": {
+        "score": 1,
+        "confidence": 3,
+        "explanation": "The plan's approach significantly diverges from the reference implementation. The plan focuses on scale.py and LogScale class modifications, while the actual fix is in axes._base.py's limit-setting methods and ticker.py's nonsingular method. The plan would lead developers down the wrong path."
+      },
+      "implementation_usefulness": {
+        "score": 1,
+        "confidence": 3,
+        "explanation": "The implementation guidance would not be useful as it directs developers to the wrong files and wrong classes. Following this plan would not solve the issue since the problem is not in LogScale but in how limits are processed after being made non-singular."
+      },
+      "assumptions_relevance": {
+        "score": 1,
+        "confidence": 3,
+        "explanation": "The core assumption that 'the issue is in the LogScale class not properly handling inverted limits' is incorrect. The actual issue is that the nonsingular expansion was losing the inversion state when limits were swapped. The assumptions would mislead the implementation effort."
+      },
+      "risks_relevance": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "Some risks are relevant (affecting other log scale behaviors, performance impacts) but they focus on the wrong area. The plan misses the actual risk of the fix: ensuring that swapped limits are preserved across all axis types including 3D axes."
+      },
+      "step_by_step_analysis": [
+        {
+          "plan_step": "Inspect axes._base.py to understand how set_ylim works",
+          "reference_match": "This file contains the actual fix",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "Examine scale.py to understand LogScale implementation",
+          "reference_match": "No changes needed in scale.py",
+          "assessment": "misleading"
+        },
+        {
+          "plan_step": "Check axis.py to see how axis inversion state is managed",
+          "reference_match": "No changes in axis.py",
+          "assessment": "partially useful"
+        },
+        {
+          "plan_step": "Run the reproduction code to confirm the issue",
+          "reference_match": "Good practice, not in reference",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "Identify the specific code path where log scale limits are processed",
+          "reference_match": "Wrong focus - issue is in limit setting, not scale processing",
+          "assessment": "misleading"
+        },
+        {
+          "plan_step": "Implement fix to ensure LogScale properly detects and handles inverted limits",
+          "reference_match": "Wrong location - fix is in set_xlim/set_ylim methods",
+          "assessment": "misleading"
+        },
+        {
+          "plan_step": "Add comprehensive test case to prevent regression",
+          "reference_match": "Testing is good practice",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "Verify fix works with the original reproduction case",
+          "reference_match": "Good validation step",
+          "assessment": "useful"
+        }
+      ]
+    }
+  },
+  {
+    "task_id": "pylint-dev__pylint-8898",
+    "scores": {
+      "step_coverage": {
+        "score": 2,
+        "confidence": 2,
+        "explanation": "The plan covers most key aspects but misses the specific solution approach used in the reference. It identifies the need to examine _regexp_csv_transfomer and add tests, but doesn't specifically mention creating a new function _check_regexp_csv that handles regex-specific CSV parsing with brace awareness."
+      },
+      "step_granularity": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "Steps are reasonably detailed, specifying exact files to examine and modify. However, the implementation step (step 4) is somewhat vague about the actual fix approach, mentioning 'proper CSV parsing with escaping or changes to a list-based approach' without being specific about handling braces in regex quantifiers."
+      },
+      "approach_alignment": {
+        "score": 2,
+        "confidence": 2,
+        "explanation": "The plan correctly identifies the problem location and general approach (fixing CSV parsing), but doesn't specifically mention the reference's solution of creating a specialized regex CSV parser that tracks brace state. The plan suggests escaping or list-based approaches which weren't used in the actual fix."
+      },
+      "implementation_usefulness": {
+        "score": 2,
+        "confidence": 2,
+        "explanation": "The plan would guide a developer to the right areas and identify the core issue, making it moderately useful. However, it doesn't provide the specific insight about tracking open/close braces to handle regex quantifiers like {1,3}, which is the key to the actual solution."
+      },
+      "assumptions_relevance": {
+        "score": 3,
+        "confidence": 3,
+        "explanation": "All assumptions are correct and relevant. The plan correctly identifies that the issue is in CSV parsing logic, that bad-name-rgxs uses a CSV transformer, that other regex options might have the same issue, and that backward compatibility is important."
+      },
+      "risks_relevance": {
+        "score": 3,
+        "confidence": 3,
+        "explanation": "The identified risks are highly relevant. Breaking existing configurations, ensuring intuitive escaping, fixing other regex CSV options, and performance considerations are all valid concerns that the implementation should address."
+      },
+      "step_by_step_analysis": [
+        {
+          "plan_step": "1. Examine the current _regexp_csv_transfomer implementation",
+          "reference_match": "Directly matches - reference modifies this function",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "2. Find where bad-name-rgxs option is defined",
+          "reference_match": "Not directly addressed in reference, but understanding context is helpful",
+          "assessment": "partially useful"
+        },
+        {
+          "plan_step": "3. Examine existing configuration parsing tests",
+          "reference_match": "Not shown in reference, but would be helpful for understanding",
+          "assessment": "partially useful"
+        },
+        {
+          "plan_step": "4. Implement a fix that either uses proper CSV parsing with escaping or changes to a list-based approach",
+          "reference_match": "Reference uses a different approach - custom regex-aware CSV parser with brace tracking",
+          "assessment": "partially useful"
+        },
+        {
+          "plan_step": "5. Add comprehensive test cases",
+          "reference_match": "Not shown in reference diff but necessary",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "6. Verify the fix works with the original failing configuration",
+          "reference_match": "Not shown in reference but essential validation step",
+          "assessment": "useful"
+        }
+      ]
+    }
+  },
+  {
+    "task_id": "scikit-learn__scikit-learn-12682",
+    "scores": {
+      "step_coverage": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "The plan covers most essential steps but misses some important aspects. It correctly identifies the need to add max_iter parameter to SparseCoder and update tests, but doesn't mention the need to propagate this parameter through the entire sparse coding pipeline including DictionaryLearning and MiniBatchDictionaryLearning classes, which the reference shows is necessary."
+      },
+      "step_granularity": {
+        "score": 3,
+        "confidence": 3,
+        "explanation": "The plan provides appropriately detailed steps with clear file locations and specific actions. Each step is well-defined and actionable, from inspection through implementation to testing."
+      },
+      "approach_alignment": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "The plan's approach partially aligns with the reference. While it correctly identifies adding max_iter to SparseCoder, the reference shows a much broader implementation that adds transform_max_iter parameter across multiple classes and propagates it through various helper functions. The plan's approach is too narrow."
+      },
+      "implementation_usefulness": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "The plan would be moderately useful for implementation but incomplete. Following it would solve the immediate SparseCoder issue but miss the broader architectural changes needed for consistency across the sparse coding module, as shown in the reference implementation."
+      },
+      "assumptions_relevance": {
+        "score": 3,
+        "confidence": 3,
+        "explanation": "All assumptions are correct and relevant. The plan correctly identifies file locations, the relationship between SparseCoder and Lasso, and the nature of the convergence issue."
+      },
+      "risks_relevance": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "The risks identified are relevant but incomplete. The plan correctly identifies backward compatibility and performance concerns, but misses the risk of inconsistent API across related classes if only SparseCoder is modified."
+      },
+      "step_by_step_analysis": [
+        {
+          "plan_step": "Inspect SparseCoder class to understand current parameter handling and Lasso usage",
+          "reference_match": "SparseCoder modifications in reference",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "Check Lasso implementation to confirm max_iter parameter details",
+          "reference_match": "Not directly shown but implied",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "Examine the problematic example to understand the convergence issue",
+          "reference_match": "Example file is modified in reference",
+          "assessment": "partially useful"
+        },
+        {
+          "plan_step": "Add max_iter parameter to SparseCoder.__init__ with appropriate default value",
+          "reference_match": "SparseCoder gets transform_max_iter parameter",
+          "assessment": "partially useful"
+        },
+        {
+          "plan_step": "Modify the code that instantiates Lasso to pass the max_iter parameter",
+          "reference_match": "Changes to _sparse_encode and sparse_encode functions",
+          "assessment": "partially useful"
+        },
+        {
+          "plan_step": "Add comprehensive tests for the new max_iter parameter",
+          "reference_match": "Not shown in reference",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "Run the example to verify the convergence warning is resolved",
+          "reference_match": "Example is modified in reference",
+          "assessment": "useful"
+        }
+      ]
+    }
+  },
+  {
+    "task_id": "sphinx-doc__sphinx-9461",
+    "scores": {
+      "step_coverage": {
+        "score": 3,
+        "confidence": 3,
+        "explanation": "The plan covers all major aspects of the implementation: inspection logic, autodoc modifications, property documenter changes, and testing. It correctly identifies the key files that need modification (sphinx/ext/autodoc/__init__.py, sphinx/util/inspect.py) and includes test planning, which aligns well with the reference implementation."
+      },
+      "step_granularity": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "The steps are reasonably detailed but could be more specific. For example, step 3 mentions 'Modify PropertyDocumenter or create ClassMethodPropertyDocumenter' without specifying which approach to take. The reference shows specific modifications to PropertyDocumenter were needed, including adding isclassmethod tracking and modifying import_object()."
+      },
+      "approach_alignment": {
+        "score": 3,
+        "confidence": 3,
+        "explanation": "The plan's approach aligns very well with the reference implementation. Both focus on: 1) Modifying PropertyDocumenter to handle @classmethod @property, 2) Updating inspection utilities, 3) Adding detection logic for the combined decorators. The plan correctly identifies that PropertyDocumenter needs enhancement rather than creating a new documenter."
+      },
+      "implementation_usefulness": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "The plan provides good high-level guidance but lacks some implementation details. It mentions using __wrapped__ attribute which the reference doesn't use. The reference instead uses __dict__ inspection and checks for classmethod with isproperty(obj.__func__). The plan would benefit from more specific details about how to detect and handle these combined decorators."
+      },
+      "assumptions_relevance": {
+        "score": 3,
+        "confidence": 3,
+        "explanation": "The assumptions are highly relevant and accurate. The plan correctly identifies this as a Python 3.9+ specific feature, notes potential issues with __wrapped__ availability, and correctly assumes PropertyDocumenter exists and handles regular properties. These assumptions align with the problem context."
+      },
+      "risks_relevance": {
+        "score": 3,
+        "confidence": 3,
+        "explanation": "The identified risks are very relevant. Breaking existing property documentation, Python version compatibility, and false positives in detection are all legitimate concerns addressed by the reference implementation. The reference shows careful handling to avoid these issues through specific type checking and safe attribute access."
+      },
+      "step_by_step_analysis": [
+        {
+          "plan_step": "Inspect current property documentation logic in autodoc to understand how regular @property methods are handled",
+          "reference_match": "PropertyDocumenter class modifications in autodoc/__init__.py",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "Create utility function in inspect.py to detect and extract docstrings from @classmethod @property methods",
+          "reference_match": "Modified getdoc() and isclassmethod() functions in util/inspect.py",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "Modify PropertyDocumenter or create ClassMethodPropertyDocumenter in autodoc",
+          "reference_match": "Modified PropertyDocumenter with can_document_member(), import_object(), and add_directive_header()",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "Add detection logic to identify when a class attribute is actually a @classmethod @property",
+          "reference_match": "Logic in can_document_member() checking __dict__ and isinstance(obj, classmethod)",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "Create comprehensive test cases with various @classmethod @property scenarios",
+          "reference_match": "Not shown in reference diff but implied",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "Test the implementation with Python 3.9+ where this feature is available",
+          "reference_match": "Not shown in reference diff but necessary",
+          "assessment": "useful"
+        }
+      ]
+    }
+  },
+  {
+    "task_id": "django__django-11532",
+    "scores": {
+      "step_coverage": {
+        "score": 2,
+        "confidence": 2,
+        "explanation": "The plan covers most key areas needed for the fix - examining current implementation, checking DNS_NAME definition, implementing punycode conversion, and testing. However, it misses the broader scope shown in the reference implementation, which involves creating a centralized punycode utility function and updating multiple files beyond just message.py (validators.py, html.py, encoding.py)."
+      },
+      "step_granularity": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "The steps are appropriately detailed for understanding the problem and implementing a basic fix. Each step has clear objectives like examining code, implementing conversion, and testing. However, the plan could be more granular about creating a reusable utility function and identifying all places where punycode conversion is needed."
+      },
+      "approach_alignment": {
+        "score": 2,
+        "confidence": 2,
+        "explanation": "The plan correctly identifies the need for punycode conversion for DNS_NAME before using it in make_msgid(), which aligns with the reference. However, the reference takes a more comprehensive approach by creating a centralized punycode() utility function in encoding.py and applying it across multiple modules, while the plan seems focused only on the immediate problem in message.py."
+      },
+      "implementation_usefulness": {
+        "score": 2,
+        "confidence": 2,
+        "explanation": "The plan provides useful guidance for fixing the immediate issue with Message-ID generation. It correctly identifies where to apply punycode conversion and includes testing steps. However, it would be more useful if it recognized the need for a centralized solution and identified other places in Django where similar domain encoding issues might occur."
+      },
+      "assumptions_relevance": {
+        "score": 3,
+        "confidence": 3,
+        "explanation": "The assumptions are highly relevant and accurate. The plan correctly assumes DNS_NAME contains the hostname, that make_msgid is used for Message-ID generation, that punycode should only apply to the domain part, and that backward compatibility is important. These align well with the actual implementation needs."
+      },
+      "risks_relevance": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "The identified risks are relevant, particularly concerns about affecting ASCII domains and edge cases. However, the reference implementation shows these risks are manageable by creating a simple punycode utility that safely handles both ASCII and non-ASCII domains. The plan could have been more specific about how to mitigate these risks."
+      },
+      "step_by_step_analysis": [
+        {
+          "plan_step": "Examine the current implementation in django/core/mail/message.py",
+          "reference_match": "Directly matches - reference modifies message.py",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "Check how DNS_NAME is defined and imported",
+          "reference_match": "Matches - reference shows DNS_NAME comes from utils.py and modifies its implementation",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "Look at the failing test to understand expected behavior",
+          "reference_match": "Not shown in reference but implied by the fix",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "Implement punycode conversion for domain name before passing to make_msgid()",
+          "reference_match": "Partially matches - reference implements punycode conversion in utils.py get_fqdn() rather than before make_msgid()",
+          "assessment": "partially useful"
+        },
+        {
+          "plan_step": "Update or add test case to verify the fix",
+          "reference_match": "Not shown in reference diff but necessary",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "Run the mail tests to ensure fix works",
+          "reference_match": "Not shown but standard practice",
+          "assessment": "useful"
+        }
+      ]
+    }
+  },
+  {
+    "task_id": "pylint-dev__pylint-6386",
+    "scores": {
+      "step_coverage": {
+        "score": 2,
+        "confidence": 2,
+        "explanation": "The plan covers the core fix needed in base_options.py but misses important implementation details shown in the reference. It doesn't mention the need to add metavar configuration, update argument handling classes, or handle the -v short option separately in preprocessing."
+      },
+      "step_granularity": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "The steps are reasonably detailed for the main fix but lack granularity for the complete solution. The plan doesn't break down the specific changes needed to the argument system or mention the need to update multiple files beyond base_options.py."
+      },
+      "approach_alignment": {
+        "score": 2,
+        "confidence": 2,
+        "explanation": "The plan correctly identifies that the issue is with the verbose option configuration, but the proposed solution (changing to action='store_true') is incomplete. The reference shows the actual fix involves setting an empty metavar and updating the argument handling infrastructure."
+      },
+      "implementation_usefulness": {
+        "score": 2,
+        "confidence": 2,
+        "explanation": "The plan provides a partially useful starting point by correctly identifying base_options.py as a key file and the general nature of the problem. However, it would lead to an incomplete fix without the metavar changes and updates to the argument handling system."
+      },
+      "assumptions_relevance": {
+        "score": 3,
+        "confidence": 3,
+        "explanation": "The assumptions are highly relevant and correct. The verbose option is indeed in base_options.py, it is a boolean flag that shouldn't require arguments, and the issue is with the option definition."
+      },
+      "risks_relevance": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "The identified risks are somewhat relevant but miss key concerns. While mentioning potential breaks to existing code is good, the plan doesn't identify the risk of the argparse system still expecting an argument even with action changes, which is why the metavar solution was needed."
+      },
+      "step_by_step_analysis": [
+        {
+          "plan_step": "Examine base_options.py to locate the verbose option definition",
+          "reference_match": "Partial - base_options.py is modified in the reference",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "Identify the issue with the verbose option configuration",
+          "reference_match": "Partial - issue identified but solution incomplete",
+          "assessment": "partially useful"
+        },
+        {
+          "plan_step": "Modify the verbose option definition to use action='store_true'",
+          "reference_match": "No - reference uses metavar='' instead",
+          "assessment": "misleading"
+        },
+        {
+          "plan_step": "Test the fix by running pylint with -v flag",
+          "reference_match": "Yes - testing is implied",
+          "assessment": "useful"
+        }
+      ]
+    }
+  },
+  {
+    "task_id": "sympy__sympy-16597",
+    "scores": {
+      "step_coverage": {
+        "score": 1,
+        "confidence": 3,
+        "explanation": "The plan focuses on modifying handlers for is_even and is_finite, but the reference implementation takes a completely different approach by modifying the core assumption rules and facts. The plan misses the actual solution of updating the fundamental assumption relationships in ask.py, ask_generated.py, and assumptions.py."
+      },
+      "step_granularity": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "The plan provides reasonable granularity with specific files and actions for each step. However, the steps are misaligned with what actually needed to be done - the reference shows changes to assumption facts and rules rather than handlers."
+      },
+      "approach_alignment": {
+        "score": 1,
+        "confidence": 3,
+        "explanation": "The plan's approach of modifying handlers is fundamentally different from the reference's approach of updating the assumption facts and rules. The reference establishes that rational, algebraic, and transcendental numbers imply finiteness, which automatically handles the is_even case since even numbers are integers (and thus rational)."
+      },
+      "implementation_usefulness": {
+        "score": 1,
+        "confidence": 3,
+        "explanation": "The plan would not be useful for implementing the actual fix. Following the plan would lead to modifying the wrong files and taking the wrong approach. The actual solution requires understanding that the fix is about establishing fundamental mathematical relationships in the assumption system, not tweaking individual handlers."
+      },
+      "assumptions_relevance": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "The assumptions are partially relevant - correctly identifying that the assumption system uses derivation and that properties can imply other properties. However, it incorrectly assumes that handlers are the right place to make changes, when the actual fix is in the core assumption facts."
+      },
+      "risks_relevance": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "Some risks are relevant (circular dependencies, breaking existing code), but they miss the key risk shown in the reference: performance issues with expensive evaluations (as seen in the power.py optimization). The plan doesn't consider the broader implications of changing fundamental assumption relationships."
+      },
+      "step_by_step_analysis": [
+        {
+          "plan_step": "Inspect Symbol class and assumption system",
+          "reference_match": "No direct match",
+          "assessment": "partially useful"
+        },
+        {
+          "plan_step": "Examine handlers for is_even and is_finite",
+          "reference_match": "No match - reference doesn't modify handlers",
+          "assessment": "misleading"
+        },
+        {
+          "plan_step": "Review existing tests",
+          "reference_match": "No test changes in reference",
+          "assessment": "partially useful"
+        },
+        {
+          "plan_step": "Modify finite handler to return True when is_even is True",
+          "reference_match": "No match - reference modifies assumption facts, not handlers",
+          "assessment": "misleading"
+        },
+        {
+          "plan_step": "Add comprehensive test cases",
+          "reference_match": "No test additions in reference",
+          "assessment": "not useful"
+        },
+        {
+          "plan_step": "Run tests to ensure no regressions",
+          "reference_match": "No direct match",
+          "assessment": "partially useful"
+        }
+      ]
+    }
+  },
+  {
+    "task_id": "astropy__astropy-8747",
+    "scores": {
+      "step_coverage": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "The plan covers most key areas needed for implementing clip ufunc support, including inspecting existing code, understanding patterns, implementing the helper, registering it, and testing. However, it misses the conditional implementation based on numpy version and the need to handle the special case in function/core.py for FunctionQuantity."
+      },
+      "step_granularity": {
+        "score": 3,
+        "confidence": 3,
+        "explanation": "The steps are well-broken down with specific files to examine and clear actions for each step. Each step has a focused purpose that builds on previous steps logically."
+      },
+      "approach_alignment": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "The plan correctly identifies the need to add a ufunc helper and register it, which aligns with the reference. However, it doesn't account for the numpy version check needed to maintain backward compatibility, and misses the changes needed in converters.py and function/core.py."
+      },
+      "implementation_usefulness": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "The plan would be useful for a developer to get started, as it identifies the right files and general approach. However, following only this plan would result in an incomplete implementation that doesn't handle numpy version compatibility or the FunctionQuantity case."
+      },
+      "assumptions_relevance": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "Most assumptions are relevant and correct, particularly about extending the ufunc helper pattern and unit compatibility. However, the assumption that 'NumPy 1.17+ is available' misses the key requirement to support both pre-1.17 and post-1.17 numpy versions."
+      },
+      "risks_relevance": {
+        "score": 3,
+        "confidence": 3,
+        "explanation": "The identified risks are highly relevant, especially the numpy version compatibility concern and potential conflicts with existing non-ufunc clip functionality. These are exactly the issues addressed in the reference implementation."
+      },
+      "step_by_step_analysis": [
+        {
+          "plan_step": "Inspect quantity.py to understand how ufuncs are handled",
+          "reference_match": "quantity.py is modified in reference",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "Examine quantity_helper modules to understand the pattern",
+          "reference_match": "helpers.py and converters.py are modified",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "Check existing tests to understand testing patterns",
+          "reference_match": "No test changes shown in reference",
+          "assessment": "partially useful"
+        },
+        {
+          "plan_step": "Implement the clip ufunc helper function",
+          "reference_match": "helper_clip is added in helpers.py",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "Register the clip ufunc helper in the helper registry",
+          "reference_match": "Registration done in helpers.py with numpy version check",
+          "assessment": "partially useful"
+        },
+        {
+          "plan_step": "Add comprehensive tests for np.clip",
+          "reference_match": "No test changes in reference diff",
+          "assessment": "partially useful"
+        }
+      ]
+    }
+  },
+  {
+    "task_id": "django__django-13841",
+    "scores": {
+      "step_coverage": {
+        "score": 3,
+        "confidence": 3,
+        "explanation": "The plan covers all four modules mentioned in the reference implementation: django/forms/renderers.py, django/utils/version.py, django/views/debug.py, and django/contrib/auth/password_validation.py. Each module has both inspection and implementation steps, matching the scope of changes in the reference."
+      },
+      "step_granularity": {
+        "score": 3,
+        "confidence": 3,
+        "explanation": "The plan breaks down the work into appropriate chunks with separate inspection and implementation steps for each module. Each step has a clear action (inspect, remove, add, replace, move, convert) and specifies the exact files to be modified, making it easy for a developer to follow."
+      },
+      "approach_alignment": {
+        "score": 2,
+        "confidence": 2,
+        "explanation": "The plan's approach aligns well with the reference for most modules but diverges significantly for password_validation.py and views/debug.py. The plan suggests converting DEFAULT_PASSWORD_LIST_PATH to an instance attribute while the reference uses a cached_property. For debug.py, the plan mentions _builtin_template_path but doesn't clearly indicate it should be a module-level function (not a method). However, the core goal of lazy __file__ access is maintained."
+      },
+      "implementation_usefulness": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "The plan provides useful guidance for implementing the changes, with clear steps for each module. However, it lacks some implementation details found in the reference, such as the specific try-except approach for version.py, the cached_property decorator for password_validation.py, and the property decorators for ExceptionReporter template paths. A developer would need to figure out these details independently."
+      },
+      "assumptions_relevance": {
+        "score": 3,
+        "confidence": 3,
+        "explanation": "All assumptions are relevant and accurate. The plan correctly identifies that __file__ may not be available in frozen environments, that constants are used in limited places, and that lazy initialization is needed. The assumption about ExceptionReporter template paths being safely initialized in __init__ is correct based on the reference implementation."
+      },
+      "risks_relevance": {
+        "score": 3,
+        "confidence": 3,
+        "explanation": "The identified risks are highly relevant. Breaking existing code that depends on module-level constants is a real concern. Performance impact from lazy resolution is valid though minimal. The risk about third-party code accessing constants directly is particularly important for DEFAULT_PASSWORD_LIST_PATH which is documented. Template path resolution failure is also a valid concern addressed by the reference implementation."
+      },
+      "step_by_step_analysis": [
+        {
+          "plan_step": "1. Inspect django/forms/renderers.py to understand how ROOT constant is used",
+          "reference_match": "Matches reference which removes ROOT constant",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "2. Remove ROOT constant and inline __file__ usage in django/forms/renderers.py",
+          "reference_match": "Exactly matches reference implementation",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "3. Inspect django/utils/version.py to understand get_git_changeset __file__ usage",
+          "reference_match": "Matches reference focus on get_git_changeset",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "4. Add try-except block in get_git_changeset to handle missing __file__",
+          "reference_match": "Reference uses if '__file__' not in globals() instead of try-except",
+          "assessment": "partially useful"
+        },
+        {
+          "plan_step": "5. Inspect django/views/debug.py to understand CURRENT_DIR and ExceptionReporter usage",
+          "reference_match": "Matches reference which addresses both CURRENT_DIR and ExceptionReporter",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "6. Replace CURRENT_DIR with _builtin_template_path function in django/views/debug.py",
+          "reference_match": "Reference uses builtin_template_path (no underscore) as a module-level function",
+          "assessment": "partially useful"
+        },
+        {
+          "plan_step": "7. Move ExceptionReporter template path initialization from class level to __init__",
+          "reference_match": "Reference keeps them as properties, not moved to __init__",
+          "assessment": "partially useful"
+        },
+        {
+          "plan_step": "8. Inspect django/contrib/auth/password_validation.py to understand DEFAULT_PASSWORD_LIST_PATH usage",
+          "reference_match": "Matches reference focus on CommonPasswordValidator",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "9. Convert DEFAULT_PASSWORD_LIST_PATH from class constant to instance attribute",
+          "reference_match": "Reference uses cached_property decorator, not a simple instance attribute",
+          "assessment": "partially useful"
+        }
+      ]
+    }
+  },
+  {
+    "task_id": "sympy__sympy-13091",
+    "scores": {
+      "step_coverage": {
+        "score": 2,
+        "confidence": 2,
+        "explanation": "The plan covers the main areas but misses some important files. While it identifies core files like basic.py, expr.py, and numbers.py, the reference shows changes needed in many additional files like exprtools.py, geometry/entity.py, physics modules, and polynomial classes. The plan focuses too narrowly on core and matrix classes."
+      },
+      "step_granularity": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "The steps are reasonably detailed, separating examination, review, and modification phases. However, they could be more specific about what to look for (e.g., 'identify where comparison methods return False for unknown types' is good, but could specify looking for SympifyError handling blocks)."
+      },
+      "approach_alignment": {
+        "score": 2,
+        "confidence": 2,
+        "explanation": "The plan correctly identifies the core issue of changing return False to return NotImplemented in comparison methods. However, it misses the important pattern shown in the reference of also changing __ne__ implementations from 'not self.__eq__(other)' to 'not self == other' to properly support the delegation mechanism."
+      },
+      "implementation_usefulness": {
+        "score": 2,
+        "confidence": 2,
+        "explanation": "The plan would lead to a partial implementation. Following it would fix the main issue in Basic.__eq__, but would miss many other necessary changes throughout the codebase. The systematic approach is good, but the scope is too limited compared to what's actually needed."
+      },
+      "assumptions_relevance": {
+        "score": 3,
+        "confidence": 3,
+        "explanation": "The assumptions are accurate and relevant. The plan correctly identifies that the issue extends beyond Basic class, that tests may need updates, and that backward compatibility should be maintained. These align well with what the reference implementation shows."
+      },
+      "risks_relevance": {
+        "score": 3,
+        "confidence": 3,
+        "explanation": "The identified risks are highly relevant and accurate. The plan correctly anticipates potential breaking changes, test failures, performance impacts, and edge cases. These concerns are validated by the extensive changes needed across the codebase as shown in the reference."
+      },
+      "step_by_step_analysis": [
+        {
+          "plan_step": "Examine sympy/core/basic.py to locate all rich comparison methods",
+          "reference_match": "Partial match - reference shows changes to __eq__ and __ne__ in basic.py",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "Review existing tests to understand current behavior",
+          "reference_match": "No test changes shown in reference",
+          "assessment": "partially useful"
+        },
+        {
+          "plan_step": "Check other core classes that may override comparison methods",
+          "reference_match": "Good match - reference shows changes in expr.py, numbers.py",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "Check matrix-related classes for similar comparison method issues",
+          "reference_match": "Reference doesn't show matrix changes but shows many other modules",
+          "assessment": "partially useful"
+        },
+        {
+          "plan_step": "Modify Basic.__eq__ and other comparison methods to return NotImplemented",
+          "reference_match": "Exact match for __eq__, but misses __ne__ pattern change",
+          "assessment": "partially useful"
+        },
+        {
+          "plan_step": "Apply similar changes to other classes",
+          "reference_match": "Partial - reference shows many more files than plan identifies",
+          "assessment": "partially useful"
+        },
+        {
+          "plan_step": "Create test cases to verify symmetric comparisons",
+          "reference_match": "No test changes in reference diff",
+          "assessment": "useful"
+        }
+      ]
+    }
+  },
+  {
+    "task_id": "django__django-10989",
+    "scores": {
+      "step_coverage": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "The plan covers the main issue in runserver.py but misses the broader scope shown in the reference implementation. While it identifies the need to search other files, it only targets management command files and misses database backends, GIS utilities, and other areas where Unicode ellipses appear."
+      },
+      "step_granularity": {
+        "score": 3,
+        "confidence": 3,
+        "explanation": "The plan provides clear, actionable steps with specific file locations and the exact replacement to be made (Unicode ellipsis \\u2026 to ASCII ...). Each step is appropriately sized and implementable."
+      },
+      "approach_alignment": {
+        "score": 3,
+        "confidence": 3,
+        "explanation": "The plan correctly identifies the core issue (Unicode ellipsis causing encoding problems on Windows) and proposes the same solution as the reference: replacing Unicode ellipses with ASCII ellipses. The approach is valid and matches the reference strategy."
+      },
+      "implementation_usefulness": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "The plan would be useful for fixing the immediate issue in runserver.py but provides limited guidance for the comprehensive fix needed. It would solve the reported problem but leave many other instances unfixed, requiring additional discovery work."
+      },
+      "assumptions_relevance": {
+        "score": 3,
+        "confidence": 3,
+        "explanation": "All assumptions are correct and relevant: Unicode ellipsis is indeed the root cause, the issue affects Windows terminals with CP437, and replacing with ASCII ellipses maintains compatibility while fixing the encoding issue."
+      },
+      "risks_relevance": {
+        "score": 3,
+        "confidence": 3,
+        "explanation": "The identified risks are highly relevant and prescient. The plan correctly anticipates that Unicode ellipses might exist elsewhere in the codebase (which the reference confirms), considers visual appearance impacts, and mentions translation files as a potential concern."
+      },
+      "step_by_step_analysis": [
+        {
+          "plan_step": "Inspect runserver.py to locate the Unicode ellipsis character in the system checks message",
+          "reference_match": "django/core/management/commands/runserver.py line 113: 'Performing system checks\u2026\\n\\n' \u2192 'Performing system checks...\\n\\n'",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "Replace the Unicode ellipsis \\u2026 with ASCII ellipsis ... to ensure Windows compatibility",
+          "reference_match": "Exact match - the reference makes this replacement in runserver.py",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "Search for any other potential Unicode ellipsis characters in related management command files",
+          "reference_match": "Partially matches - reference shows changes in loaddata.py, migrate.py, showmigrations.py, squashmigrations.py, but also many other non-management files",
+          "assessment": "partially useful"
+        },
+        {
+          "plan_step": "Replace any additional Unicode ellipsis characters found with ASCII equivalents",
+          "reference_match": "Matches in concept but reference scope is much broader, including database backends and GIS utilities",
+          "assessment": "partially useful"
+        }
+      ]
+    }
+  },
+  {
+    "task_id": "matplotlib__matplotlib-24013",
+    "scores": {
+      "step_coverage": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "The plan covers the main steps needed - inspecting files, identifying shadowing issues, and modifying imports. However, it misses the critical step of actually renaming the module files themselves (e.g., tripcolor.py to _tripcolor.py), which is the core of the reference solution."
+      },
+      "step_granularity": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "The steps are reasonably detailed, breaking down inspection and modification tasks. However, they could be more specific about the actual renaming operations needed for each module file and the systematic approach to handle all affected modules."
+      },
+      "approach_alignment": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "The plan correctly identifies the problem (wildcard imports causing shadowing) but proposes a different solution (replacing wildcards with explicit imports) rather than the reference approach of renaming modules with underscore prefixes. While this could work, it doesn't fully solve the fundamental issue."
+      },
+      "implementation_usefulness": {
+        "score": 1,
+        "confidence": 3,
+        "explanation": "The plan's approach of just changing imports without renaming modules would not fully solve the problem. The issue is that the module and function have the same name, and simply changing from wildcard to explicit imports doesn't fix the shadowing when accessing via attributes like matplotlib.tri.tripcolor."
+      },
+      "assumptions_relevance": {
+        "score": 3,
+        "confidence": 3,
+        "explanation": "The assumptions are accurate and relevant - correctly identifying wildcard imports as the cause, recognizing multiple modules may be affected, and understanding the need to maintain the main API. These align well with the actual problem."
+      },
+      "risks_relevance": {
+        "score": 3,
+        "confidence": 3,
+        "explanation": "The identified risks are highly relevant - backward compatibility concerns, potential breakage of existing code, and impact on other parts of matplotlib. These are exactly the concerns that need to be considered when making such changes."
+      },
+      "step_by_step_analysis": [
+        {
+          "plan_step": "Inspect tri/__init__.py to identify all wildcard imports that cause shadowing",
+          "reference_match": "The reference does modify __init__.py but focuses on changing import sources",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "Inspect each tri submodule to understand what functions are exported via __all__",
+          "reference_match": "Not explicitly in reference, but understanding exports is important",
+          "assessment": "partially useful"
+        },
+        {
+          "plan_step": "Replace wildcard imports in tri/__init__.py with explicit imports to avoid shadowing",
+          "reference_match": "Reference changes imports but from renamed modules (e.g., from ._tripcolor import tripcolor)",
+          "assessment": "misleading"
+        },
+        {
+          "plan_step": "Test that the original API still works (from matplotlib.tri import tripcolor)",
+          "reference_match": "Aligns with maintaining backward compatibility",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "Test that module access now works (matplotlib.tri.tripcolor should refer to module when accessed as attribute)",
+          "reference_match": "This is the goal, but plan's approach wouldn't achieve it without renaming modules",
+          "assessment": "partially useful"
+        }
+      ]
+    }
+  },
+  {
+    "task_id": "pydata__xarray-7019",
+    "scores": {
+      "step_coverage": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "The plan covers most major aspects of the implementation but misses some key details. It correctly identifies the need for an abstraction layer, registry system, and updates to core functions. However, it doesn't mention the EntryPoint system for plugin registration, the ChunkManagerEntrypoint base class that was actually used, or the specific changes needed to backend APIs (open_dataset, open_zarr, etc.)."
+      },
+      "step_granularity": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "The steps are at an appropriate high level but could be more specific. For example, step 5 mentions refactoring dask-specific functions but doesn't specify which ones (like bytes_to_char, stack, unstack). The plan also groups too many changes into single steps - step 8 covers all duck array operations which in reality involved many specific function updates."
+      },
+      "approach_alignment": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "The plan's approach partially aligns with the reference implementation. It correctly identifies the need for an abstraction layer and registry system, but proposes a different architecture (abstract base class with concrete implementations) rather than the EntryPoint plugin system that was actually used. The plan also doesn't mention the important distinction between ChunkManager types and the need to guess/detect chunk managers from array types."
+      },
+      "implementation_usefulness": {
+        "score": 2,
+        "confidence": 3,
+        "explanation": "The plan provides a useful starting point and correctly identifies many areas that need modification. However, it would require significant adjustments during implementation. The proposed abstract base class approach could work but differs from the plugin-based system actually implemented. Key details like the from_array_kwargs parameter and chunkmanager_store_kwargs are missing."
+      },
+      "assumptions_relevance": {
+        "score": 3,
+        "confidence": 3,
+        "explanation": "The assumptions are highly relevant and accurate. The plan correctly assumes API compatibility between frameworks, the importance of backward compatibility with dask, and the foundation provided by the array API standard. The assumption about runtime registration aligns well with the EntryPoint system used in the actual implementation."
+      },
+      "risks_relevance": {
+        "score": 3,
+        "confidence": 3,
+        "explanation": "The identified risks are very relevant and prescient. The plan correctly identifies potential breaking changes, performance overhead from dispatching, API differences between frameworks, and dependency management issues. These are all real concerns that the actual implementation had to address through careful design choices."
+      },
+      "step_by_step_analysis": [
+        {
+          "plan_step": "Create abstract base class for parallel managers",
+          "reference_match": "ChunkManagerEntrypoint base class in parallelcompat.py",
+          "assessment": "partially useful"
+        },
+        {
+          "plan_step": "Implement DaskParallelManager and CubedParallelManager classes",
+          "reference_match": "DaskManager class and entry point registration system",
+          "assessment": "partially useful"
+        },
+        {
+          "plan_step": "Create registry system for parallel managers",
+          "reference_match": "EntryPoint-based plugin system with guess_chunkmanager",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "Add global configuration option",
+          "reference_match": "Not implemented in reference",
+          "assessment": "not useful"
+        },
+        {
+          "plan_step": "Refactor existing dask-specific functions",
+          "reference_match": "Multiple files updated to use chunkmanager abstraction",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "Update chunk() methods in DataArray and Dataset",
+          "reference_match": "chunk() methods updated with chunked_array_type parameter",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "Update computation functions",
+          "reference_match": "Various computation functions updated throughout codebase",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "Extend duck array operations",
+          "reference_match": "duck_array_ops.py extensively modified",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "Create comprehensive test suite",
+          "reference_match": "test_daskmanager.py and test_parallelcompat.py added",
+          "assessment": "useful"
+        },
+        {
+          "plan_step": "Update exports and documentation",
+          "reference_match": "Documentation and API updates throughout",
+          "assessment": "useful"
+        }
+      ]
+    }
+  }
+]

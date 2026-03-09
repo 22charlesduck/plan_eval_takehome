@@ -1,0 +1,320 @@
+[
+  {
+    "task_id": "feature_yaml_output",
+    "title": "Add YAML Output Format",
+    "plan": {
+      "files_to_inspect": [
+        "cli/formats/base.py",
+        "cli/formats/csv_output.py",
+        "cli/formats/json_output.py",
+        "cli/formats/__init__.py",
+        "cli/commands/process.py",
+        "cli/main.py",
+        "requirements.txt",
+        "tests/test_formats.py",
+        "cli/utils/config.py"
+      ],
+      "files_to_create": [
+        "cli/formats/yaml_output.py",
+        "tests/test_yaml_format.py"
+      ],
+      "files_to_modify": [
+        "requirements.txt",
+        "cli/formats/__init__.py",
+        "tests/test_formats.py"
+      ],
+      "implementation_steps": [
+        {
+          "step": 1,
+          "file": "cli/formats/base.py",
+          "description": "Inspect the base formatter class to understand the interface that YamlFormatter must implement"
+        },
+        {
+          "step": 2,
+          "file": "cli/formats/json_output.py",
+          "description": "Study the JSON formatter implementation as a reference for handling nested data structures"
+        },
+        {
+          "step": 3,
+          "file": "cli/formats/csv_output.py",
+          "description": "Review CSV formatter to understand the full formatter interface and error handling patterns"
+        },
+        {
+          "step": 4,
+          "file": "cli/formats/__init__.py",
+          "description": "Check how formatters are registered and exposed to understand integration points"
+        },
+        {
+          "step": 5,
+          "file": "cli/commands/process.py",
+          "description": "Examine how the --format parameter is handled and how formatters are instantiated"
+        },
+        {
+          "step": 6,
+          "file": "cli/main.py",
+          "description": "Review CLI argument parsing to understand how format options are defined"
+        },
+        {
+          "step": 7,
+          "file": "requirements.txt",
+          "description": "Add pyyaml dependency to the requirements file"
+        },
+        {
+          "step": 8,
+          "file": "cli/formats/yaml_output.py",
+          "description": "Create YamlFormatter class implementing the base formatter interface with proper nested data structure handling, including custom YAML dumping options for readability"
+        },
+        {
+          "step": 9,
+          "file": "cli/formats/__init__.py",
+          "description": "Import and register the new YamlFormatter to make it available to the CLI"
+        },
+        {
+          "step": 10,
+          "file": "tests/test_yaml_format.py",
+          "description": "Create comprehensive unit tests for YamlFormatter covering nested objects, arrays, edge cases, and error conditions"
+        },
+        {
+          "step": 11,
+          "file": "tests/test_formats.py",
+          "description": "Add integration tests to verify YAML format works with existing format selection mechanism"
+        },
+        {
+          "step": 12,
+          "file": "cli/utils/config.py",
+          "description": "Verify if any configuration changes are needed to support YAML format options"
+        }
+      ]
+    }
+  },
+  {
+    "task_id": "feature_redis_cache",
+    "title": "Add Redis Caching",
+    "plan": {
+      "files_to_inspect": [
+        "cli/cache/memory_cache.py",
+        "cli/config/defaults.py",
+        "cli/core/pipeline.py",
+        "cli/utils/config.py",
+        "config.yaml",
+        "requirements.txt",
+        "tests/conftest.py",
+        "tests/test_pipeline.py"
+      ],
+      "files_to_create": [
+        "cli/cache/base_cache.py",
+        "cli/cache/redis_cache.py",
+        "cli/cache/cache_factory.py",
+        "tests/test_cache.py",
+        "tests/test_cache_factory.py"
+      ],
+      "files_to_modify": [
+        "cli/cache/memory_cache.py",
+        "cli/config/defaults.py",
+        "cli/core/pipeline.py",
+        "cli/utils/config.py",
+        "config.yaml",
+        "requirements.txt",
+        "tests/conftest.py",
+        "tests/test_pipeline.py"
+      ],
+      "implementation_steps": [
+        {
+          "step": 1,
+          "file": "requirements.txt",
+          "description": "Add redis dependency with version specification (e.g., redis>=4.0.0)"
+        },
+        {
+          "step": 2,
+          "file": "cli/cache/base_cache.py",
+          "description": "Create abstract base class defining cache interface with methods: get(), set(), delete(), clear(), exists(). Include TTL support and serialization hooks."
+        },
+        {
+          "step": 3,
+          "file": "cli/cache/memory_cache.py",
+          "description": "Refactor existing memory cache to inherit from base_cache.BaseCache and implement the standardized interface"
+        },
+        {
+          "step": 4,
+          "file": "cli/cache/redis_cache.py",
+          "description": "Implement RedisCache class inheriting from BaseCache. Include connection management, error handling, serialization (pickle/json), TTL support, and graceful degradation on connection failures."
+        },
+        {
+          "step": 5,
+          "file": "cli/cache/cache_factory.py",
+          "description": "Create factory class to instantiate appropriate cache backend based on configuration. Include fallback logic from Redis to memory cache on connection failure."
+        },
+        {
+          "step": 6,
+          "file": "cli/config/defaults.py",
+          "description": "Add Redis configuration defaults: redis_enabled=False, redis_host='localhost', redis_port=6379, redis_db=0, cache_ttl=3600, cache_backend='memory'"
+        },
+        {
+          "step": 7,
+          "file": "config.yaml",
+          "description": "Add Redis configuration section with host, port, db, enabled flag, TTL settings, and cache backend selection"
+        },
+        {
+          "step": 8,
+          "file": "cli/utils/config.py",
+          "description": "Update configuration loading to handle Redis settings, validate Redis connection parameters, and provide cache configuration validation"
+        },
+        {
+          "step": 9,
+          "file": "cli/core/pipeline.py",
+          "description": "Modify pipeline to use cache factory instead of direct memory cache instantiation. Update cache key generation strategy and integrate TTL support."
+        },
+        {
+          "step": 10,
+          "file": "tests/conftest.py",
+          "description": "Add pytest fixtures for mocked Redis client, cache factory configuration, and test cache instances for both memory and Redis backends"
+        },
+        {
+          "step": 11,
+          "file": "tests/test_cache.py",
+          "description": "Create comprehensive tests for both memory and Redis cache implementations using mocks. Test error scenarios, TTL behavior, serialization, and fallback mechanisms."
+        },
+        {
+          "step": 12,
+          "file": "tests/test_cache_factory.py",
+          "description": "Test cache factory functionality including backend selection, fallback behavior, configuration handling, and Redis connection failure scenarios using mocks"
+        },
+        {
+          "step": 13,
+          "file": "tests/test_pipeline.py",
+          "description": "Update existing pipeline tests to work with new cache abstraction. Add tests for pipeline caching with different backends and cache miss/hit scenarios."
+        }
+      ]
+    }
+  },
+  {
+    "task_id": "feature_dry_run",
+    "title": "Add --dry-run Flag",
+    "plan": {
+      "files_to_inspect": [
+        "cli/main.py",
+        "cli/commands/process.py",
+        "cli/commands/validate.py",
+        "cli/commands/inspect.py",
+        "cli/core/pipeline.py",
+        "cli/core/transforms.py",
+        "cli/formats/base.py",
+        "cli/formats/csv_output.py",
+        "cli/formats/json_output.py",
+        "cli/utils/file_io.py",
+        "cli/utils/config.py",
+        "tests/conftest.py",
+        "tests/test_commands.py",
+        "tests/test_pipeline.py"
+      ],
+      "files_to_create": [
+        "cli/core/dry_run.py",
+        "tests/test_dry_run.py"
+      ],
+      "files_to_modify": [
+        "cli/main.py",
+        "cli/commands/process.py",
+        "cli/commands/validate.py",
+        "cli/commands/inspect.py",
+        "cli/core/pipeline.py",
+        "cli/core/transforms.py",
+        "cli/formats/base.py",
+        "cli/formats/csv_output.py",
+        "cli/formats/json_output.py",
+        "cli/utils/file_io.py",
+        "cli/utils/config.py",
+        "tests/conftest.py",
+        "tests/test_commands.py",
+        "tests/test_pipeline.py",
+        "tests/test_formats.py"
+      ],
+      "implementation_steps": [
+        {
+          "step": 1,
+          "file": "cli/core/dry_run.py",
+          "description": "Create dry-run context manager and utilities module with DryRunContext class, global state management, decorators for dry-run aware functions, and summary collection utilities"
+        },
+        {
+          "step": 2,
+          "file": "cli/utils/config.py",
+          "description": "Add dry_run parameter support to configuration management, ensure it can be passed through the system and accessed by all components"
+        },
+        {
+          "step": 3,
+          "file": "cli/main.py",
+          "description": "Add --dry-run flag to main CLI parser, initialize dry-run context, and ensure the flag is passed to all command handlers"
+        },
+        {
+          "step": 4,
+          "file": "cli/commands/process.py",
+          "description": "Modify process command to accept and handle dry_run parameter, pass it to pipeline execution, and show dry-run messaging"
+        },
+        {
+          "step": 5,
+          "file": "cli/commands/validate.py",
+          "description": "Update validate command to support dry_run mode, skip actual validation writes while showing what would be validated"
+        },
+        {
+          "step": 6,
+          "file": "cli/commands/inspect.py",
+          "description": "Add dry_run support to inspect command, showing what files would be inspected without performing expensive operations"
+        },
+        {
+          "step": 7,
+          "file": "cli/utils/file_io.py",
+          "description": "Make file I/O operations dry-run aware by adding dry_run checks before actual file writes, logging intended operations instead"
+        },
+        {
+          "step": 8,
+          "file": "cli/core/pipeline.py",
+          "description": "Integrate dry-run support into pipeline execution, pass dry_run context to all transforms and output formatters"
+        },
+        {
+          "step": 9,
+          "file": "cli/core/transforms.py",
+          "description": "Update transform classes to be dry-run aware, logging what transformations would be applied without modifying data"
+        },
+        {
+          "step": 10,
+          "file": "cli/formats/base.py",
+          "description": "Add dry_run support to base output format class, providing interface for dry-run behavior in formatters"
+        },
+        {
+          "step": 11,
+          "file": "cli/formats/csv_output.py",
+          "description": "Implement dry-run behavior for CSV output, showing intended file writes and format details without creating files"
+        },
+        {
+          "step": 12,
+          "file": "cli/formats/json_output.py",
+          "description": "Implement dry-run behavior for JSON output, displaying intended output structure without writing files"
+        },
+        {
+          "step": 13,
+          "file": "tests/conftest.py",
+          "description": "Add dry-run specific test fixtures and helper functions for testing dry-run behavior across the system"
+        },
+        {
+          "step": 14,
+          "file": "tests/test_dry_run.py",
+          "description": "Create comprehensive tests for dry-run functionality including context management, flag propagation, and summary generation"
+        },
+        {
+          "step": 15,
+          "file": "tests/test_commands.py",
+          "description": "Add dry-run test cases for all command modules, ensuring proper flag handling and dry-run behavior"
+        },
+        {
+          "step": 16,
+          "file": "tests/test_pipeline.py",
+          "description": "Update pipeline tests to include dry-run scenarios, verifying transforms and outputs behave correctly in dry-run mode"
+        },
+        {
+          "step": 17,
+          "file": "tests/test_formats.py",
+          "description": "Add dry-run specific tests for output formatters, ensuring no files are created and proper logging occurs"
+        }
+      ]
+    }
+  }
+]

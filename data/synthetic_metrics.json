@@ -1,0 +1,168 @@
+[
+  {
+    "task_id": "feature_yaml_output",
+    "title": "Add YAML Output Format",
+    "surface_coverage": 0.8,
+    "category_coverage": {
+      "core_logic": 0.75,
+      "interface": 0.5,
+      "tests": 1.0,
+      "config": 1.0
+    },
+    "per_surface": [
+      {
+        "id": "yaml_formatter",
+        "score": 1.0,
+        "category": "core_logic",
+        "type": "create"
+      },
+      {
+        "id": "register_format",
+        "score": 0.5,
+        "category": "interface",
+        "type": "edit"
+      },
+      {
+        "id": "pipeline_dispatch",
+        "score": 0.5,
+        "category": "core_logic",
+        "type": "edit"
+      },
+      {
+        "id": "yaml_tests",
+        "score": 1.0,
+        "category": "tests",
+        "type": "create"
+      },
+      {
+        "id": "requirements_yaml",
+        "score": 1.0,
+        "category": "config",
+        "type": "edit"
+      }
+    ],
+    "judge_scores": {
+      "surface_coverage": 2,
+      "decomposition_quality": 3,
+      "dependency_ordering": 3,
+      "test_awareness": 3,
+      "config_awareness": 2
+    }
+  },
+  {
+    "task_id": "feature_redis_cache",
+    "title": "Add Redis Caching",
+    "surface_coverage": 0.857,
+    "category_coverage": {
+      "core_logic": 0.833,
+      "config": 1.0,
+      "tests": 0.5
+    },
+    "per_surface": [
+      {
+        "id": "redis_cache",
+        "score": 1.0,
+        "category": "core_logic",
+        "type": "create"
+      },
+      {
+        "id": "config_redis",
+        "score": 1.0,
+        "category": "config",
+        "type": "edit"
+      },
+      {
+        "id": "config_yaml_redis",
+        "score": 1.0,
+        "category": "config",
+        "type": "edit"
+      },
+      {
+        "id": "pipeline_cache_select",
+        "score": 1.0,
+        "category": "core_logic",
+        "type": "edit"
+      },
+      {
+        "id": "redis_tests",
+        "score": 0.5,
+        "category": "tests",
+        "type": "create"
+      },
+      {
+        "id": "requirements_redis",
+        "score": 1.0,
+        "category": "config",
+        "type": "edit"
+      },
+      {
+        "id": "fallback_logic",
+        "score": 0.5,
+        "category": "core_logic",
+        "type": "edit"
+      }
+    ],
+    "judge_scores": {
+      "surface_coverage": 3,
+      "decomposition_quality": 3,
+      "dependency_ordering": 3,
+      "test_awareness": 3,
+      "config_awareness": 3
+    }
+  },
+  {
+    "task_id": "feature_dry_run",
+    "title": "Add --dry-run Flag",
+    "surface_coverage": 1.0,
+    "category_coverage": {
+      "interface": 1.0,
+      "core_logic": 1.0,
+      "tests": 1.0
+    },
+    "per_surface": [
+      {
+        "id": "cli_flag",
+        "score": 1.0,
+        "category": "interface",
+        "type": "edit"
+      },
+      {
+        "id": "pipeline_dry_run",
+        "score": 1.0,
+        "category": "core_logic",
+        "type": "edit"
+      },
+      {
+        "id": "process_passthrough",
+        "score": 1.0,
+        "category": "core_logic",
+        "type": "edit"
+      },
+      {
+        "id": "file_io_skip",
+        "score": 1.0,
+        "category": "core_logic",
+        "type": "edit"
+      },
+      {
+        "id": "dry_run_summary",
+        "score": 1.0,
+        "category": "interface",
+        "type": "edit"
+      },
+      {
+        "id": "dry_run_tests",
+        "score": 1.0,
+        "category": "tests",
+        "type": "create"
+      }
+    ],
+    "judge_scores": {
+      "surface_coverage": 3,
+      "decomposition_quality": 3,
+      "dependency_ordering": 3,
+      "test_awareness": 3,
+      "config_awareness": 3
+    }
+  }
+]

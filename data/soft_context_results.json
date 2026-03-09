@@ -1,0 +1,933 @@
+[
+  {
+    "task_id": "django__django-16256",
+    "condition": "hard_plan",
+    "complexity_tier": "localized",
+    "gen_file_recall": 0.5,
+    "gen_file_precision": 1.0,
+    "gen_files_count": 1,
+    "gt_files_count": 2,
+    "gen_files": [
+      "django/db/models/fields/related_descriptors.py"
+    ],
+    "gt_files": [
+      "django/contrib/contenttypes/fields.py",
+      "django/db/models/fields/related_descriptors.py"
+    ]
+  },
+  {
+    "task_id": "django__django-16256",
+    "condition": "soft_plan",
+    "complexity_tier": "localized",
+    "gen_file_recall": 0.5,
+    "gen_file_precision": 1.0,
+    "gen_files_count": 1,
+    "gt_files_count": 2,
+    "gen_files": [
+      "django/db/models/fields/related_descriptors.py"
+    ],
+    "gt_files": [
+      "django/contrib/contenttypes/fields.py",
+      "django/db/models/fields/related_descriptors.py"
+    ]
+  },
+  {
+    "task_id": "django__django-16256",
+    "condition": "no_plan",
+    "complexity_tier": "localized",
+    "gen_file_recall": 0.5,
+    "gen_file_precision": 1.0,
+    "gen_files_count": 1,
+    "gt_files_count": 2,
+    "gen_files": [
+      "django/db/models/fields/related_descriptors.py"
+    ],
+    "gt_files": [
+      "django/contrib/contenttypes/fields.py",
+      "django/db/models/fields/related_descriptors.py"
+    ]
+  },
+  {
+    "task_id": "scikit-learn__scikit-learn-13618",
+    "condition": "hard_plan",
+    "complexity_tier": "localized",
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0,
+    "gen_files_count": 0,
+    "gt_files_count": 2,
+    "gen_files": [],
+    "gt_files": [
+      "examples/linear_model/plot_bayesian_ridge_curvefit.py",
+      "sklearn/linear_model/bayes.py"
+    ]
+  },
+  {
+    "task_id": "scikit-learn__scikit-learn-13618",
+    "condition": "soft_plan",
+    "complexity_tier": "localized",
+    "gen_file_recall": 0.5,
+    "gen_file_precision": 0.5,
+    "gen_files_count": 2,
+    "gt_files_count": 2,
+    "gen_files": [
+      "sklearn/linear_model/bayes.py",
+      "sklearn/linear_model/tests/test_bayes.py"
+    ],
+    "gt_files": [
+      "examples/linear_model/plot_bayesian_ridge_curvefit.py",
+      "sklearn/linear_model/bayes.py"
+    ]
+  },
+  {
+    "task_id": "scikit-learn__scikit-learn-13618",
+    "condition": "no_plan",
+    "complexity_tier": "localized",
+    "gen_file_recall": 0.5,
+    "gen_file_precision": 1.0,
+    "gen_files_count": 1,
+    "gt_files_count": 2,
+    "gen_files": [
+      "sklearn/linear_model/bayes.py"
+    ],
+    "gt_files": [
+      "examples/linear_model/plot_bayesian_ridge_curvefit.py",
+      "sklearn/linear_model/bayes.py"
+    ]
+  },
+  {
+    "task_id": "sympy__sympy-13877",
+    "condition": "hard_plan",
+    "complexity_tier": "localized",
+    "gen_file_recall": 0.5,
+    "gen_file_precision": 0.5,
+    "gen_files_count": 2,
+    "gt_files_count": 2,
+    "gen_files": [
+      "sympy/core/exprtools.py",
+      "sympy/matrices/matrices.py"
+    ],
+    "gt_files": [
+      "sympy/matrices/matrices.py",
+      "sympy/utilities/randtest.py"
+    ]
+  },
+  {
+    "task_id": "sympy__sympy-13877",
+    "condition": "soft_plan",
+    "complexity_tier": "localized",
+    "gen_file_recall": 0.5,
+    "gen_file_precision": 0.5,
+    "gen_files_count": 2,
+    "gt_files_count": 2,
+    "gen_files": [
+      "sympy/core/exprtools.py",
+      "sympy/matrices/matrices.py"
+    ],
+    "gt_files": [
+      "sympy/matrices/matrices.py",
+      "sympy/utilities/randtest.py"
+    ]
+  },
+  {
+    "task_id": "sympy__sympy-13877",
+    "condition": "no_plan",
+    "complexity_tier": "localized",
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0.0,
+    "gen_files_count": 1,
+    "gt_files_count": 2,
+    "gen_files": [
+      "sympy/core/exprtools.py"
+    ],
+    "gt_files": [
+      "sympy/matrices/matrices.py",
+      "sympy/utilities/randtest.py"
+    ]
+  },
+  {
+    "task_id": "astropy__astropy-13933",
+    "condition": "hard_plan",
+    "complexity_tier": "localized",
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0.0,
+    "gen_files_count": 2,
+    "gt_files_count": 2,
+    "gen_files": [
+      "astropy/coordinates/angle_utilities.py",
+      "astropy/coordinates/tests/test_pickle.py"
+    ],
+    "gt_files": [
+      "astropy/coordinates/angles.py",
+      "astropy/visualization/wcsaxes/formatter_locator.py"
+    ]
+  },
+  {
+    "task_id": "astropy__astropy-13933",
+    "condition": "soft_plan",
+    "complexity_tier": "localized",
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0,
+    "gen_files_count": 0,
+    "gt_files_count": 2,
+    "gen_files": [],
+    "gt_files": [
+      "astropy/coordinates/angles.py",
+      "astropy/visualization/wcsaxes/formatter_locator.py"
+    ]
+  },
+  {
+    "task_id": "astropy__astropy-13933",
+    "condition": "no_plan",
+    "complexity_tier": "localized",
+    "gen_file_recall": 0.5,
+    "gen_file_precision": 1.0,
+    "gen_files_count": 1,
+    "gt_files_count": 2,
+    "gen_files": [
+      "astropy/coordinates/angles.py"
+    ],
+    "gt_files": [
+      "astropy/coordinates/angles.py",
+      "astropy/visualization/wcsaxes/formatter_locator.py"
+    ]
+  },
+  {
+    "task_id": "django__django-14011",
+    "condition": "hard_plan",
+    "complexity_tier": "localized",
+    "gen_file_recall": 0.5,
+    "gen_file_precision": 1.0,
+    "gen_files_count": 1,
+    "gt_files_count": 2,
+    "gen_files": [
+      "django/core/servers/basehttp.py"
+    ],
+    "gt_files": [
+      "django/core/servers/basehttp.py",
+      "django/db/backends/sqlite3/features.py"
+    ]
+  },
+  {
+    "task_id": "django__django-14011",
+    "condition": "soft_plan",
+    "complexity_tier": "localized",
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0,
+    "gen_files_count": 0,
+    "gt_files_count": 2,
+    "gen_files": [],
+    "gt_files": [
+      "django/core/servers/basehttp.py",
+      "django/db/backends/sqlite3/features.py"
+    ]
+  },
+  {
+    "task_id": "django__django-14011",
+    "condition": "no_plan",
+    "complexity_tier": "localized",
+    "gen_file_recall": 0.5,
+    "gen_file_precision": 1.0,
+    "gen_files_count": 1,
+    "gt_files_count": 2,
+    "gen_files": [
+      "django/core/servers/basehttp.py"
+    ],
+    "gt_files": [
+      "django/core/servers/basehttp.py",
+      "django/db/backends/sqlite3/features.py"
+    ]
+  },
+  {
+    "task_id": "django__django-12396",
+    "condition": "hard_plan",
+    "complexity_tier": "cross-module",
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0.0,
+    "gen_files_count": 1,
+    "gt_files_count": 6,
+    "gen_files": [
+      "django/test/runner.py"
+    ],
+    "gt_files": [
+      "django/core/checks/database.py",
+      "django/core/checks/registry.py",
+      "django/core/management/base.py",
+      "django/core/management/commands/check.py",
+      "django/core/management/commands/migrate.py",
+      "django/db/models/base.py"
+    ]
+  },
+  {
+    "task_id": "django__django-12396",
+    "condition": "soft_plan",
+    "complexity_tier": "cross-module",
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0,
+    "gen_files_count": 0,
+    "gt_files_count": 6,
+    "gen_files": [],
+    "gt_files": [
+      "django/core/checks/database.py",
+      "django/core/checks/registry.py",
+      "django/core/management/base.py",
+      "django/core/management/commands/check.py",
+      "django/core/management/commands/migrate.py",
+      "django/db/models/base.py"
+    ]
+  },
+  {
+    "task_id": "django__django-12396",
+    "condition": "no_plan",
+    "complexity_tier": "cross-module",
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0.0,
+    "gen_files_count": 1,
+    "gt_files_count": 6,
+    "gen_files": [
+      "django/test/runner.py"
+    ],
+    "gt_files": [
+      "django/core/checks/database.py",
+      "django/core/checks/registry.py",
+      "django/core/management/base.py",
+      "django/core/management/commands/check.py",
+      "django/core/management/commands/migrate.py",
+      "django/db/models/base.py"
+    ]
+  },
+  {
+    "task_id": "scikit-learn__scikit-learn-10331",
+    "condition": "hard_plan",
+    "complexity_tier": "cross-module",
+    "gen_file_recall": 0.5,
+    "gen_file_precision": 0.15384615384615385,
+    "gen_files_count": 13,
+    "gt_files_count": 4,
+    "gen_files": [
+      "benchmarks/bench_20newsgroups.py",
+      "benchmarks/bench_covertype.py",
+      "examples/svm/plot_iris_svc.py",
+      "examples/svm/plot_rbf_parameters.py",
+      "examples/svm/plot_separating_hyperplane.py",
+      "examples/svm/plot_svm_anova.py",
+      "examples/svm/plot_svm_kernels.py",
+      "examples/svm/plot_svm_margin.py",
+      "examples/svm/plot_svm_nonlinear.py",
+      "examples/svm/plot_svm_scale_c.py",
+      "sklearn/svm/base.py",
+      "sklearn/svm/classes.py",
+      "sklearn/svm/tests/test_svm.py"
+    ],
+    "gt_files": [
+      "sklearn/grid_search.py",
+      "sklearn/model_selection/_search.py",
+      "sklearn/svm/base.py",
+      "sklearn/svm/classes.py"
+    ]
+  },
+  {
+    "task_id": "scikit-learn__scikit-learn-10331",
+    "condition": "soft_plan",
+    "complexity_tier": "cross-module",
+    "gen_file_recall": 0.5,
+    "gen_file_precision": 0.18181818181818182,
+    "gen_files_count": 11,
+    "gt_files_count": 4,
+    "gen_files": [
+      "examples/svm/plot_iris_svc.py",
+      "examples/svm/plot_rbf_parameters.py",
+      "examples/svm/plot_separating_hyperplane.py",
+      "examples/svm/plot_svm_anova.py",
+      "examples/svm/plot_svm_kernels.py",
+      "examples/svm/plot_svm_margin.py",
+      "examples/svm/plot_svm_nonlinear.py",
+      "examples/svm/plot_svm_scale_c.py",
+      "sklearn/svm/base.py",
+      "sklearn/svm/classes.py",
+      "sklearn/svm/tests/test_svm.py"
+    ],
+    "gt_files": [
+      "sklearn/grid_search.py",
+      "sklearn/model_selection/_search.py",
+      "sklearn/svm/base.py",
+      "sklearn/svm/classes.py"
+    ]
+  },
+  {
+    "task_id": "scikit-learn__scikit-learn-10331",
+    "condition": "no_plan",
+    "complexity_tier": "cross-module",
+    "gen_file_recall": 0.5,
+    "gen_file_precision": 1.0,
+    "gen_files_count": 2,
+    "gt_files_count": 4,
+    "gen_files": [
+      "sklearn/svm/base.py",
+      "sklearn/svm/classes.py"
+    ],
+    "gt_files": [
+      "sklearn/grid_search.py",
+      "sklearn/model_selection/_search.py",
+      "sklearn/svm/base.py",
+      "sklearn/svm/classes.py"
+    ]
+  },
+  {
+    "task_id": "pydata__xarray-4683",
+    "condition": "hard_plan",
+    "complexity_tier": "cross-module",
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0.0,
+    "gen_files_count": 1,
+    "gt_files_count": 4,
+    "gen_files": [
+      "xarray/core/dataarray.py"
+    ],
+    "gt_files": [
+      "doc/conf.py",
+      "xarray/core/common.py",
+      "xarray/core/duck_array_ops.py",
+      "xarray/core/variable.py"
+    ]
+  },
+  {
+    "task_id": "pydata__xarray-4683",
+    "condition": "soft_plan",
+    "complexity_tier": "cross-module",
+    "gen_file_recall": 0.25,
+    "gen_file_precision": 0.16666666666666666,
+    "gen_files_count": 6,
+    "gt_files_count": 4,
+    "gen_files": [
+      "xarray/core/dataarray.py",
+      "xarray/core/dataset.py",
+      "xarray/core/variable.py",
+      "xarray/tests/test_dataarray.py",
+      "xarray/tests/test_dataset.py",
+      "xarray/tests/test_variable.py"
+    ],
+    "gt_files": [
+      "doc/conf.py",
+      "xarray/core/common.py",
+      "xarray/core/duck_array_ops.py",
+      "xarray/core/variable.py"
+    ]
+  },
+  {
+    "task_id": "pydata__xarray-4683",
+    "condition": "no_plan",
+    "complexity_tier": "cross-module",
+    "gen_file_recall": 0.5,
+    "gen_file_precision": 1.0,
+    "gen_files_count": 2,
+    "gt_files_count": 4,
+    "gen_files": [
+      "xarray/core/duck_array_ops.py",
+      "xarray/core/variable.py"
+    ],
+    "gt_files": [
+      "doc/conf.py",
+      "xarray/core/common.py",
+      "xarray/core/duck_array_ops.py",
+      "xarray/core/variable.py"
+    ]
+  },
+  {
+    "task_id": "sphinx-doc__sphinx-9828",
+    "condition": "hard_plan",
+    "complexity_tier": "cross-module",
+    "gen_file_recall": 0.5,
+    "gen_file_precision": 0.4,
+    "gen_files_count": 5,
+    "gt_files_count": 4,
+    "gen_files": [
+      "sphinx/builders/gettext.py",
+      "sphinx/config.py",
+      "sphinx/transforms/i18n.py",
+      "sphinx/util/i18n.py",
+      "tests/test_util_i18n.py"
+    ],
+    "gt_files": [
+      "sphinx/application.py",
+      "sphinx/builders/__init__.py",
+      "sphinx/config.py",
+      "sphinx/util/i18n.py"
+    ]
+  },
+  {
+    "task_id": "sphinx-doc__sphinx-9828",
+    "condition": "soft_plan",
+    "complexity_tier": "cross-module",
+    "gen_file_recall": 0.5,
+    "gen_file_precision": 0.6666666666666666,
+    "gen_files_count": 3,
+    "gt_files_count": 4,
+    "gen_files": [
+      "sphinx/config.py",
+      "sphinx/util/i18n.py",
+      "tests/test_util_i18n.py"
+    ],
+    "gt_files": [
+      "sphinx/application.py",
+      "sphinx/builders/__init__.py",
+      "sphinx/config.py",
+      "sphinx/util/i18n.py"
+    ]
+  },
+  {
+    "task_id": "sphinx-doc__sphinx-9828",
+    "condition": "no_plan",
+    "complexity_tier": "cross-module",
+    "gen_file_recall": 0.5,
+    "gen_file_precision": 1.0,
+    "gen_files_count": 2,
+    "gt_files_count": 4,
+    "gen_files": [
+      "sphinx/config.py",
+      "sphinx/util/i18n.py"
+    ],
+    "gt_files": [
+      "sphinx/application.py",
+      "sphinx/builders/__init__.py",
+      "sphinx/config.py",
+      "sphinx/util/i18n.py"
+    ]
+  },
+  {
+    "task_id": "django__django-14124",
+    "condition": "hard_plan",
+    "complexity_tier": "cross-module",
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0,
+    "gen_files_count": 0,
+    "gt_files_count": 4,
+    "gen_files": [],
+    "gt_files": [
+      "django/contrib/admindocs/utils.py",
+      "django/urls/resolvers.py",
+      "django/views/debug.py",
+      "django/views/generic/base.py"
+    ]
+  },
+  {
+    "task_id": "django__django-14124",
+    "condition": "soft_plan",
+    "complexity_tier": "cross-module",
+    "gen_file_recall": 0.25,
+    "gen_file_precision": 0.5,
+    "gen_files_count": 2,
+    "gt_files_count": 4,
+    "gen_files": [
+      "django/urls/resolvers.py",
+      "tests/check_framework/test_urls.py"
+    ],
+    "gt_files": [
+      "django/contrib/admindocs/utils.py",
+      "django/urls/resolvers.py",
+      "django/views/debug.py",
+      "django/views/generic/base.py"
+    ]
+  },
+  {
+    "task_id": "django__django-14124",
+    "condition": "no_plan",
+    "complexity_tier": "cross-module",
+    "gen_file_recall": 0.25,
+    "gen_file_precision": 0.5,
+    "gen_files_count": 2,
+    "gt_files_count": 4,
+    "gen_files": [
+      "django/core/checks/urls.py",
+      "django/urls/resolvers.py"
+    ],
+    "gt_files": [
+      "django/contrib/admindocs/utils.py",
+      "django/urls/resolvers.py",
+      "django/views/debug.py",
+      "django/views/generic/base.py"
+    ]
+  },
+  {
+    "task_id": "django__django-11991",
+    "condition": "hard_plan",
+    "complexity_tier": "architectural",
+    "gen_file_recall": 0.6666666666666666,
+    "gen_file_precision": 0.6666666666666666,
+    "gen_files_count": 9,
+    "gt_files_count": 9,
+    "gen_files": [
+      "django/db/backends/base/features.py",
+      "django/db/backends/base/schema.py",
+      "django/db/backends/mysql/schema.py",
+      "django/db/backends/oracle/schema.py",
+      "django/db/backends/postgresql/features.py",
+      "django/db/backends/postgresql/schema.py",
+      "django/db/backends/sqlite3/schema.py",
+      "django/db/models/constraints.py",
+      "django/db/models/indexes.py"
+    ],
+    "gt_files": [
+      "django/contrib/gis/db/backends/postgis/schema.py",
+      "django/contrib/postgres/indexes.py",
+      "django/db/backends/base/features.py",
+      "django/db/backends/base/schema.py",
+      "django/db/backends/postgresql/features.py",
+      "django/db/backends/postgresql/schema.py",
+      "django/db/models/base.py",
+      "django/db/models/constraints.py",
+      "django/db/models/indexes.py"
+    ]
+  },
+  {
+    "task_id": "django__django-11991",
+    "condition": "soft_plan",
+    "complexity_tier": "architectural",
+    "gen_file_recall": 0.6666666666666666,
+    "gen_file_precision": 0.6666666666666666,
+    "gen_files_count": 9,
+    "gt_files_count": 9,
+    "gen_files": [
+      "django/db/backends/base/features.py",
+      "django/db/backends/base/schema.py",
+      "django/db/backends/mysql/features.py",
+      "django/db/backends/oracle/features.py",
+      "django/db/backends/postgresql/features.py",
+      "django/db/backends/postgresql/schema.py",
+      "django/db/backends/sqlite3/features.py",
+      "django/db/models/constraints.py",
+      "django/db/models/indexes.py"
+    ],
+    "gt_files": [
+      "django/contrib/gis/db/backends/postgis/schema.py",
+      "django/contrib/postgres/indexes.py",
+      "django/db/backends/base/features.py",
+      "django/db/backends/base/schema.py",
+      "django/db/backends/postgresql/features.py",
+      "django/db/backends/postgresql/schema.py",
+      "django/db/models/base.py",
+      "django/db/models/constraints.py",
+      "django/db/models/indexes.py"
+    ]
+  },
+  {
+    "task_id": "django__django-11991",
+    "condition": "no_plan",
+    "complexity_tier": "architectural",
+    "gen_file_recall": 0.4444444444444444,
+    "gen_file_precision": 0.8,
+    "gen_files_count": 5,
+    "gt_files_count": 9,
+    "gen_files": [
+      "django/db/backends/base/schema.py",
+      "django/db/backends/postgresql/introspection.py",
+      "django/db/backends/postgresql/schema.py",
+      "django/db/models/constraints.py",
+      "django/db/models/indexes.py"
+    ],
+    "gt_files": [
+      "django/contrib/gis/db/backends/postgis/schema.py",
+      "django/contrib/postgres/indexes.py",
+      "django/db/backends/base/features.py",
+      "django/db/backends/base/schema.py",
+      "django/db/backends/postgresql/features.py",
+      "django/db/backends/postgresql/schema.py",
+      "django/db/models/base.py",
+      "django/db/models/constraints.py",
+      "django/db/models/indexes.py"
+    ]
+  },
+  {
+    "task_id": "scikit-learn__scikit-learn-13013",
+    "condition": "hard_plan",
+    "complexity_tier": "architectural",
+    "gen_file_recall": 0.2222222222222222,
+    "gen_file_precision": 1.0,
+    "gen_files_count": 2,
+    "gt_files_count": 9,
+    "gen_files": [
+      "sklearn/linear_model/base.py",
+      "sklearn/linear_model/logistic.py"
+    ],
+    "gt_files": [
+      "sklearn/base.py",
+      "sklearn/cluster/birch.py",
+      "sklearn/decomposition/online_lda.py",
+      "sklearn/ensemble/forest.py",
+      "sklearn/exceptions.py",
+      "sklearn/gaussian_process/gpr.py",
+      "sklearn/linear_model/base.py",
+      "sklearn/linear_model/logistic.py",
+      "sklearn/utils/estimator_checks.py"
+    ]
+  },
+  {
+    "task_id": "scikit-learn__scikit-learn-13013",
+    "condition": "soft_plan",
+    "complexity_tier": "architectural",
+    "gen_file_recall": 0.2222222222222222,
+    "gen_file_precision": 0.6666666666666666,
+    "gen_files_count": 3,
+    "gt_files_count": 9,
+    "gen_files": [
+      "sklearn/decomposition/truncated_svd.py",
+      "sklearn/linear_model/base.py",
+      "sklearn/linear_model/logistic.py"
+    ],
+    "gt_files": [
+      "sklearn/base.py",
+      "sklearn/cluster/birch.py",
+      "sklearn/decomposition/online_lda.py",
+      "sklearn/ensemble/forest.py",
+      "sklearn/exceptions.py",
+      "sklearn/gaussian_process/gpr.py",
+      "sklearn/linear_model/base.py",
+      "sklearn/linear_model/logistic.py",
+      "sklearn/utils/estimator_checks.py"
+    ]
+  },
+  {
+    "task_id": "scikit-learn__scikit-learn-13013",
+    "condition": "no_plan",
+    "complexity_tier": "architectural",
+    "gen_file_recall": 0.3333333333333333,
+    "gen_file_precision": 0.6,
+    "gen_files_count": 5,
+    "gt_files_count": 9,
+    "gen_files": [
+      "sklearn/ensemble/forest.py",
+      "sklearn/linear_model/base.py",
+      "sklearn/linear_model/logistic.py",
+      "sklearn/neighbors/base.py",
+      "sklearn/svm/base.py"
+    ],
+    "gt_files": [
+      "sklearn/base.py",
+      "sklearn/cluster/birch.py",
+      "sklearn/decomposition/online_lda.py",
+      "sklearn/ensemble/forest.py",
+      "sklearn/exceptions.py",
+      "sklearn/gaussian_process/gpr.py",
+      "sklearn/linear_model/base.py",
+      "sklearn/linear_model/logistic.py",
+      "sklearn/utils/estimator_checks.py"
+    ]
+  },
+  {
+    "task_id": "pydata__xarray-5233",
+    "condition": "hard_plan",
+    "complexity_tier": "architectural",
+    "gen_file_recall": 0.5714285714285714,
+    "gen_file_precision": 0.5714285714285714,
+    "gen_files_count": 7,
+    "gt_files_count": 7,
+    "gen_files": [
+      "xarray/__init__.py",
+      "xarray/coding/calendar_ops.py",
+      "xarray/coding/times.py",
+      "xarray/core/__init__.py",
+      "xarray/core/accessor_dt.py",
+      "xarray/tests/test_accessor_dt.py",
+      "xarray/tests/test_calendar_ops.py"
+    ],
+    "gt_files": [
+      "xarray/__init__.py",
+      "xarray/coding/calendar_ops.py",
+      "xarray/coding/cftime_offsets.py",
+      "xarray/coding/times.py",
+      "xarray/core/accessor_dt.py",
+      "xarray/core/dataarray.py",
+      "xarray/core/dataset.py"
+    ]
+  },
+  {
+    "task_id": "pydata__xarray-5233",
+    "condition": "soft_plan",
+    "complexity_tier": "architectural",
+    "gen_file_recall": 0.42857142857142855,
+    "gen_file_precision": 0.5,
+    "gen_files_count": 6,
+    "gt_files_count": 7,
+    "gen_files": [
+      "xarray/__init__.py",
+      "xarray/coding/times.py",
+      "xarray/core/__init__.py",
+      "xarray/core/accessor_dt.py",
+      "xarray/tests/test_accessor_dt.py",
+      "xarray/tests/test_calendar_ops.py"
+    ],
+    "gt_files": [
+      "xarray/__init__.py",
+      "xarray/coding/calendar_ops.py",
+      "xarray/coding/cftime_offsets.py",
+      "xarray/coding/times.py",
+      "xarray/core/accessor_dt.py",
+      "xarray/core/dataarray.py",
+      "xarray/core/dataset.py"
+    ]
+  },
+  {
+    "task_id": "pydata__xarray-5233",
+    "condition": "no_plan",
+    "complexity_tier": "architectural",
+    "gen_file_recall": 0.42857142857142855,
+    "gen_file_precision": 1.0,
+    "gen_files_count": 3,
+    "gt_files_count": 7,
+    "gen_files": [
+      "xarray/__init__.py",
+      "xarray/coding/calendar_ops.py",
+      "xarray/core/accessor_dt.py"
+    ],
+    "gt_files": [
+      "xarray/__init__.py",
+      "xarray/coding/calendar_ops.py",
+      "xarray/coding/cftime_offsets.py",
+      "xarray/coding/times.py",
+      "xarray/core/accessor_dt.py",
+      "xarray/core/dataarray.py",
+      "xarray/core/dataset.py"
+    ]
+  },
+  {
+    "task_id": "sympy__sympy-16864",
+    "condition": "hard_plan",
+    "complexity_tier": "architectural",
+    "gen_file_recall": 0.2857142857142857,
+    "gen_file_precision": 1.0,
+    "gen_files_count": 2,
+    "gt_files_count": 7,
+    "gen_files": [
+      "sympy/sets/fancysets.py",
+      "sympy/sets/handlers/intersection.py"
+    ],
+    "gt_files": [
+      "sympy/core/mod.py",
+      "sympy/sets/contains.py",
+      "sympy/sets/fancysets.py",
+      "sympy/sets/handlers/functions.py",
+      "sympy/sets/handlers/intersection.py",
+      "sympy/sets/sets.py",
+      "sympy/solvers/solveset.py"
+    ]
+  },
+  {
+    "task_id": "sympy__sympy-16864",
+    "condition": "soft_plan",
+    "complexity_tier": "architectural",
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0,
+    "gen_files_count": 0,
+    "gt_files_count": 7,
+    "gen_files": [],
+    "gt_files": [
+      "sympy/core/mod.py",
+      "sympy/sets/contains.py",
+      "sympy/sets/fancysets.py",
+      "sympy/sets/handlers/functions.py",
+      "sympy/sets/handlers/intersection.py",
+      "sympy/sets/sets.py",
+      "sympy/solvers/solveset.py"
+    ]
+  },
+  {
+    "task_id": "sympy__sympy-16864",
+    "condition": "no_plan",
+    "complexity_tier": "architectural",
+    "gen_file_recall": 0.42857142857142855,
+    "gen_file_precision": 1.0,
+    "gen_files_count": 3,
+    "gt_files_count": 7,
+    "gen_files": [
+      "sympy/sets/fancysets.py",
+      "sympy/sets/handlers/intersection.py",
+      "sympy/sets/sets.py"
+    ],
+    "gt_files": [
+      "sympy/core/mod.py",
+      "sympy/sets/contains.py",
+      "sympy/sets/fancysets.py",
+      "sympy/sets/handlers/functions.py",
+      "sympy/sets/handlers/intersection.py",
+      "sympy/sets/sets.py",
+      "sympy/solvers/solveset.py"
+    ]
+  },
+  {
+    "task_id": "pydata__xarray-7052",
+    "condition": "hard_plan",
+    "complexity_tier": "architectural",
+    "gen_file_recall": 0.08333333333333333,
+    "gen_file_precision": 1.0,
+    "gen_files_count": 1,
+    "gt_files_count": 12,
+    "gen_files": [
+      "xarray/plot/accessor.py"
+    ],
+    "gt_files": [
+      "xarray/core/alignment.py",
+      "xarray/core/dataarray.py",
+      "xarray/core/dataset.py",
+      "xarray/core/pycompat.py",
+      "xarray/core/types.py",
+      "xarray/plot/__init__.py",
+      "xarray/plot/accessor.py",
+      "xarray/plot/dataarray_plot.py",
+      "xarray/plot/dataset_plot.py",
+      "xarray/plot/facetgrid.py",
+      "xarray/plot/plot.py",
+      "xarray/plot/utils.py"
+    ]
+  },
+  {
+    "task_id": "pydata__xarray-7052",
+    "condition": "soft_plan",
+    "complexity_tier": "architectural",
+    "gen_file_recall": 0.0,
+    "gen_file_precision": 0,
+    "gen_files_count": 0,
+    "gt_files_count": 12,
+    "gen_files": [],
+    "gt_files": [
+      "xarray/core/alignment.py",
+      "xarray/core/dataarray.py",
+      "xarray/core/dataset.py",
+      "xarray/core/pycompat.py",
+      "xarray/core/types.py",
+      "xarray/plot/__init__.py",
+      "xarray/plot/accessor.py",
+      "xarray/plot/dataarray_plot.py",
+      "xarray/plot/dataset_plot.py",
+      "xarray/plot/facetgrid.py",
+      "xarray/plot/plot.py",
+      "xarray/plot/utils.py"
+    ]
+  },
+  {
+    "task_id": "pydata__xarray-7052",
+    "condition": "no_plan",
+    "complexity_tier": "architectural",
+    "gen_file_recall": 0.25,
+    "gen_file_precision": 1.0,
+    "gen_files_count": 3,
+    "gt_files_count": 12,
+    "gen_files": [
+      "xarray/core/dataarray.py",
+      "xarray/core/dataset.py",
+      "xarray/plot/accessor.py"
+    ],
+    "gt_files": [
+      "xarray/core/alignment.py",
+      "xarray/core/dataarray.py",
+      "xarray/core/dataset.py",
+      "xarray/core/pycompat.py",
+      "xarray/core/types.py",
+      "xarray/plot/__init__.py",
+      "xarray/plot/accessor.py",
+      "xarray/plot/dataarray_plot.py",
+      "xarray/plot/dataset_plot.py",
+      "xarray/plot/facetgrid.py",
+      "xarray/plot/plot.py",
+      "xarray/plot/utils.py"
+    ]
+  }
+]

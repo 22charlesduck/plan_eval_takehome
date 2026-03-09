@@ -1,0 +1,32 @@
+{
+  "total_tasks": 14,
+  "bad_plans_count": 9,
+  "good_plans_count": 5,
+  "bad_plan_threshold": 0.5,
+  "critic_recall_on_bad_plans": 1.0,
+  "critic_false_positive_rate": 1.0,
+  "critic_precision_when_flagging": 0.6428571428571429,
+  "bad_plans_flagged": [
+    "matplotlib__matplotlib-14623",
+    "pylint-dev__pylint-8898",
+    "django__django-11532",
+    "sympy__sympy-16597",
+    "astropy__astropy-8747",
+    "sympy__sympy-13091",
+    "django__django-10989",
+    "matplotlib__matplotlib-24013",
+    "pydata__xarray-7019"
+  ],
+  "bad_plans_missed_by_critic": [],
+  "good_plans_wrongly_flagged": [
+    "django__django-13195",
+    "scikit-learn__scikit-learn-12682",
+    "sphinx-doc__sphinx-9461",
+    "pylint-dev__pylint-6386",
+    "django__django-13841"
+  ],
+  "flagged_bad_with_overlap": 6,
+  "too_narrow_is_bad_count": 9,
+  "too_narrow_total_count": 14,
+  "too_narrow_precision": 0.6428571428571429
+}
