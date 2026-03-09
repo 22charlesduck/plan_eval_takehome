@@ -8,17 +8,6 @@ A research evaluation measuring whether and when planning helps autonomous codin
 
 ---
 
-## Start Here
-
-| File | What it is |
-|------|-----------|
-| `RESULTS_SUMMARY.md` | Organized summary of all 13 experiments with tables and key findings. Start here. |
-| `report.md` | Full research report (~3000 words) with methodology, results, discussion, and caveats. |
-| `presentation_outline.md` | 8-slide presentation skeleton with talking points. |
-| `analysis/failure_analysis.md` | Deep qualitative dives into 3 failure cases + 1 success case. |
-
----
-
 ## Repository Structure
 
 ```
@@ -135,10 +124,3 @@ python scripts/generate_plans.py
 
 The core pipeline (tasks → plans → metrics → analysis) runs end-to-end in ~15 minutes of API time for the 14-task pilot. The 236-task extended run takes ~25 minutes.
 
----
-
-## Key Caveats
-
-- **Code gen evaluation uses blind diff generation** (no source code access). File-targeting metrics are meaningful; diff similarity is not. Test-suite pass/fail evaluation requires Docker (`scripts/swebench_eval.py` is ready).
-- **"Plans hurt code gen"** means plans cause over-specification when used as hard constraints in blind diff generation. This is not how real agents work. The plan's value is at the reading stage (which files to inspect), not the writing stage.
-- **Synthetic feature tasks** (Experiment 11) are on a hand-crafted repo, not real-world codebases. Results are directionally useful but not statistically grounded.
