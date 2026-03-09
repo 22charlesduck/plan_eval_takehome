@@ -1,10 +1,10 @@
 # Planning Evaluation for Autonomous Coding Agents
 
-A research evaluation measuring whether and when planning helps autonomous coding agents navigate codebases. Built as a take-home project for Cognition (makers of Devin).
+A research evaluation measuring whether and when planning helps autonomous coding agents navigate codebases. Built as a take-home project for Cognition.
 
 **Core question:** Does generating a structured plan (file list + implementation steps) before coding reduce navigation waste in large repositories?
 
-**Short answer:** Yes, by +35 percentage points in file recall on average — but with strongly diminishing returns as task complexity grows, and with important nuances about how plans should be consumed.
+**Short answer:** Yes, by +35 percentage points in file recall on average — but with strongly diminishing returns as task complexity grows, and with important nuances about how plans should be consumed. Read Plan_Eval.pdf for a full report on experiments and results.
 
 ---
 
